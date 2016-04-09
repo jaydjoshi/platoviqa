@@ -85,6 +85,7 @@ public class CityDaoImpl implements CityDao {
 	 * @see com.platovi.dao.CityDao#getAllCityNamesByCategory(com.platovi.model.City)
 	 */
 	public List<City> getAllCityNamesByCategory(String categoryName) {
+		return null;/*
 		// TODO Auto-generated method stub
 		Query query = null;
 		switch (categoryName) {
@@ -132,7 +133,7 @@ public class CityDaoImpl implements CityDao {
 		
 		List<City> cityList = query.getResultList();
         return cityList;
-	}
+	*/}
 
 	@Override
 	public List<City> getAllCityNamesByState(int stateId) {

@@ -214,12 +214,13 @@ public class CityController {
 	
 
 	private City setCategoryInCity(String categoryName) {
+		return null;/*
 		City city = new City();
 		
 		switch (categoryName) {
 			case "isReligious":
 				city.setIsReligious("Y");
-				/*city.setIsBeachCity("N");
+				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
 				city.setIsHillorMountain("N");
@@ -227,11 +228,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isBeachCity":
 				city.setIsBeachCity("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
 				city.setIsHillorMountain("N");
@@ -239,11 +240,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isTrending":
 				city.setIsTrending("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsMetropolitan("N");
 				city.setIsHillorMountain("N");
@@ -251,11 +252,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isMetropolitan":
 				city.setIsMetropolitan("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsHillorMountain("N");
@@ -263,11 +264,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isHillorMountain":
 				city.setIsHillorMountain("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -275,11 +276,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isHeritage":
 				city.setIsHeritage("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -287,11 +288,11 @@ public class CityController {
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isAdventure":
 				city.setIsAdventure("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -299,11 +300,11 @@ public class CityController {
 				city.setIsHeritage("N");
 				city.setIsGreenCity("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isGreenCity":
 				city.setIsGreenCity("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -311,11 +312,11 @@ public class CityController {
 				city.setIsHeritage("N");
 				city.setIsAdventure("N");
 				city.setIsDesert("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isDesert":
 				city.setIsDesert("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -323,11 +324,11 @@ public class CityController {
 				city.setIsHeritage("N");
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
-				city.setIsNightLife("N");*/
+				city.setIsNightLife("N");
 				break;
 			case "isNightLife":
 				city.setIsNightLife("Y");
-				/*city.setIsReligious("N");
+				city.setIsReligious("N");
 				city.setIsBeachCity("N");
 				city.setIsTrending("N");
 				city.setIsMetropolitan("N");
@@ -335,14 +336,14 @@ public class CityController {
 				city.setIsHeritage("N");
 				city.setIsAdventure("N");
 				city.setIsGreenCity("N");
-				city.setIsDesert("N");*/
+				city.setIsDesert("N");
 				break;
 			
 			default:
 				return null;
 		}
 		return city;
-	}
+	*/}
 
 	@RequestMapping(method = RequestMethod.POST)
 	    public ResponseEntity<City> saveCity(
