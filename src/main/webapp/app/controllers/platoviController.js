@@ -26,7 +26,7 @@ var app = angular.module('platoviApp', ['ui.bootstrap','ui.router','ngResource',
  * cityFactory factory method to return city URL resource
  */
 app.factory('cityFactory', function($resource){
-	return $resource('/PlaToVi/rest/city');
+	return $resource('/rest/city');
 });
 
 /**
@@ -34,7 +34,7 @@ app.factory('cityFactory', function($resource){
  * cityFactory factory method to return city URL resource
  */
 app.factory('cityNameFactory', function($resource){
-	return $resource('/PlaToVi/rest/city/name');
+	return $resource('/rest/city/name');
 });
 
 /**
@@ -42,7 +42,7 @@ app.factory('cityNameFactory', function($resource){
  * cityFactory factory method to return city detail URL resource
  */
 app.factory('cityDetailFactory', function($resource){
-	return $resource('/PlaToVi/rest/city/detail');
+	return $resource('/rest/city/detail');
 });
 
 /**
@@ -50,7 +50,7 @@ app.factory('cityDetailFactory', function($resource){
  * cityCategoryFactory factory method to return city detail URL resource
  */
 app.factory('cityCategoryFactory', function($resource){
-	return $resource('/PlaToVi/rest/city/category');
+	return $resource('/rest/city/category');
 });
 
 /**
@@ -58,7 +58,7 @@ app.factory('cityCategoryFactory', function($resource){
  * cityFactory factory method to return city detail URL resource
  */
 app.factory('citiesNearByFactory', function($resource){
-	return $resource('/PlaToVi/rest/city/nearby');
+	return $resource('/rest/city/nearby');
 });
 
 /**
@@ -66,7 +66,7 @@ app.factory('citiesNearByFactory', function($resource){
  * cityFactory factory method to return city detail URL resource
  */
 app.factory('citiesInStateFactory', function($resource){
-	return $resource('/PlaToVi/rest/city/state');
+	return $resource('/rest/city/state');
 });
 
 /**
@@ -74,7 +74,7 @@ app.factory('citiesInStateFactory', function($resource){
  * stateFactory factory method to return state detail URL resource
  */
 app.factory('stateFactory', function($resource){
-	return $resource('/PlaToVi/rest/state');
+	return $resource('/rest/state');
 });
 
 /**
@@ -82,7 +82,7 @@ app.factory('stateFactory', function($resource){
  * cityFactory factory method to return city detail URL resource
  */
 app.factory('placeFactory', function($resource){
-	return $resource('/PlaToVi/rest/place');
+	return $resource('/rest/place');
 });
 
 /**

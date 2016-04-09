@@ -74,7 +74,7 @@ public class CityDaoImpl implements CityDao {
 
 	public List<String> getAllCityNames() {
 		// TODO Auto-generated method stub
-		 Query query = em.createQuery("SELECT a.cityName FROM City a");
+		 Query query = em.createQuery("SELECT a.cityName FROM platoviqa.City a");
         
         List<String> cities = query.getResultList();
         return cities;
