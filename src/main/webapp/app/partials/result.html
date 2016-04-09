@@ -1,0 +1,426 @@
+<!-- infinite scroll
+	angularjs google map -->
+
+
+
+<!-- Page Content -->
+<div  class="bg-light-gray">
+
+	<header class="sb-page-header">
+		<div class="container">
+			<h1>Places to visit <small>near {{cityName}}</small></h1>
+		</div>
+	</header>
+   
+	<!-- Portfolio Grid Section -->
+    <section id="portfolio" >
+        <div class="container">
+	        
+	        
+	        <div class="filters-section" data-ng-show="(filteredCity  | filter:query  | orderBy:sortType:sortReverse ).length">
+								<div class="row">
+				            	 	<div class="pull-right">
+							        	<md-button class="md-raised md-primary filter-heading" data-ui-sref="result"  data-ng-click="showDetails = ! showDetails">Filter
+							        	<span  data-ng-show="!showDetails" class="fa fa-filter"></span>
+										<span  data-ng-show="showDetails" class="fa fa-minus"></span></md-button>
+							        	
+							        	
+							        </div>
+						</div>
+			</div>
+	        
+	        <md-card flex="noshrink" class="filter"  data-ng-show="showDetails">	
+	        <md-card-content>
+	        																
+            	<div class="row">
+            	 
+	            	 <div class="col-lg-12">
+	            	 
+						<form>
+							<div class="filters-heading ">
+								<div class="row">
+									<rzslider rz-slider-model="slider.minValue"
+										          rz-slider-high="slider.maxValue"
+										          rz-slider-options="slider.options"></rzslider>
+								</div>
+							</div>
+							<div class="filters-section">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-lg-6 col-md-6">
+											<!-- <div class="input-group">
+												<div class="input-group-addon">
+													<i class="fa fa-search fa-lg"></i>
+												</div>
+												<input type="text" class="form-control" placeholder="Search city" data-ng-model="query.cityName">
+											</div> -->
+											<md-input-container class="md-icon-float md-block">
+										      <!-- Use floating label instead of placeholder -->
+										      <label>Search City</label>
+										      <md-icon md-font-icon="fa fa-search fa-lg" class="Search"></md-icon>
+										      <input data-ng-model="query.cityName" type="text">
+										    </md-input-container>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<span class="pull-right">
+												<span >
+													<md-button data-ui-sref="result" data-ng-click="sortType = 'distanceFromCurrentCity'; sortReverse = !sortReverse">
+												        Distance 
+												        <span data-ng-show="sortType == 'distanceFromCurrentCity' && !sortReverse" class="fa fa-caret-down"></span>
+												        <span data-ng-show="sortType == 'distanceFromCurrentCity' && sortReverse" class="fa fa-caret-up"></span>
+												    </md-button>
+												</span>
+												<span >
+												    <md-button data-ui-sref="result" data-ng-click="sortType = 'cityName'; sortReverse = !sortReverse">
+												        Name
+												        <span data-ng-show="sortType == 'cityName' && !sortReverse" class="fa fa-caret-down"></span>
+												        <span data-ng-show="sortType == 'cityName' && sortReverse" class="fa fa-caret-up"></span>
+												    </md-button>
+												</span>
+												<span >
+												    <md-button data-ui-sref="result" data-ng-click="sortType = 'rating'; sortReverse = !sortReverse">
+												        Rating
+												        <span data-ng-show="sortType == 'rating' && !sortReverse" class="fa fa-caret-down"></span>
+												        <span data-ng-show="sortType == 'rating' && sortReverse" class="fa fa-caret-up"></span>
+												    </md-button>
+												</span>
+										    </span>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="filters-section">
+								<div class="row">
+										<div class="col-lg-3 col-md-3 col-sm-4">
+											<label class="facet-checkbox panel panel-dark">
+												<span class="">
+								                    <i class="fa fa-tint fa-lg"></i>
+								                  </span>
+								                  <span class="filter-checkbox-heading">
+								                  	Beach:
+								                  </span>
+								                <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="beach in beachGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useBeaches[beach]"/>{{beach}}</b> -->
+											           	<md-checkbox data-ng-model="useBeaches[beach]">{{beach}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isBeachCity', beach)).length }})</span>
+											            </md-checkbox>
+											        </span>
+										        </span>  
+										    </label>
+										 </div>
+										 <div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+								                    <i class="fa fa-home fa-lg"></i>
+								                  </span>
+								                  <span class="filter-checkbox-heading">
+								                  	Religious:
+								                  </span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="religious in religiousGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useReligious[religious]"/>{{religious}}</b> -->
+											            <md-checkbox data-ng-model="useReligious[religious]"/>{{religious}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isReligious', religious)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											      </span>
+										    </div>
+										</div>
+										 <div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+											    <span class="">
+									                    <i class="fa fa-globe fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Trending:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="trending in trendingGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useTrending[trending]"/>{{trending}}</b> -->
+											            <md-checkbox data-ng-model="useTrending[trending]"/>{{trending}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isTrending', trending)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											      </span>
+										    </div>
+										</div>
+										 <div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	
+											    <span class="">
+									                    <i class="fa fa-building fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Metropolitan:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="metropolitan in metropolitanGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useMetropolitan[metropolitan]"/>{{metropolitan}}</b> -->
+											            <md-checkbox data-ng-model="useMetropolitan[metropolitan]"/>{{metropolitan}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isMetropolitan', metropolitan)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											      </span>
+										    </div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-caret-up fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Hill or Mountain:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="hillorMountain in hillorMountainGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useHillorMountain[hillorMountain]"/>{{hillorMountain}}</b> -->
+											            <md-checkbox data-ng-model="useHillorMountain[hillorMountain]"/>{{hillorMountain}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isHillorMountain', hillorMountain)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											      </span>
+										    </div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-users fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Heritage:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="heritage in heritageGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useHeritage[heritage]"/>{{heritage}}</b> -->
+											            <md-checkbox data-ng-model="useHeritage[heritage]"/>{{heritage}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isHeritage', heritage)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											       </span>
+										    </div>
+										</div>
+            							<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-cogs fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Adventure:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="adventure in adventureGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useAdventure[adventure]"/>{{adventure}}</b> -->
+											            <md-checkbox data-ng-model="useAdventure[adventure]"/>{{adventure}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isAdventure', adventure)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											      </span>
+										    </div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-leaf fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+										    			Green City:
+										    			</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="greenCity in greenCityGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useGreenCity[greenCity]"/>{{greenCity}}</b> -->
+											            <md-checkbox data-ng-model="useGreenCity[greenCity]"/>{{greenCity}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isGreenCity', greenCity)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											        </span>
+										    </div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-minus fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+												    	Desert:
+												    	</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="desert in desertGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useDesert[desert]"/>{{desert}}</b> -->
+											            <md-checkbox data-ng-model="useDesert[desert]"/>{{desert}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isDesert', desert)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											        </span>
+										    </div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-4">
+										    <div class="facet-checkbox panel panel-dark">
+										    	<span class="">
+									                    <i class="fa fa-music fa-lg"></i>
+									                  </span>
+									                  <span class="filter-checkbox-heading">
+												    	Night Life:
+												    	</span>
+								                  <span class="pull-right">
+											        <span class="displayBlock" data-ng-repeat="nightLife in nightLifeGroup">
+											            <!-- <b><input type="checkbox" class="mdl-checkbox__input" data-ng-model="useNightLife[nightLife]"/>{{nightLife}}</b> -->
+											           <md-checkbox data-ng-model="useNightLife[nightLife]"/>{{nightLife}}
+											            <span>({{ (filteredCity | filter:query | filter:count('isNightLife', nightLife)).length }})</span>
+											            </md-checkbox>
+											        </span>
+											        </span>
+										    </div>
+										</div>
+								</div>
+							    
+							</div>
+						</form>
+					</div>
+				</div>
+				</md-card-content>
+			</md-card>
+			
+			<div class="row"></div>
+			
+			<div class="row">	
+                <!-- <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
+                																 orderBy:sortType:sortReverse "
+                																  >
+                    <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                        <span class="portfolio-hover">
+                            <span class="portfolio-hover-content">
+                                <i class="fa fa-share fa-3x"></i>
+                            </span>
+                        </span>
+                        <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
+                    </a>
+                    <div class="portfolio-caption">
+                    	<div class="row">
+	                    	<div class="col-lg-7">
+	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
+	                        </div>
+	                        <div class="col-lg-5 ">
+	                        	<div class=" pull-right">
+	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
+	                       		 </div>
+	                       	</div>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
+                																 orderBy:sortType:sortReverse "
+                																  >
+                    <!-- <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                        <span class="portfolio-hover">
+                            <span class="portfolio-hover-content">
+                                <i class="fa fa-share fa-3x"></i>
+                            </span>
+                        </span>
+                        <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
+                    </a>
+                    <div class="portfolio-caption">
+                    	<div class="row">
+	                    	<div class="col-lg-7">
+	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
+	                        </div>
+	                        <div class="col-lg-5 ">
+	                        	<div class=" pull-right">
+	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
+	                       		 </div>
+	                       	</div>
+                        </div>
+                    </div> -->
+                    <md-card>
+                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                    	 <span class="portfolio-hover">
+                            <span class="portfolio-hover-content">
+                                <i class="fa fa-share fa-3x"></i>
+                            </span>
+                        </span>
+                        <span class="rating" data-ng-class="getBackgroudClass(city.rating)" data-ng-show="city.rating > 0">{{city.rating}}</span> 
+				         <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
+				         </a>
+				         <div class="portfolio-caption">
+                    	<div class="row">
+	                    	<div class="col-lg-12">
+	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
+	                        </div>
+                        
+                         </div>
+                        <div class="row">
+                        	 <div class="col-lg-8 ">
+	                        	<div class="">
+	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
+	                       		 </div>
+	                       	</div>
+	                       	<div class="col-lg-4 ">
+	                        	<div class="">
+	                       			<!-- <p class="text-muted" data-ng-show="city.rating > 0">{{city.rating}}</p> -->
+	                       		 </div>
+	                       	</div>
+                        </div>
+                   </div>
+				        <!-- <md-card-title>
+				          <md-card-title-text>
+				            <span class="md-headline"><p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p></span>
+				            <span class="md-subhead">{{city.distanceFromCurrentCity}} km away
+				            	<span class="col-lg-7">
+	                        	<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
+	                        	</span>
+	                       		 <span class="col-lg-5 ">
+	                        	<span class=" pull-right">
+	                       			<p>{{city.rating}}</p>
+	                       		 </span>
+	                       	</span>
+				            </span>
+				          </md-card-title-text>
+				        </md-card-title> -->
+				       <!--  <md-card-content>
+				          
+				          <div class="row">
+	                    	<div class="col-lg-7">
+	                        	<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
+	                        </div>
+	                        <div class="col-lg-5 ">
+	                        	<div class=" pull-right">
+	                       			<p>{{city.rating}}</p>
+	                       		 </div>
+	                       	</div>
+                        </div>
+				        </md-card-content> -->
+				        <!-- <md-card-actions layout="row" layout-align="end center">
+				          <md-button class="md-icon-button" aria-label="Favorite">
+				            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+				          </md-button>
+				          <md-button class="md-icon-button" aria-label="Settings">
+				            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+				          </md-button>
+				          <md-button class="md-icon-button" aria-label="Share">
+				            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+				          </md-button>
+				        </md-card-actions> -->
+				  </md-card>
+                </div>
+                
+                <div class="row text-center" data-ng-show="!(filteredCity  | filter:query  | orderBy:sortType:sortReverse ).length">
+                	<h3>
+					  	<span class="fa-broken-heart fa-stack">
+							<i class="fa fa-heart fa-stack-2x"></i>
+							<i class="fa fa-flash fa-stack-1x"></i>
+						</span>																					
+					  	<br/>
+					  	<span> No places found </span>
+					  </h3>
+                	<p>Would you like to go back to <a data-ui-sref="home">home</a> page</p>
+                </div>
+         
+            </div>
+            <div class="row" data-ng-show="(filteredCity  | filter:query  | orderBy:sortType:sortReverse ).length">
+               	 	<p class="text-muted">NOTE: distance shown above is the aerial distance in kilometers.</p>
+            </div>
+        </div>
+    </section>
+</div>
