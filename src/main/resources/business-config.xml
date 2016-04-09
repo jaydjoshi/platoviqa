@@ -31,9 +31,9 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	    <property name="url" value="jdbc:mysql://localhost/platoviDB" />
-	    <property name="username" value="root" />
-	    <property name="password" value="admin" />
+	    <property name="url" value="jdbc:mysql://127.5.216.2:3306/platoviqa" />
+	    <property name="username" value="adminDPi1PJk" />
+	    <property name="password" value="cjVrlkDlsNBM" />
 	</bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
