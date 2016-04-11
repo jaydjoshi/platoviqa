@@ -279,7 +279,7 @@ var filter = function($scope,displaySliderAndDistanceSort){
 			};
 		
 		//order by sorting
-		$scope.sortType     = 'rating'; // set the default sort type
+		$scope.sortType     = 'distanceFromCurrentCity'; // set the default sort type
 		$scope.sortReverse  = true;  // set the default sort order
 	}else{
 			
