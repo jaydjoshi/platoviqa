@@ -793,6 +793,17 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			return "greenOne";
 	};
 	
+	$scope.descriptionLength=500;
+	
+	// more/less clicked on
+	$scope.showContentMoreOrLess = function(){
+    	if($scope.currentCity.description.length>500){
+    		$scope.descriptionLength = $scope.currentCity.description.length;
+      }else{
+    	  $scope.descriptionLength = 500;
+      }    	
+    }  
+	
 	var vm=this;
 	
 	$scope.sourceCityGeo={};
