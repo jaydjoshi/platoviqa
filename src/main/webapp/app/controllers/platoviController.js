@@ -797,7 +797,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	
 	// more/less clicked on
 	$scope.showContentMoreOrLess = function(){
-    	if($scope.currentCity.description.length>500){
+    	if($scope.descriptionLength === 500){
     		$scope.descriptionLength = $scope.currentCity.description.length;
       }else{
     	  $scope.descriptionLength = 500;
