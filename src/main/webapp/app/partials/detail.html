@@ -38,7 +38,7 @@
 					                <h1 class="page-header">{{currentCity.cityName}} at a glance</h1> 
 					                
 					               <p class="small-padding">{{currentCity.description | limitTo:descriptionLength}}
-					               <span>
+					               <span data-ng-show='currentCity.description.length>500'>
 										<a class="md-raised" data-ng-click="showContentMoreOrLess()">read {{descriptionLength === 500 ? 'more' : 'less'}}</a>
 									</span>
 					               </p>
