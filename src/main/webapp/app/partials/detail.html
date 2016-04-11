@@ -39,7 +39,7 @@
 					                
 					               <p class="small-padding">{{currentCity.description | limitTo:descriptionLength}}
 					               <span>
-										<a class="md-raised" data-ng-click="showContentMoreOrLess()">read {{currentCity.description.length>500?'more':'less'}}</a>
+										<a class="md-raised" data-ng-click="showContentMoreOrLess()">read {{descriptionLength === 500 ? 'more' : 'less'}}</a>
 									</span>
 					               </p>
 					               
