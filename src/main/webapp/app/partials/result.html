@@ -11,9 +11,15 @@
 			<h1>Places to visit <small>near {{cityName}}</small></h1>
 		</div>
 	</header>
+	
+	<section data-ng-show="showLoader">
+		<div layout="row" layout-sm="column" layout-align="space-around">
+	      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+	    </div>
+	</section>
    
 	<!-- Portfolio Grid Section -->
-    <section id="portfolio" >
+    <section id="portfolio" data-ng-hide="showLoader">
         <div class="container">
 	        
 	        

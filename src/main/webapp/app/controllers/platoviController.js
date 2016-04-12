@@ -213,6 +213,9 @@ app.controller('resultController',function($scope,$rootScope,cityFactory,$state,
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = 'Places to visit near '+$stateParams.cityName+' | Platovi - places to visit';
 	
+	//show loader
+	$scope.showLoader = true;
+	
 	$scope.cityName = $stateParams.cityName;
 	$scope.latitude = $stateParams.latitude;
 	$scope.longitude = $stateParams.longitude;
@@ -223,6 +226,8 @@ app.controller('resultController',function($scope,$rootScope,cityFactory,$state,
 	var query=cityFactory.query({cityName:$scope.cityName , latitude:$scope.latitude, longitude:$scope.longitude});
 	query.$promise.then(function(data){
 		$scope.cityData=(data);
+		//do not show loader
+		$scope.showLoader = false;
 		
 	});
 	
