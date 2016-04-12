@@ -16,7 +16,7 @@ var cityMetro = [
  * @author jdhirendrajoshi
  * angular module named app with ui.router and ngResurce as dependencies
  */
-var app = angular.module('platoviApp', ['ui.bootstrap','ui.router','ngResource','rzModule','ngAnimate','ncy-angular-breadcrumb','ngMaterial','ngMap']);
+var app = angular.module('platoviApp', ['ui.bootstrap','ui.router','ngResource','rzModule','ngAnimate','ncy-angular-breadcrumb','ngMaterial','ngMap','angulartics.google.analytics']);
 
 
 
