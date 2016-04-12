@@ -85,10 +85,41 @@ public class CityDaoImpl implements CityDao {
 	 * @see com.platovi.dao.CityDao#getAllCityNamesByCategory(com.platovi.model.City)
 	 */
 	public List<City> getAllCityNamesByCategory(String categoryName) {
-		return null;/*
+		
 		// TODO Auto-generated method stub
 		Query query = null;
-		switch (categoryName) {
+		
+		if("isReligious".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isReligious != 'No'");
+		}
+		else if("isBeachCity".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isBeachCity != 'No'");
+		}
+		else if("isTrending".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isTrending != 'No'");
+		}
+		else if("isMetropolitan".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isMetropolitan != 'No'");
+		}
+		else if("isHillorMountain".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isHillorMountain != 'No'");
+		}
+		else if("isHeritage".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isHeritage != 'No'");
+		}
+		else if("isAdventure".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isAdventure != 'No'");
+		}
+		else if("isGreenCity".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isGreenCity != 'No'");
+		}
+		else if("isDesert".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isDesert != 'No'");
+		}
+		else if("isNightLife".equalsIgnoreCase(categoryName)){
+			query =  em.createQuery("SELECT a from City a WHERE a.isNightLife != 'No'");
+		}
+		/*switch (categoryName) {
 		case "isReligious":
 			query =  em.createQuery("SELECT a from City a WHERE a.isReligious != 'No'");
 			
@@ -129,11 +160,11 @@ public class CityDaoImpl implements CityDao {
 			query =  em.createQuery("SELECT a from City a WHERE a.isNightLife != 'No'");
 			
 			break;
-		}
+		}*/
 		
 		List<City> cityList = query.getResultList();
         return cityList;
-	*/}
+	}
 
 	@Override
 	public List<City> getAllCityNamesByState(int stateId) {

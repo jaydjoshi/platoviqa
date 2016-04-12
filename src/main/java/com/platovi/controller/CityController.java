@@ -184,10 +184,10 @@ public class CityController {
 		
 		LOGGER.info("CityController : getAllCityNamesByCategory method starts");
 		List<City> cityList =  new ArrayList<City>();
-		City city = setCategoryInCity(categoryName);
-		if(null!=city){
+		//City city = setCategoryInCity(categoryName);
+		
 			cityList = cityService.getAllCityNamesByCategory(categoryName);
-		}
+		
 		
         return new ResponseEntity<List>( cityList, HttpStatus.OK);
     
