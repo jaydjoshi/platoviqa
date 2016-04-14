@@ -340,7 +340,7 @@
                         </div>
                     </div> -->
                     <md-card>
-                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link" analytics-on="click" analytics-event="clickOnResultPage">
                     	 <span class="portfolio-hover">
                             <span class="portfolio-hover-content">
                                 <i class="fa fa-share fa-3x"></i>
@@ -352,7 +352,7 @@
 				         <div class="portfolio-caption">
                     	<div class="row">
 	                    	<div class="col-lg-12">
-	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
+	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' analytics-on="click" analytics-event="clickOnResultPage"><b>{{city.cityName}}</b></p>
 	                        </div>
                         
                          </div>
