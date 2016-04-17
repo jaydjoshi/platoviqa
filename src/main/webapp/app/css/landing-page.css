@@ -23,7 +23,7 @@ h6 {
 
 body {
     /* color: #524C4C; */
-    color: #3b444f;
+    /* color: #3b444f; */
     font-family: acumin-pro,sans-serif;
     /* font-size: 20px;
     line-height: 1.63; */
@@ -1022,7 +1022,7 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 .article-para p
 {
 	/* color: #524C4C; */
-	color: #3b444f;
+	color: #67747c;
     font-family: acumin-pro,sans-serif;
     font-size: 20px;
     line-height: 1.63;
