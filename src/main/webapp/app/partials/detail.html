@@ -66,13 +66,6 @@
 								</div>
 							</div>
 							<!-- overview ends -->
-							
-							 <!-- loader -->
-						      <section data-ng-show="showLoader">
-								<div layout="row" layout-sm="column" layout-align="space-around">
-							      <md-progress-circular md-mode="indeterminate" md-diameter="70"></md-progress-circular>
-							    </div>
-							 </section>
 							 
 						 <!-- places to see starts -->
 					  	 <div>  
@@ -298,7 +291,7 @@
 				     
 					 
 					 
-				      <md-tab data-ng-repeat="(key, value) in placesInCity" label="{{key}}" analytics-on="click" analytics-event="clickOnTab" data-ng-hide="showLoader">
+				      <md-tab data-ng-repeat="(key, value) in placesInCity" label="{{key}}" analytics-on="click" analytics-event="clickOnTab">
 				        <md-content class="md-padding">
 				          <h1 class="md-display-2">{{key | uppercase}}</h1>
 				          		<div>
