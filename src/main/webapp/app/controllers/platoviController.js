@@ -1243,7 +1243,7 @@ app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationP
 	  
 	 $urlRouterProvider.otherwise( '/home' );
 	 
-	 //hashbang url change
+	 //hashbang url
 	 $locationProvider.hashPrefix('!');
 });
 
