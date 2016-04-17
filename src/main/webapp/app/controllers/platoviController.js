@@ -846,13 +846,16 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         $scope.destinationCity = $scope.currentCity.cityName+', '+$scope.currentCity.country.countryName;
         $scope.destinationCityGeo = {'lat':$scope.currentCity.latitude,'lng':$scope.currentCity.longitude};
         
-      //disqus config
-    	$scope.disqusConfig = {
-    		    disqus_shortname: 'platovi',
-    		    disqus_identifier: $scope.currentCity.cityId,
-    		    disqus_url: window.location.href,
-    		    disqus_title: $scope.currentCity.cityName+' Comments'
-    	};
+        
+    	$timeout(function(){
+    		//disqus config
+        	$scope.disqusConfig = {
+        		    disqus_shortname: 'platovi',
+        		    disqus_identifier: $scope.currentCity.cityId,
+        		    disqus_url: window.location.href,
+        		    disqus_title: $scope.currentCity.cityName+' Comments'
+        	};
+	    },100);
         
 	});
 	
