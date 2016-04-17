@@ -98,7 +98,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" data-ng-show="placesInCity['see'].length>4">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'see')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnSeeButton"><i class="fa fa-globe"></i> view more places</md-button>
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'see')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnSeeButton"><i class="fa fa-globe"></i> view all {{placesInCity['see'].length}} places</md-button>
 									</div>
 								</div>
 							</div>
@@ -137,7 +137,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" data-ng-show="placesInCity['do'].length>3">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'do')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnDoButton"><i class="fa fa-cogs"></i> view more things</md-button>
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'do')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnDoButton"><i class="fa fa-cogs"></i> view all {{placesInCity['do'].length}} things</md-button>
 									</div>
 								</div>
 							</div>
@@ -171,7 +171,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" data-ng-show="placesInCity['eat'].length>9">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'eat')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnEatButton"><i class="fa fa-cutlery"></i> view more restaurants</md-button>
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'eat')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnEatButton"><i class="fa fa-cutlery"></i> view all {{placesInCity['eat'].length}} restaurants</md-button>
 									</div>
 								</div>
 							</div>
@@ -205,7 +205,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" data-ng-show="placesInCity['drink'].length>8">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'drink')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnDrinkButton"><i class="fa fa-beer"></i> view more places</md-button>
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'drink')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnDrinkButton"><i class="fa fa-beer"></i> view all {{placesInCity['drink'].length}} places</md-button>
 									</div>
 								</div>
 							</div>
@@ -243,7 +243,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" data-ng-show="placesInCity['buy'].length>4">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'buy')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnBuyButton"><i class="fa fa-suitcase"></i> view more things</md-button>
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'buy')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnBuyButton"><i class="fa fa-suitcase"></i> view all {{placesInCity['buy'].length}} things</md-button>
 									</div>
 								</div>
 							</div>
@@ -253,7 +253,7 @@
 				          <!-- places to sleep starts -->
 				          <div>  
 							<div class="col-lg-12 col-md-12 text-center">
-								<div class="large-padding" data-ng-show="placesInCity['drink']">
+								<div class="large-padding" data-ng-show="placesInCity['sleep']">
 									<div class="row">
 										<h1>Places to sleep in {{currentCity.cityName}}</h1>
 									</div>
@@ -265,7 +265,7 @@
 													<!-- new -->
 													<md-card-title>
 											          <md-card-title-text>
-											            <span data-ng-click="showAdvanced($event,place,placesInCity['drink'])" class="md-headline">{{place.placeName}}</span>
+											            <span data-ng-click="showAdvanced($event,place,placesInCity['sleep'])" class="md-headline">{{place.placeName}}</span>
 											            <!-- <span class="md-subhead"></span> -->
 											          </md-card-title-text>
 											          <md-card-title-media>
@@ -276,8 +276,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="row small-padding" data-ng-show="placesInCity['drink'].length>4">
-										<md-button data-ng-click="getIndexFromJson(placesInCity,'sleep')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnDrinkButton"><i class="fa fa-bed"></i> view more hotels</md-button>
+									<div class="row small-padding" data-ng-show="placesInCity['sleep'].length>4">
+										<md-button data-ng-click="getIndexFromJson(placesInCity,'sleep')" class="md-raised md-primary" analytics-on="click" analytics-event="clickOnSleepButton"><i class="fa fa-bed"></i> view all {{placesInCity['sleep'].length}} hotels</md-button>
 									</div>
 								</div>
 							</div>
