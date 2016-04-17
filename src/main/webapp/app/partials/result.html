@@ -9,6 +9,7 @@
 	<header class="sb-page-header">
 		<div class="container">
 			<h1>Places to visit <small>near {{cityName}}</small></h1>
+			<p>{{filteredCity.length}} places found</p>
 		</div>
 	</header>
 	
@@ -291,54 +292,12 @@
 			<div class="row"></div>
 			
 			<div class="row">	
-                <!-- <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
-                																 orderBy:sortType:sortReverse "
-                																  >
-                    <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
-                        <span class="portfolio-hover">
-                            <span class="portfolio-hover-content">
-                                <i class="fa fa-share fa-3x"></i>
-                            </span>
-                        </span>
-                        <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
-                    </a>
-                    <div class="portfolio-caption">
-                    	<div class="row">
-	                    	<div class="col-lg-7">
-	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
-	                        </div>
-	                        <div class="col-lg-5 ">
-	                        	<div class=" pull-right">
-	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
-	                       		 </div>
-	                       	</div>
-                        </div>
-                    </div>
-                </div> -->
+                
                 
                 <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
                 																 orderBy:sortType:sortReverse "
                 																  >
-                    <!-- <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
-                        <span class="portfolio-hover">
-                            <span class="portfolio-hover-content">
-                                <i class="fa fa-share fa-3x"></i>
-                            </span>
-                        </span>
-                        <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
-                    </a>
-                    <div class="portfolio-caption">
-                    	<div class="row">
-	                    	<div class="col-lg-7">
-	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p>
-	                        </div>
-	                        <div class="col-lg-5 ">
-	                        	<div class=" pull-right">
-	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
-	                       		 </div>
-	                       	</div>
-                        </div>
-                    </div> -->
+                   
                     <md-card>
                     	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link" analytics-on="click" analytics-event="clickOnResultPage">
                     	 <span class="portfolio-hover">
@@ -369,45 +328,7 @@
 	                       	</div>
                         </div>
                    </div>
-				        <!-- <md-card-title>
-				          <md-card-title-text>
-				            <span class="md-headline"><p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)'><b>{{city.cityName}}</b></p></span>
-				            <span class="md-subhead">{{city.distanceFromCurrentCity}} km away
-				            	<span class="col-lg-7">
-	                        	<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
-	                        	</span>
-	                       		 <span class="col-lg-5 ">
-	                        	<span class=" pull-right">
-	                       			<p>{{city.rating}}</p>
-	                       		 </span>
-	                       	</span>
-				            </span>
-				          </md-card-title-text>
-				        </md-card-title> -->
-				       <!--  <md-card-content>
-				          
-				          <div class="row">
-	                    	<div class="col-lg-7">
-	                        	<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
-	                        </div>
-	                        <div class="col-lg-5 ">
-	                        	<div class=" pull-right">
-	                       			<p>{{city.rating}}</p>
-	                       		 </div>
-	                       	</div>
-                        </div>
-				        </md-card-content> -->
-				        <!-- <md-card-actions layout="row" layout-align="end center">
-				          <md-button class="md-icon-button" aria-label="Favorite">
-				            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-				          </md-button>
-				          <md-button class="md-icon-button" aria-label="Settings">
-				            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-				          </md-button>
-				          <md-button class="md-icon-button" aria-label="Share">
-				            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-				          </md-button>
-				        </md-card-actions> -->
+				       
 				  </md-card>
                 </div>
                 
