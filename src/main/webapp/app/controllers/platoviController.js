@@ -16,7 +16,7 @@ var cityMetro = [
  * @author jdhirendrajoshi
  * angular module named app with ui.router and ngResurce as dependencies
  */
-var app = angular.module('platoviApp', ['ui.bootstrap','ui.router','ngResource','rzModule','ngAnimate','ncy-angular-breadcrumb','ngMaterial','ngMap','angulartics.google.analytics']);
+var app = angular.module('platoviApp', ['ui.bootstrap','ui.router','ngResource','rzModule','ngAnimate','ncy-angular-breadcrumb','ngMaterial','ngMap','angulartics.google.analytics','angularUtils.directives.dirDisqus']);
 
 
 
@@ -661,6 +661,13 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.cityName+' places to visit | Platovi - places to visit';
 	
+	//disqus config
+	$scope.disqusConfig = {
+		    disqus_shortname: 'disqus_RehVrZSlL6',
+		    disqus_identifier: 'Comments identifier',
+		    disqus_url: 'Comments url'
+		};
+	
 	$scope.getIndexFromJson = function(obj, keyToFind) {
 	    var i = 0, key;
 	    for (key in obj) {
@@ -1154,14 +1161,21 @@ app.directive('errSrc', function() {
   }
 });
 
+/*app.config( function ( $locationProvider) {
+	$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		});
+});*/
+
 /**
  * @author jdhirendrajoshi
  * myAppConfig config configures all the states in the application 
  * 
  */
-app.config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
+app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationProvider) {
 	
-	  $urlRouterProvider.otherwise( '/home' );
+	
 	  $stateProvider
     // Home state
     .state('home', {
@@ -1218,7 +1232,21 @@ app.config( function myAppConfig ( $stateProvider, $urlRouterProvider) {
             parent: 'result'
           }
         });
+	  
+	  /*$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		}).hashPrefix('!');*/
+	 $urlRouterProvider.otherwise( '/home' );
+	 $locationProvider.hashPrefix('!');
 });
+
+/*app.config( function ( $locationProvider) {
+	$locationProvider.html5Mode({
+		  enabled: true,
+		  requireBase: false
+		});
+});*/
 
 
 /**

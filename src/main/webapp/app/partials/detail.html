@@ -34,7 +34,7 @@
 				        <md-content class="md-padding">
 				        	 <!-- Overview starts -->
 					        <div class="row large-padding" data-ng-show="currentCity.cityName.length >0">
-					            <div class="col-lg-12 text-center large-padding">
+					            <div class="col-lg-12 text-center large-padding article-para">
 					                <h1 class="page-header">{{currentCity.cityName}} at a glance</h1> 
 					                
 					               <p class="small-padding">{{currentCity.description | limitTo:descriptionLength}}
@@ -45,7 +45,7 @@
 					               
 					             </div>
 					        </div>
-					          <div class="col-lg-12 medium-padding text-center">
+					          <div class="col-lg-12 medium-padding text-center article-para">
 					          	<div class="col-lg-12 col-md-12">
 					          	  <p><i class="fa fa-clock-o"></i> Best time to visit: {{currentCity.bestSeasonToVist}}</p>
 						          <p><i class="fa fa-calendar"></i> Ideal duration: {{currentCity.idealDuration}}</p>
