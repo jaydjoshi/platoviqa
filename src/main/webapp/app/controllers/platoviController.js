@@ -847,7 +847,6 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         $scope.destinationCityGeo = {'lat':$scope.currentCity.latitude,'lng':$scope.currentCity.longitude};
         
         
-    	$timeout(function(){
     		//disqus config
         	$scope.disqusConfig = {
         		    disqus_shortname: 'platovi',
@@ -855,7 +854,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         		    disqus_url: window.location.href,
         		    disqus_title: $scope.currentCity.cityName+' Comments'
         	};
-	    },100);
+	    
         
 	});
 	
