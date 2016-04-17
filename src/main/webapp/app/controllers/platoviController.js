@@ -1240,7 +1240,10 @@ app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationP
 		  enabled: true,
 		  requireBase: false
 		}).hashPrefix('!');*/
+	  
 	 $urlRouterProvider.otherwise( '/home' );
+	 
+	 //hashbang url
 	 $locationProvider.hashPrefix('!');
 });
 
