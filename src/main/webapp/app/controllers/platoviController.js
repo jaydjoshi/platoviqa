@@ -824,6 +824,8 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 		var placesInCity=placeFactory.get({cityId:$scope.currentCity.cityId});
 		placesInCity.$promise.then(function(data){
 			$scope.placesInCity=data;
+			//do not show loader
+	        $scope.showLoader = false;
 		});
 		
 		var citiesNearCity = citiesNearByFactory.query({cityName:$scope.currentCity.cityName,latitude:$scope.currentCity.latitude,longitude:$scope.currentCity.longitude});
@@ -857,8 +859,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         	    disqus_title: $scope.currentCity.cityName+' Comments'
         };
 	    
-        //do not show loader
-        $scope.showLoader = false;
+        
 	});
 	
 	
