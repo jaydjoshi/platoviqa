@@ -112,6 +112,15 @@ app.factory('googleFactory', function($resource){
 });
 
 /**
+ * capitalize filter to make first case uppercase
+ */
+app.filter('capitalize', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
+
+/**
  * @author jdhirendrajoshi
  * homeController controller method with a search method that changes the scope to result and passes cityName as $stateParam 
  */
