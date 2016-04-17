@@ -8,8 +8,8 @@
 
 	<header class="sb-page-header">
 		<div class="container">
-			<h1>Places to visit <small>near {{cityName}}</small></h1>
-			<p>{{filteredCity.length}} places found</p>
+			<h1 data-ng-show="cityName.length">Places to visit <small>near {{cityName}}</small></h1>
+			<p data-ng-show="filteredCity.length">{{filteredCity.length}} places found</p>
 		</div>
 	</header>
 	
