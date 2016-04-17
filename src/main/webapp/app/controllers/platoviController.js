@@ -653,7 +653,7 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 /**
  * @author jdhirendrajoshi
  * resultDetailController controller method 
- * 
+ * disqusConfig
  */
 app.controller('resultDetailController',function($scope,$rootScope,$timeout,cityDetailFactory,placeFactory,citiesNearByFactory,temperatureFactory,romeToRioFactory,googleFactory,$http,$stateParams,NgMap,$window, $mdDialog, $mdMedia){
 	$rootScope.error = '';	
@@ -663,9 +663,10 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	
 	//disqus config
 	$scope.disqusConfig = {
-		    disqus_shortname: 'disqus_RehVrZSlL6',
-		    disqus_identifier: 'Comments identifier',
-		    disqus_url: 'Comments url'
+		    disqus_shortname: 'platovi',
+		    disqus_identifier: $stateParams.cityName,
+		    disqus_url: window.location.href,
+		    disqus_title: $stateParams.cityName+' Comments title'
 		};
 	
 	$scope.getIndexFromJson = function(obj, keyToFind) {
