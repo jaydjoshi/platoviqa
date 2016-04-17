@@ -661,13 +661,6 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.cityName+' places to visit | Platovi - places to visit';
 	
-	//disqus config
-	$scope.disqusConfig = {
-		    disqus_shortname: 'platovi',
-		    disqus_identifier: $stateParams.cityName,
-		    disqus_url: window.location.href,
-		    disqus_title: $stateParams.cityName+' Comments title'
-		};
 	
 	$scope.getIndexFromJson = function(obj, keyToFind) {
 	    var i = 0, key;
@@ -853,6 +846,13 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         $scope.destinationCity = $scope.currentCity.cityName+', '+$scope.currentCity.country.countryName;
         $scope.destinationCityGeo = {'lat':$scope.currentCity.latitude,'lng':$scope.currentCity.longitude};
         
+      //disqus config
+    	$scope.disqusConfig = {
+    		    disqus_shortname: 'platovi',
+    		    disqus_identifier: $scope.currentCity.cityId,
+    		    disqus_url: window.location.href,
+    		    disqus_title: $scope.currentCity.cityName+' Comments'
+    	};
         
 	});
 	
