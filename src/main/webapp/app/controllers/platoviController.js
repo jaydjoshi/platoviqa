@@ -1178,7 +1178,6 @@ app.directive('errSrc', function() {
  */
 app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationProvider) {
 	
-	$urlRouterProvider.otherwise( '/home' );
 	
 	  $stateProvider
     // Home state
@@ -1237,12 +1236,12 @@ app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationP
           }
         });
 	  
-	  $locationProvider.html5Mode({
+	  /*$locationProvider.html5Mode({
 		  enabled: true,
 		  requireBase: false
-		}).hashPrefix('!');
-	 
-	 /*$locationProvider.hashPrefix('!');*/
+		}).hashPrefix('!');*/
+	 $urlRouterProvider.otherwise( '/home' );
+	 $locationProvider.hashPrefix('!');
 });
 
 /*app.config( function ( $locationProvider) {
