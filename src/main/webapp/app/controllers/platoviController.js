@@ -144,14 +144,6 @@ app.controller('headerController', function($scope,$rootScope,cityNameFactory,$s
 });
 
 
-/*app.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
-	  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-	    if ( angular.isDefined( toState.data.pageTitle ) ) {
-	      $scope.pageTitle = toState.data.pageTitle + ' | Platovi - places to visit ' ;
-	    }
-	  });
-	});*/
-
 /**
  * @author jdhirendrajoshi
  * homeController controller method with a search method that changes the scope to result and passes cityName as $stateParam 
@@ -174,36 +166,40 @@ app.controller('homeController', function($scope,$rootScope,cityFactory,cityName
 	});
 
     if($scope.cityDropdown.cityName == "You"){    	
-		if (navigator.geolocation) {
-		    navigator.geolocation.getCurrentPosition(function(position){
-		      $scope.$apply(function(){
-		    	$scope.latitude = position.coords.latitude;
-			    $scope.longitude = position.coords.longitude;
-		      });
-		    });
-		}
+    	if($rootScope.latitude==='' || $rootScope.latitude==null || $rootScope.longitude==='' || $rootScope.longitude==null ){
+	    	if (navigator.geolocation) {
+			    navigator.geolocation.getCurrentPosition(function(position){
+			    	$rootScope.$apply(function(){
+			    		$rootScope.latitude = position.coords.latitude;
+			    		$rootScope.longitude = position.coords.longitude;
+			      });
+			    });
+			}
+    	}
 	}
     
     //set the geolocation details if You is selected from the dropdown
     $scope.getLocation = function(){
     	if($scope.cityDropdown.cityName == "You"){    	
-			if (navigator.geolocation) {
-			    navigator.geolocation.getCurrentPosition(function(position){
-			      $scope.$apply(function(){
-			        $scope.latitude = position.coords.latitude;
-			        $scope.longitude = position.coords.longitude;
-			      });
-			    });
-			}
+    		if($rootScope.latitude==='' || $rootScope.latitude==null || $rootScope.longitude==='' || $rootScope.longitude==null ){
+	    		if (navigator.geolocation) {
+				    navigator.geolocation.getCurrentPosition(function(position){
+				    	$rootScope.$apply(function(){
+				    		$rootScope.latitude = position.coords.latitude;
+				    		$rootScope.longitude = position.coords.longitude;
+				      });
+				    });
+				}
+    		}
 		}
     	else{
-    		$scope.latitude='';
-    		$scope.longitude='';
+    		$rootScope.latitude='';
+    		$rootScope.longitude='';
     	}
 	};
     
     $scope.search = function(){
-    	$state.go("result", { 'cityName' :  $scope.cityDropdown.cityName , 'latitude' :  $scope.latitude , 'longitude' :  $scope.longitude }); 	
+    	$state.go("result", { 'cityName' :  $scope.cityDropdown.cityName , 'latitude' :  $rootScope.latitude , 'longitude' :  $rootScope.longitude }); 	
     };
     
     
@@ -893,32 +889,59 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 		}
 	};
 	
+	
+	/* If latitude and longitude not present in rootscope from home controller the set it */
 	//use google reverse geocode api to set sourceCity
-	if (navigator.geolocation) {
-	    navigator.geolocation.getCurrentPosition(function(position){
-	      $scope.$apply(function(){
-	        $scope.latitude = position.coords.latitude;
-	        $scope.longitude = position.coords.longitude;
-	        var latAndLon = {'latlng': $scope.latitude+','+$scope.longitude};
-	        googleFactory.get(latAndLon,function(data){
-		        	if (data.status == 'OK') {
-			                if (data.results[0]) {
-			                    var add= data.results[0].formatted_address ;
-			                    var  value=add.split(",");
-			                    count=value.length;
-			                    country=value[count-1];
-			                    //state=value[count-2];
-			                    city=value[count-3];
-			                    $scope.sourceCity=city+','+country;
-			                    $scope.sourceCityGeo = {'lat':$scope.latitude,'lng':$scope.longitude};
-			                }
-			        }
-	        },function(errorResult){
-	        	console.log('Error while getting google city information: ' + errorResult);
-	        });
-	      });
-	    });
-	};
+	if($rootScope.latitude==='' || $rootScope.latitude==null || $rootScope.longitude==='' || $rootScope.longitude==null ){
+		if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(function(position){
+		    	$rootScope.$apply(function(){
+		    		$rootScope.latitude = position.coords.latitude;
+		    		$rootScope.longitude = position.coords.longitude;
+		        
+		        var latAndLon = {'latlng': $rootScope.latitude+','+$rootScope.longitude};
+		        googleFactory.get(latAndLon,function(data){
+			        	if (data.status == 'OK') {
+				                if (data.results[0]) {
+				                    var add= data.results[0].formatted_address ;
+				                    var  value=add.split(",");
+				                    count=value.length;
+				                    country=value[count-1];
+				                    //state=value[count-2];
+				                    city=value[count-3];
+				                    $scope.sourceCity=city+','+country;
+				                    $scope.sourceCityGeo = {'lat':$rootScope.latitude,'lng':$rootScope.longitude};
+				                }
+				        }
+		        },function(errorResult){
+		        	console.log('Error while getting google city information: ' + errorResult);
+		        });
+		      });
+		    });
+		};
+	}
+	/*
+	 * Else set from the existing rootScope
+	 */
+	else{
+		var latAndLon = {'latlng': $rootScope.latitude+','+$rootScope.longitude};
+        googleFactory.get(latAndLon,function(data){
+	        	if (data.status == 'OK') {
+		                if (data.results[0]) {
+		                    var add= data.results[0].formatted_address ;
+		                    var  value=add.split(",");
+		                    count=value.length;
+		                    country=value[count-1];
+		                    //state=value[count-2];
+		                    city=value[count-3];
+		                    $scope.sourceCity=city+','+country;
+		                    $scope.sourceCityGeo = {'lat':$rootScope.latitude,'lng':$rootScope.longitude};
+		                }
+		        }
+        },function(errorResult){
+        	console.log('Error while getting google city information: ' + errorResult);
+        });
+	}
 	
 	// asynchronously get the city name
 	  $scope.getSourceLocation = function(val) {
