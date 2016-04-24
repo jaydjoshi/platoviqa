@@ -194,15 +194,15 @@ public class CityController {
 			
         	
         	int size = cityList.size();
-        	
+        	//starting from 1 because 1st city will be same city
     		if(cityList!=null && size>0){
-    			if(size >=7)
+    			if(size >=8)
     			{
-    				returnList=cityList.subList(0, 6);
+    				returnList=cityList.subList(1, 7);
     			}
     			else
     			{
-    				returnList=cityList.subList(0, size);
+    				returnList=cityList.subList(1, size);
     			}
     		}
     		
