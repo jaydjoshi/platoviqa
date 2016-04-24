@@ -865,16 +865,15 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			//do not show loader
 	        $scope.showLoader = false;
 	        
-	        $timeout(function(){
-	    		//google maps resize and set the center again
+	        	//google maps resize and set the center again
 	    		$scope.$on('mapInitialized', function (event, map){
 	    			      window.setTimeout(function() {
 	    			        window.google.maps.event.trigger(map, 'resize');
 	    			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
 	    			      
-	    			      }, 1500)
-	    			  });
-	        	},100);
+	    			      }, 500)
+	    		});
+	        	
 		});
 		
 		var citiesNearCity = citiesNearByFactory.query({cityName:$scope.currentCity.cityName,latitude:$scope.currentCity.latitude,longitude:$scope.currentCity.longitude});
