@@ -104,12 +104,35 @@ app.factory('romeToRioFactory', function($resource){
 
 /**
  * @author jdhirendrajoshi
- * romeToRioFactory factory method to return routes
+ * googleFactory factory method to return google map url
  * 
  */
 app.factory('googleFactory', function($resource){
 	return $resource('https://maps.googleapis.com/maps/api/geocode/json');
 });
+
+/**
+ * @author jdhirendrajoshi
+ * googleFactory factory method to return existing google map object
+ * 
+ */
+
+app.factory('googleMaps', function() {
+	  var maps = {};
+
+	  function addMap(mapId) {
+	    maps[mapId] = {};
+	  }
+	  function getMap(mapId) {
+	    if (!maps[mapId]) addMap(mapId);
+	    return maps[mapId];
+	  }
+
+	  return {
+	    addMap: addMap,
+	    getMap: getMap
+	  }
+	});
 
 /**
  * capitalize filter to make first case uppercase
@@ -119,6 +142,8 @@ app.filter('capitalize', function() {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
+
+
 
 /**
  * @author jdhirendrajoshi
@@ -669,21 +694,20 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	/*//show loader
 	$scope.showLoader = true;*/
 	
+	
+	/*detail place overview and dialog*/	
 	$scope.getIndexFromJson = function(obj, keyToFind) {
 	    var i = 0, key;
 	    for (key in obj) {
 	        if (key == keyToFind) {
 	            $scope.selectedIndex=i+1;
 	            $window.scrollTo(0, 0); 
-	            //console.log(angular.element(document.getElementById('detailTabId')).offset);
-	           //$window.scrollTo(0, angular.element(document.getElementById('detailTabId')).offsetTop);
-	           
 	        }
 	        i++;
 	    }
 	};
 	
-	//Angular dialog box starts
+	//Angular dialog box for detail places
 	$scope.showAdvanced = function(ev,key,object) {
 	    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
 	    $scope.placeInfo = key;
@@ -698,8 +722,16 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	      clickOutsideToClose:true,
 	      fullscreen: useFullScreen
 	    });
-	    $timeout(function(){
-	    	initGoogleMap('placeMap',$scope.placeInfo,$scope.allPlaces,$scope);
+	   $timeout(function(){
+	    	//initNgMap('placeMap',$scope.placeInfo,$scope.allPlaces,$scope);
+		   	
+		   $scope.$on('mapInitialized', function (event, map){
+			   $scope.placeMap = map;
+			    window.setTimeout(function() {
+			      window.google.maps.event.trigger(map, 'resize');
+			      map.setCenter(new google.maps.LatLng($scope.placeInfo.latitude,$scope.placeInfo.longitude));
+			    }, 100)
+			});
 	    },100);
 	    
 	    $scope.$watch(function() {
@@ -741,7 +773,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	 /*
 	 * initialize the google map
 	 */
- $scope.initGoogleMap = function(id,place,allPlaces){
+ /*$scope.initGoogleMap = function(id,place,allPlaces){
 	
 	
 		
@@ -782,9 +814,9 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			        google.maps.event.trigger(selectedMarker, 'click');
 			 }
 			 
-		 /*}*/
+		 }
 	 
- }
+ }*/
 	
 	
 	//Angular dialog box ends
@@ -855,15 +887,22 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         $scope.destinationCity = $scope.currentCity.cityName+', '+$scope.currentCity.country.countryName;
         $scope.destinationCityGeo = {'lat':$scope.currentCity.latitude,'lng':$scope.currentCity.longitude};
         
-        
-    	//disqus config
-        $scope.disqusConfig = {
-        	    disqus_shortname: 'platovi',
-        	    disqus_identifier: $scope.currentCity.cityId,
-        	    disqus_url: window.location.href,
-        	    disqus_title: $scope.currentCity.cityName+' Comments'
-        };
-	    
+      //disqus config
+    	$scope.disqusConfig = {
+    		    disqus_shortname: 'platovi',
+    		    disqus_identifier: $scope.currentCity.cityId,
+    		    disqus_url: window.location.href,
+    		    disqus_title: $scope.currentCity.cityName+' Comments'
+    	};
+    	
+    	
+		//google maps resize and set the center again
+		$scope.$on('mapInitialized', function (event, map){
+			      window.setTimeout(function() {
+			        window.google.maps.event.trigger(map, 'resize');
+			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
+			      }, 100)
+			  });
         
 	});
 	
@@ -1019,11 +1058,31 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	    	 return "fa-arrow-right";
 		};
 
+		
+		
+		/*using ngMap*/
+		/*$scope.initMap = function(id){
+			 if($scope.showMap){
+				 $scope.showMap=false;
+			 }
+			 else{
+				 if($scope.firstTime){
+					 $scope.firstTime= false;
+					 NgMap.getMap().then(function(evtMap) {
+					      map = evtMap;
+					      $scope.map = map;
+					      $scope.showMap=true;
+					      $rootScope.map = map;
+					      console.log('NG MAP');
+					    });
+				 }
+			 }
+		}*/
 	
 	 /*
 		 * initialize the google map
 		 */
-	 $scope.initMap = function(id){
+	 /*$scope.initMap = function(id){
 		 
 		 if($scope.showMap){
 			 $scope.showMap=false;
@@ -1069,7 +1128,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 				 
 			 }
 		 }
-	 }
+	 }*/
 	 
 	
 	 
@@ -1103,10 +1162,19 @@ var filterCategory = function($scope,items){
 	
 }
 
+var initNgMap = function(id,place,allPlaces,$scope){
+	$scope.$on('mapInitialized', function (event, map){
+	    window.setTimeout(function() {
+	      window.google.maps.event.trigger(map, 'resize');
+	      map.setCenter(new google.maps.LatLng($scope.placeInfo.latitude,$scope.placeInfo.longitude));
+	    }, 100)
+	});
+}
+
 /*
  * initialize the google map
  */
-var initGoogleMap = function(id,place,allPlaces,$scope){
+/*var initGoogleMap = function(id,place,allPlaces,$scope){
 
 
 	
@@ -1147,9 +1215,9 @@ var initGoogleMap = function(id,place,allPlaces,$scope){
 		        google.maps.event.trigger(selectedMarker, 'click');
 		 }
 		 
-	 /*}*/
+	 }
  
-}
+}*/
 
 
 

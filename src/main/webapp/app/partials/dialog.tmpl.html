@@ -1,4 +1,4 @@
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+<md-dialog aria-label="place"  ng-cloak>
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -10,17 +10,23 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-      <div class="md-dialog-content">
-        <!-- <h2>{{placeInfo.placeName}}</h2> -->
+      <div class="md-dialog-content article-para">
+        
         <img style="margin: auto; max-width: 100%;" alt="{{placeInfo.placeName}} image" src="">
         <p>
          {{placeInfo.placeOverview}} 
         </p>
         
+        <!-- <ng-map  map-lazy-load="https://maps.google.com/maps/api/js" center="38,-98" zoom="5"></ng-map> -->
+        
         <div data-ng-show="placeInfo.longitude>0 && placeInfo.latitude>0">
         	
-					<div class="google-map" id="placeMap"></div>
-				<!-- </div> -->
+				
+				<div  style="display:block;height:300px;">
+				 <ng-map style="display:block;height:300px;" center="[{{placeInfo.latitude}},{{placeInfo.longitude}}]" zoom="13">
+					  	<marker position="[{{placeInfo.latitude}},{{placeInfo.longitude}}]" title="{{placeInfo.placeName}}"></marker> 
+	    		 </ng-map>
+				</div>
         </div>
        
       </div>
