@@ -889,6 +889,15 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
         $scope.destinationCity = $scope.currentCity.cityName+', '+$scope.currentCity.country.countryName;
         $scope.destinationCityGeo = {'lat':$scope.currentCity.latitude,'lng':$scope.currentCity.longitude};
         
+      //google maps resize and set the center again
+		$scope.$on('mapInitialized', function (event, map){
+			      window.setTimeout(function() {
+			        window.google.maps.event.trigger(map, 'resize');
+			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
+			      
+			      }, 1000)
+		});
+		
       //disqus config
     	$scope.disqusConfig = {
     		    disqus_shortname: 'platovi',
@@ -896,17 +905,6 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
     		    disqus_url: window.location.href,
     		    disqus_title: $scope.currentCity.cityName+' Comments'
     	};
-    	
-    	//google maps resize and set the center again
-		
-			$scope.$on('mapInitialized', function (event, map){
-				      window.setTimeout(function() {
-				        window.google.maps.event.trigger(map, 'resize');
-				        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
-				      
-				      }, 1000)
-			});
-		
     	
     	
 	});
