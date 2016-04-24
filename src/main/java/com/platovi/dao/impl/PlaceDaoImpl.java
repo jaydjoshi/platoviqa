@@ -47,7 +47,7 @@ public class PlaceDaoImpl implements PlaceDao {
 	}
 	
 	public List<Place> findAllPlacesByCityId(int cityId) {
-		Query query =   em.createQuery("SELECT a from Place a WHERE a.city.cityId=?1 ");
+		Query query =   em.createQuery("SELECT a from Place a WHERE a.city.cityId=?1 ORDER BY a.placeType,a.rating DESC");
 		query.setParameter(1, cityId);
         return query.getResultList();
 	}
