@@ -896,7 +896,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
     		    disqus_title: $scope.currentCity.cityName+' Comments'
     	};
     	
-    	
+    	$timeout(function(){
 		//google maps resize and set the center again
 		$scope.$on('mapInitialized', function (event, map){
 			      window.setTimeout(function() {
@@ -905,7 +905,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			      
 			      }, 500)
 			  });
-        
+    	},100);
 	});
 	
 	
