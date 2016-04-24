@@ -723,7 +723,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	      fullscreen: useFullScreen
 	    });
 	   $timeout(function(){
-	    	//initNgMap('placeMap',$scope.placeInfo,$scope.allPlaces,$scope);
+	    	
 		   	
 		   $scope.$on('mapInitialized', function (event, map){
 			   $scope.placeMap = map;
@@ -771,53 +771,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 		$scope.placeInfo= object[newIndex];
 	};
 	
-	 /*
-	 * initialize the google map
-	 */
- /*$scope.initGoogleMap = function(id,place,allPlaces){
 	
-	
-		
-			 var mapOptions = {
-				        zoom: 8,
-				        center: new google.maps.LatLng(place.latitude, place.longitude)
-				    }
-			 $scope.markersPlace = [];
-			 var infoWindow = new google.maps.InfoWindow();
-			 
-			 $scope.placeMap = new google.maps.Map(document.getElementById(id), mapOptions);
-			 
-			 var createMarker = function (lat,lng,title){
-			        
-			        var marker = new google.maps.Marker({
-			            map: $scope.placeMap,
-			            position: new google.maps.LatLng(lat, lng),
-			            title: title
-			        });
-			        marker.content = '<div class="infoWindowContent">' + title + '</div>';
-			        
-			        google.maps.event.addListener(marker, 'click', function(){
-			            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-			            infoWindow.open($scope.placeMap, marker);
-			        });
-			        
-			        $scope.markersPlace.push(marker);
-			        
-			    }
-			 
-			 for (i = 0; i < allPlaces.length; i++){
-			        createMarker(allPlaces[i].latitude,allPlaces[i].longitude,allPlaces.placeName);
-			    }
-			// createMarker(lat,lng,title);
-			 
-			 $scope.openInfoWindowPlace = function(e, selectedMarker){
-			        e.preventDefault();
-			        google.maps.event.trigger(selectedMarker, 'click');
-			 }
-			 
-		 }
-	 
- }*/
 	
 	
 	//Angular dialog box ends
@@ -1060,89 +1014,13 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	     else
 	    	 return "fa-arrow-right";
 		};
-
-		
-		
-		/*using ngMap*/
-		/*$scope.initMap = function(id){
-			 if($scope.showMap){
-				 $scope.showMap=false;
-			 }
-			 else{
-				 if($scope.firstTime){
-					 $scope.firstTime= false;
-					 NgMap.getMap().then(function(evtMap) {
-					      map = evtMap;
-					      $scope.map = map;
-					      $scope.showMap=true;
-					      $rootScope.map = map;
-					      console.log('NG MAP');
-					    });
-				 }
-			 }
-		}*/
-	
-	 /*
-		 * initialize the google map
-		 */
-	 /*$scope.initMap = function(id){
-		 
-		 if($scope.showMap){
-			 $scope.showMap=false;
-		 }
-		 else{
-			 $scope.showMap=true;
-			 
-			 if($scope.firstTime){
-				 $scope.firstTime= false;
-				 var mapOptions = {
-					        zoom: 6,
-					        center: new google.maps.LatLng($scope.currentCity.latitude, $scope.currentCity.longitude)
-					    }
-				 $scope.markers = [];
-				 var infoWindow = new google.maps.InfoWindow();
-				 
-				 $scope.map = new google.maps.Map(document.getElementById(id), mapOptions);
-				 
-				 var createMarker = function (info){
-				        
-				        var marker = new google.maps.Marker({
-				            map: $scope.map,
-				            position: new google.maps.LatLng(info.latitude, info.longitude),
-				            title: info.cityName
-				        });
-				        marker.content = '<div class="infoWindowContent">' + info.title + '</div>';
-				        
-				        google.maps.event.addListener(marker, 'click', function(){
-				            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-				            infoWindow.open($scope.map, marker);
-				        });
-				        
-				        $scope.markers.push(marker);
-				        
-				    }
-				 
-				 createMarker($scope.currentCity);
-				 
-				 $scope.openInfoWindow = function(e, selectedMarker){
-				        e.preventDefault();
-				        google.maps.event.trigger(selectedMarker, 'click');
-				 }
-				 
-			 }
-		 }
-	 }*/
-	 
-	
-	 
+ 
 	
 	
 });
 
 function DialogController($scope, $mdDialog) {
 	
-	/*$scope.placeInfo = key;
-    $scope.places= object;*/
     
 	  $scope.hide = function() {
 	    $mdDialog.hide();
@@ -1164,63 +1042,6 @@ var filterCategory = function($scope,items){
     }
 	
 }
-
-var initNgMap = function(id,place,allPlaces,$scope){
-	$scope.$on('mapInitialized', function (event, map){
-	    window.setTimeout(function() {
-	      window.google.maps.event.trigger(map, 'resize');
-	      map.setCenter(new google.maps.LatLng($scope.placeInfo.latitude,$scope.placeInfo.longitude));
-	    }, 500)
-	});
-}
-
-/*
- * initialize the google map
- */
-/*var initGoogleMap = function(id,place,allPlaces,$scope){
-
-
-	
-		 var mapOptions = {
-			        zoom: 11,
-			        center: new google.maps.LatLng(place.latitude, place.longitude)
-			    }
-		 $scope.markersPlace = [];
-		 var infoWindow = new google.maps.InfoWindow();
-		 
-		 $scope.placeMap = new google.maps.Map(document.getElementById(id), mapOptions);
-		 
-		 var createMarker = function (lat,lng,title){
-		        
-		        var marker = new google.maps.Marker({
-		            map: $scope.placeMap,
-		            position: new google.maps.LatLng(lat, lng),
-		            title: title
-		        });
-		        marker.content = '<div class="infoWindowContent">' + title + '</div>';
-		        
-		        google.maps.event.addListener(marker, 'click', function(){
-		            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-		            infoWindow.open($scope.placeMap, marker);
-		        });
-		        
-		        $scope.markersPlace.push(marker);
-		        
-		    }
-		 
-		 for (i = 0; i < allPlaces.length; i++){
-		        createMarker(allPlaces[i].latitude,allPlaces[i].longitude,allPlaces[i].placeName);
-		    }
-		// createMarker(lat,lng,title);
-		 
-		 $scope.openInfoWindowPlace = function(e, selectedMarker){
-		        e.preventDefault();
-		        google.maps.event.trigger(selectedMarker, 'click');
-		 }
-		 
-	 }
- 
-}*/
 
 
 
@@ -1271,12 +1092,7 @@ app.directive('errSrc', function() {
   }
 });
 
-/*app.config( function ( $locationProvider) {
-	$locationProvider.html5Mode({
-		  enabled: true,
-		  requireBase: false
-		});
-});*/
+
 
 /**
  * @author jdhirendrajoshi
