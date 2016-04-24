@@ -864,6 +864,17 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			$scope.placesInCity=data;
 			//do not show loader
 	        $scope.showLoader = false;
+	        
+	        $timeout(function(){
+	    		//google maps resize and set the center again
+	    		$scope.$on('mapInitialized', function (event, map){
+	    			      window.setTimeout(function() {
+	    			        window.google.maps.event.trigger(map, 'resize');
+	    			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
+	    			      
+	    			      }, 500)
+	    			  });
+	        	},100);
 		});
 		
 		var citiesNearCity = citiesNearByFactory.query({cityName:$scope.currentCity.cityName,latitude:$scope.currentCity.latitude,longitude:$scope.currentCity.longitude});
@@ -896,16 +907,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
     		    disqus_title: $scope.currentCity.cityName+' Comments'
     	};
     	
-    	$timeout(function(){
-		//google maps resize and set the center again
-		$scope.$on('mapInitialized', function (event, map){
-			      window.setTimeout(function() {
-			        window.google.maps.event.trigger(map, 'resize');
-			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
-			      
-			      }, 500)
-			  });
-    	},100);
+    	
 	});
 	
 	
