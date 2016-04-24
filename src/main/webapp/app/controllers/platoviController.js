@@ -691,8 +691,8 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.cityName+' places to visit | Platovi - places to visit';
 	
-	/*//show loader
-	$scope.showLoader = true;*/
+	//show loader
+	$scope.showLoader = true;
 	
 	
 	/*detail place overview and dialog*/	
@@ -730,9 +730,10 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			    window.setTimeout(function() {
 			      window.google.maps.event.trigger(map, 'resize');
 			      map.setCenter(new google.maps.LatLng($scope.placeInfo.latitude,$scope.placeInfo.longitude));
-			    }, 500)
+			    }, 100)
 			});
 	    },100);
+	   
 	    
 	    $scope.$watch(function() {
 	      return $mdMedia('xs') || $mdMedia('sm');
@@ -861,8 +862,8 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 		var placesInCity=placeFactory.get({cityId:$scope.currentCity.cityId});
 		placesInCity.$promise.then(function(data){
 			$scope.placesInCity=data;
-			/*//do not show loader
-	        $scope.showLoader = false;*/
+			//do not show loader
+	        $scope.showLoader = false;
 		});
 		
 		var citiesNearCity = citiesNearByFactory.query({cityName:$scope.currentCity.cityName,latitude:$scope.currentCity.latitude,longitude:$scope.currentCity.longitude});
@@ -901,7 +902,8 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			      window.setTimeout(function() {
 			        window.google.maps.event.trigger(map, 'resize');
 			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
-			      }, 1000)
+			      
+			      }, 100)
 			  });
         
 	});
