@@ -900,12 +900,11 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
     	//google maps resize and set the center again
 		
 			$scope.$on('mapInitialized', function (event, map){
-					
 				      window.setTimeout(function() {
 				        window.google.maps.event.trigger(map, 'resize');
 				        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
 				      
-				      }, 4000)
+				      }, 1000)
 			});
 		
     	
