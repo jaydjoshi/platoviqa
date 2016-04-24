@@ -13,4 +13,8 @@ public class PlatoviConstants {
 	public static final double DEFAUL_DISTANCE_IN_KM = 1000;
 	public static final double NEARBY_DISTANCE_IN_KM = 1000;
 	public static final String YOU = "You";
+	
+	public static final String COUNTRY = "Country";
+	public static final String STATE = "State";
+	public static final String CITY = "City";
 }

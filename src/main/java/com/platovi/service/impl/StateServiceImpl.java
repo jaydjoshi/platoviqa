@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.platovi.dao.StateDao;
+import com.platovi.model.City;
 import com.platovi.model.State;
 import com.platovi.service.StateService;
 
@@ -49,6 +50,18 @@ public class StateServiceImpl implements StateService {
 	public State findStateByName(String name) {
 		// TODO Auto-generated method stub
 		return StateDao.findStateByName(name);
+	}
+
+	@Transactional
+	public List<String> getAllStateNames() {
+		// TODO Auto-generated method stub
+		return StateDao.getAllStateNames();
+	}
+
+	@Transactional
+	public List<City> getAllStateNamesByCountry(int countryId) {
+		// TODO Auto-generated method stub
+		return StateDao.getAllStateNamesByCountry(countryId);
 	}
 
 	

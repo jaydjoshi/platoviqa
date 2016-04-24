@@ -1,5 +1,6 @@
 package com.platovi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.platovi.model.City;
 import com.platovi.model.State;
 import com.platovi.service.StateService;
 
@@ -70,5 +72,24 @@ public class StateController {
 	            return new ResponseEntity<State>(state, HttpStatus.CREATED);
 	        
 	    }
+	
+	/**
+	 * @author jdhirendrajoshi
+	 * @param cityName
+	 * @return ResponseEntity<City>
+	 * method to get the detail of the city
+	 */
+	@RequestMapping(value="/country", method = RequestMethod.GET)
+    public ResponseEntity<List> getAllCityNamesByCountry(@RequestParam(value="countryId", required = false) int countryId) {
+		
+		LOGGER.info("CityController : getAllCityNamesByCountry method starts");
+		List<City> cityList =  new ArrayList<City>();
+		
+			cityList = stateService.getAllStateNamesByCountry(countryId);
+		
+		
+        return new ResponseEntity<List>( cityList, HttpStatus.OK);
+    
+    }
 
 }

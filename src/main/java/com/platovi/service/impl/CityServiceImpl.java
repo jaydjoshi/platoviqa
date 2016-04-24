@@ -71,5 +71,10 @@ public class CityServiceImpl implements CityService {
 	}
 
 	
+	@Transactional
+	public List<City> getAllCityNamesByCountry(int countryId) {
+		// TODO Auto-generated method stub
+		return cityDao.getAllCityNamesByCountry(countryId);
+	}
 
 }

@@ -49,6 +49,19 @@ public class StateDaoImpl implements StateDao {
         }
 	}
 	
-	
+	public List<String> getAllStateNames() {
+		// TODO Auto-generated method stub
+		Query query = em.createQuery("SELECT a.stateName FROM State a");
+        
+        List<String> states = query.getResultList();
+        return states;
+	}
+
+	@Override
+	public List<City> getAllStateNamesByCountry(int countryId) {
+		Query query =   em.createQuery("SELECT a from State a WHERE a.country.countryId=?1 ORDER BY a.rating DESC");
+		query.setParameter(1, countryId);
+        return query.getResultList();
+	}
 
 }

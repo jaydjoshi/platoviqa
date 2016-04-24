@@ -25,6 +25,8 @@ public interface CityService {
 
 	public List<City> getAllCityNamesByState(int stateId);
 
+	public List<City> getAllCityNamesByCountry(int countryId);
+
 	/*public List<City> listCitiesNearBy(City currentCity, double earthRadiusInKm, GeoLocation currentCityGeoLocation,
 			double nearbyDistanceInKm);*/
 }

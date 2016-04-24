@@ -79,6 +79,29 @@ app.factory('stateFactory', function($resource){
 
 /**
  * @author jdhirendrajoshi
+ * citiesInCountryFactory factory method to return city detail URL resource
+ */
+app.factory('citiesInCountryFactory', function($resource){
+	return $resource('/rest/city/country');
+});
+
+/**
+ * @author jdhirendrajoshi
+ * statesInCountryFactory factory method to return state detail URL resource
+ */
+app.factory('statesInCountryFactory', function($resource){
+	return $resource('/rest/state/country');
+});
+/**
+ * @author jdhirendrajoshi
+ * countryFactory factory method to return country detail URL resource
+ */
+app.factory('countryFactory', function($resource){
+	return $resource('/rest/country');
+});
+
+/**
+ * @author jdhirendrajoshi
  * cityFactory factory method to return city detail URL resource
  */
 app.factory('placeFactory', function($resource){
@@ -154,15 +177,35 @@ app.controller('headerController', function($scope,$rootScope,cityNameFactory,$s
 	$rootScope.error = '';
     var query=cityNameFactory.query();
 	query.$promise.then(onSuccess);
+	var cityNameList=[];
 	
 	function onSuccess(data){
-		$scope.cityNameList=(data);
-		//console.log("cityNameList :"+$scope.cityNameList);
+		console.log("header: "+data.placeName);
+		
+		$scope.headerList=data;
+		
+		for( var i in data ) {
+			cityNameList.push(data[i].placeName+', '+data[i].placeType);
+		}
+		
+		$scope.cityNameList=cityNameList;
+		
 	};
 	
 	$scope.detailCity = function(isValid){
 		if(isValid){
-			$state.go("detail", { 'cityName' :  $scope.selectedCity });
+			var subStringCommaPos=$scope.selectedCity.indexOf(",");
+			var subStr = $scope.selectedCity.substring(subStringCommaPos+2);
+			//$scope.selectedCity= $scope.selectedCity.substring(0,subStringCommaPos);
+			if(subStr=='City'){
+				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
+			else if(subStr=='State'){
+				$state.go("state", { 'stateName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
+			else if(subStr=='Country'){
+				$state.go("country", { 'countryName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
 		}
 	}
     
@@ -682,6 +725,47 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 
 /**
  * @author jdhirendrajoshi
+ * countryResultController controller method which retrives the result data of country and sets $cityData to the list of cities returned. 
+ * showdetailCity function takes city as an argument and stores the value in dataService which shares the data with detailController
+ */
+app.controller('countryResultController',function($scope,$rootScope,countryFactory,citiesInCountryFactory,statesInCountryFactory,$state,$stateParams){
+	$rootScope.error = '';
+	//to display the footer
+	$rootScope.isHomeController=false;
+	$rootScope.pageTitle = $stateParams.countryName+' places to visit | Platovi - places to visit';
+	
+	$scope.countryName = $stateParams.countryName;
+	
+	var query=countryFactory.get({countryName:$scope.countryName});
+	query.$promise.then(function(data){
+		$scope.countryData=(data);
+		console.log("country: "+$scope.countryData.countryName);
+		console.log("country id: "+$scope.countryData.countryId);
+		
+		var citiesInCountry=citiesInCountryFactory.query({countryId:$scope.countryData.countryId});
+		citiesInCountry.$promise.then(function(data){
+			$scope.cityData=data;
+		});
+		
+		var statesInCountry=statesInCountryFactory.query({countryId:$scope.countryData.countryId});
+		statesInCountry.$promise.then(function(data){
+			$scope.stateData=data;
+		});
+		
+	});
+	
+	/*==========================  filter ================================*/
+	/*filter($scope,false); *///do not display distance slider and distance order by
+	
+    /*==========================  filter ================================*/
+	
+	
+
+});
+
+
+/**
+ * @author jdhirendrajoshi
  * resultDetailController controller method 
  * disqusConfig
  */
@@ -1133,6 +1217,17 @@ app.config( function myAppConfig ( $stateProvider, $urlRouterProvider,$locationP
         data : { pageTitle : "State result" },
         ncyBreadcrumb: {
             label: 'State'
+          }
+        })
+        
+     // Result country
+    .state('country', {
+        url:'/country/:countryName',
+        templateUrl:'partials/countryResult.html',
+        controller: 'countryResultController',
+        data : { pageTitle : "Country result" },
+        ncyBreadcrumb: {
+            label: 'Country'
           }
         })
         

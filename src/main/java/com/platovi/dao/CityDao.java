@@ -25,5 +25,7 @@ public interface CityDao {
 
 	public List<City> getAllCityNamesByState(int stateId);
 
+	public List<City> getAllCityNamesByCountry(int countryId);
+
 
 }

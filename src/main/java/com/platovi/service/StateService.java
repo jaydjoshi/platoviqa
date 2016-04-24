@@ -2,6 +2,7 @@ package com.platovi.service;
 
 import java.util.List;
 
+import com.platovi.model.City;
 import com.platovi.model.State;
 
 public interface StateService {
@@ -15,6 +16,10 @@ public interface StateService {
     public List<State> listAllStates();
     
     public State findStateByName(String name);
+
+	public List<String> getAllStateNames();
+
+	public List<City> getAllStateNamesByCountry(int countryId);
     
     
 }

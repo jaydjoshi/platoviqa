@@ -168,14 +168,20 @@ public class CityDaoImpl implements CityDao {
 
 	@Override
 	public List<City> getAllCityNamesByState(int stateId) {
-      
 
-		Query query =   em.createQuery("SELECT a from City a WHERE a.state.stateId=?1");
+		Query query =   em.createQuery("SELECT a from City a WHERE a.state.stateId=?1 ORDER BY a.rating DESC");
 		query.setParameter(1, stateId);
         return query.getResultList();
 	
-}
+	}
 
-
+	@Override
+	public List<City> getAllCityNamesByCountry(int countryId) {
+      
+		Query query =   em.createQuery("SELECT a from City a WHERE a.country.countryId=?1 ORDER BY a.rating DESC");
+		query.setParameter(1, countryId);
+        return query.getResultList();
+	
+	}
 	
 }

@@ -8,7 +8,7 @@
 
 	<header class="sb-page-header">
 		<div class="container">
-			<h1>{{stateData.stateName}}, {{stateData.country.countryName}} <small>{{stateData.title}} </small></h1>
+			<h1>{{stateData.stateName}}, <a ui-sref="country({countryName:stateData.country.countryName})">{{stateData.country.countryName}}</a><small>{{stateData.title}} </small></h1>
 		</div>
 	</header>
    

@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.platovi.model.City;
 import com.platovi.model.GeoLocation;
+import com.platovi.model.Header;
 import com.platovi.service.CityService;
+import com.platovi.service.CountryService;
 import com.platovi.service.PlaceService;
+import com.platovi.service.StateService;
 import com.platovi.util.PlatoviConstants;
 
 @Controller 
@@ -28,6 +31,10 @@ public class CityController {
 	CityService cityService;
 	@Autowired
 	PlaceService placeService;
+	@Autowired
+	StateService stateService;
+	@Autowired
+	CountryService countryService;
 	
 	//final static Logger logger = Logger.getLogger(CityController.class);
 	private static final Logger LOGGER = Logger.getLogger(CityController.class);
@@ -39,15 +46,47 @@ public class CityController {
 	 * @author jdhirendrajoshi
 	 * @param cityName
 	 * @return ResponseEntity<City>
-	 * method to get the detail of the city
+	 * method to get names of all the country,state,city
 	 */
 	@RequestMapping(value="/name", method = RequestMethod.GET)
     public ResponseEntity<List> getAllCityNames() {
 		
 		LOGGER.info("CityController : getAllCityNames method starts");
+		List<Header> resultHeader=new ArrayList<Header>();
+		Header header =null;
+		
         List<String> cityNames = cityService.getAllCityNames();
+        List<String> stateNames = stateService.getAllStateNames();
+        List<String> countryNames = countryService.getAllCountryNames();
         
-        return new ResponseEntity<List>( cityNames, HttpStatus.OK);
+        List<String> result= new ArrayList<String>();
+        
+        result.addAll(countryNames);
+        result.addAll(stateNames);
+        result.addAll(cityNames);
+        
+        for (String countryStr : countryNames) {
+        	header= new Header();
+        	header.setPlaceName(countryStr);
+        	header.setPlaceType(PlatoviConstants.COUNTRY);
+        	resultHeader.add(header);
+		}
+        
+        for (String stateStr : stateNames) {
+        	header= new Header();
+        	header.setPlaceName(stateStr);
+        	header.setPlaceType(PlatoviConstants.STATE);
+        	resultHeader.add(header);
+		}
+        
+        for (String cityStr : cityNames) {
+        	header= new Header();
+        	header.setPlaceName(cityStr);
+        	header.setPlaceType(PlatoviConstants.CITY);
+        	resultHeader.add(header);
+		}
+        
+        return new ResponseEntity<List>( resultHeader, HttpStatus.OK);
     
     }
 	
@@ -159,11 +198,11 @@ public class CityController {
     		if(cityList!=null && size>0){
     			if(size >=7)
     			{
-    				returnList=cityList.subList(1, 6);
+    				returnList=cityList.subList(0, 6);
     			}
     			else
     			{
-    				returnList=cityList.subList(1, size);
+    				returnList=cityList.subList(0, size);
     			}
     		}
     		
@@ -209,6 +248,39 @@ public class CityController {
 		
 		
         return new ResponseEntity<List>( cityList, HttpStatus.OK);
+    
+    }
+	
+	
+	/**
+	 * @author jdhirendrajoshi
+	 * @param cityName
+	 * @return ResponseEntity<City>
+	 * method to get the detail of the city
+	 */
+	@RequestMapping(value="/country", method = RequestMethod.GET)
+    public ResponseEntity<List> getAllCityNamesByCountry(@RequestParam(value="countryId", required = false) int countryId) {
+		
+		LOGGER.info("CityController : getAllCityNamesByCountry method starts");
+		List<City> cityList =  new ArrayList<City>();
+		List<City> returnList =  new ArrayList<City>();
+		
+			cityList = cityService.getAllCityNamesByCountry(countryId);
+			
+			int size = cityList.size();
+        	
+    		if(cityList!=null && size>0){
+    			if(size >=15)
+    			{
+    				returnList=cityList.subList(0, 15);
+    			}
+    			else
+    			{
+    				returnList=cityList.subList(0, size);
+    			}
+    		}
+		
+        return new ResponseEntity<List>( returnList, HttpStatus.OK);
     
     }
 	
