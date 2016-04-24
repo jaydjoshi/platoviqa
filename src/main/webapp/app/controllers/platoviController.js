@@ -905,7 +905,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 				        window.google.maps.event.trigger(map, 'resize');
 				        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
 				      
-				      }, 2000)
+				      }, 4000)
 			});
 		
     	
