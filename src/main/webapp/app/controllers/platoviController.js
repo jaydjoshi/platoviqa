@@ -901,7 +901,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 			      window.setTimeout(function() {
 			        window.google.maps.event.trigger(map, 'resize');
 			        map.setCenter(new google.maps.LatLng($scope.currentCity.latitude,$scope.currentCity.longitude));
-			      }, 500)
+			      }, 1000)
 			  });
         
 	});
