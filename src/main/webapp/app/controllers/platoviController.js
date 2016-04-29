@@ -207,7 +207,7 @@ app.controller('headerController', function($scope,$rootScope,cityNameFactory,$s
 				$state.go("country", { 'countryName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
 			}
 			else{
-				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+				$state.go("detail", { 'cityName' :  $scope.selectedCity });
 			}
 		}
 	}
