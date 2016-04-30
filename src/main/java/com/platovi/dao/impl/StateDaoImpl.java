@@ -51,8 +51,8 @@ public class StateDaoImpl implements StateDao {
 	
 	public List<String> getAllStateNames() {
 		// TODO Auto-generated method stub
-		Query query = em.createQuery("SELECT a.stateName FROM State a");
-        
+		Query query = em.createQuery("SELECT concat(a.stateName, ', ', a.country.countryName) FROM State a");
+		
         List<String> states = query.getResultList();
         return states;
 	}
