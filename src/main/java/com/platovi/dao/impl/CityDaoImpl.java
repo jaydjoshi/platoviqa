@@ -25,7 +25,7 @@ public class CityDaoImpl implements CityDao {
 
 	@SuppressWarnings("unchecked")
 	public List<City> listAllCity() {
-        List<City> cityList =  em.createQuery("SELECT a from City a").getResultList();
+        List<City> cityList =  em.createQuery("SELECT a from City a ORDER BY a.rating DESC").setMaxResults(50).getResultList();
         return cityList;
 	}
 
