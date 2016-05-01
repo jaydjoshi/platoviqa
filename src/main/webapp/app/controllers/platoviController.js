@@ -878,14 +878,7 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 	
 	$scope.descriptionLength=500;
 	
-	// more/less clicked on
-	$scope.showContentMoreOrLess = function(){
-    	if($scope.descriptionLength === 500){
-    		$scope.descriptionLength = $scope.currentCity.description.length;
-      }else{
-    	  $scope.descriptionLength = 500;
-      }    	
-    }  
+	
 	
 	var query=countryFactory.get({countryName:$scope.countryName});
 	query.$promise.then(function(data){
@@ -906,6 +899,15 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 		});
 		
 	});
+	
+	// more/less clicked on
+	$scope.showContentMoreOrLess = function(){
+    	if($scope.descriptionLength === 500){
+    		$scope.descriptionLength = $scope.countryData.description.length;
+      }else{
+    	  $scope.descriptionLength = 500;
+      }    	
+    }  
 	
 	/*==========================  filter ================================*/
 	/*filter($scope,false); *///do not display distance slider and distance order by
