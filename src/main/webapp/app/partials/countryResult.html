@@ -5,13 +5,6 @@
 
 <!-- Page Content -->
 <div  class="bg-light-gray">
-
-	<!-- <header class="sb-page-header">
-		<div class="container">
-			<h1>{{countryData.countryName}}</h1>
-			<small class="city-detail-subtext">{{currentCity.title}}</small>
-		</div>
-	</header> -->
 	<header class="sb-page-header-detail" data-ng-show="countryData.countryName.length" data-ng-style="{'background-image': 'url('+countryData.imageLargePath+')'}">
 		<div class="container city-detail-head">
 			<div class="city-detail_text">
@@ -62,6 +55,18 @@
 	                       	</div>
                         </div>
 				  </md-card>
+				  <md-card class="place-card">
+                    	<div>
+                    	  <a data-ui-sref="state({stateName : state.stateName})" data-ng-click='showdetailCity(state)' class="portfolio-link">
+                    		 
+				         	<span class="rating" data-ng-class="getBackgroudClass(state.rating)" data-ng-show="state.rating > 0">{{state.rating}}</span> 
+                        	<span class="center-text">
+                        		<h2>{{state.stateName}}</h2>
+                        	</span>
+                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{state.stateName}}" alt="Platovi - places to visit {{state.stateName}} state" class="img-responsive" >
+				         </a>
+				         </div>				        
+				  </md-card>
                 </div>
                 <div class="text-center" data-ng-show="!(stateData).length">
                 	<h3>
@@ -83,7 +88,7 @@
 					<h1 class="page-header" data-ng-show="countryData.countryName.length >0">Top cities in {{countryData.countryName}}</h1> 
 				</div>	
                 <div class="col-md-4 col-sm-6 portfolio-item medium-padding animate-repeat" data-ng-repeat="city in  cityData">
-                    <md-card>
+                    <!-- <md-card>
                     <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
                         <span class="portfolio-hover">
                             <span class="portfolio-hover-content">
@@ -100,6 +105,19 @@
 	                        </div>
 	                       	</div>
                         </div>
+				  </md-card> -->
+				  
+				  <md-card class="place-card">
+                    	<div>
+                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                    		 
+                        	<span class="rating" data-ng-class="getBackgroudClass(city.rating)" data-ng-show="city.rating > 0">{{city.rating}}</span> 
+                        	<span class="center-text">
+                        		<h2>{{city.cityName}}</h2>
+                        	</span>
+				         	<img data-ng-src="{{city.imageMediumPath}}" err-SRC="{{defaultMediumImagePath}}" alt="Platovi - places to visit {{city.cityName}} city" class="place-img img-responsive" >
+				         </a>
+				         </div>				        
 				  </md-card>
                 </div>
                 <div class="text-center" data-ng-show="!(cityData).length">

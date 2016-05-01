@@ -233,6 +233,7 @@ app.controller('homeController', function($scope,$rootScope,cityFactory,cityName
 
 	$rootScope.error = '';
 	$rootScope.pageTitle = 'Home | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//set the object to the scope
     $scope.cities = cityMetro;
@@ -298,6 +299,7 @@ app.controller('resultController',function($scope,$rootScope,cityFactory,$state,
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = 'Places to visit near '+$stateParams.cityName+' | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
 	$scope.showLoader = true;
@@ -680,6 +682,7 @@ app.controller('resultCategoryController',function($scope,$rootScope,cityCategor
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.categoryType+' places to visit | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	$scope.category = $stateParams.categoryType;
 	
@@ -710,6 +713,7 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.stateName+' places to visit | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	$scope.stateName = $stateParams.stateName;
 	
@@ -746,6 +750,7 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.countryName+' places to visit | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	$scope.countryName = $stateParams.countryName;
 	

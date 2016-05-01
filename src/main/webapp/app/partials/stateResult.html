@@ -9,11 +9,18 @@
 	<header class="sb-page-header">
 		<div class="container">
 			<h1>{{stateData.stateName}}, <a ui-sref="country({countryName:stateData.country.countryName})">{{stateData.country.countryName}}</a><small>{{stateData.title}} </small></h1>
+			<p class="city-detail-subtext animated bounceInRight" data-ng-show="filteredCity.length">{{filteredCity.length}} places found</p>
 		</div>
 	</header>
+	
+	<section data-ng-show="showLoader">
+		<div layout="row" layout-sm="column" layout-align="space-around">
+	      <md-progress-circular md-mode="indeterminate" md-diameter="70"></md-progress-circular>
+	    </div>
+	</section>
    
 	<!-- Portfolio Grid Section -->
-    <section id="portfolio" >
+    <section id="portfolio" data-ng-hide="showLoader">
         <div class="container">
 	        
 	        
@@ -57,13 +64,6 @@
 										</div>
 										<div class="col-lg-6 col-md-6">
 											<span class="pull-right">
-												<span >
-													<md-button data-ui-sref="state" data-ng-click="sortType = 'distanceFromCurrentCity'; sortReverse = !sortReverse">
-												        Distance 
-												        <span data-ng-show="sortType == 'distanceFromCurrentCity' && !sortReverse" class="fa fa-caret-down"></span>
-												        <span data-ng-show="sortType == 'distanceFromCurrentCity' && sortReverse" class="fa fa-caret-up"></span>
-												    </md-button>
-												</span>
 												<span >
 												    <md-button data-ui-sref="state" data-ng-click="sortType = 'cityName'; sortReverse = !sortReverse">
 												        Name
@@ -282,7 +282,7 @@
                 <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
                 																 orderBy:sortType:sortReverse "
                 															>
-                    <md-card>
+                    <!-- <md-card>
                     <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
                         <span class="portfolio-hover">
                             <span class="portfolio-hover-content">
@@ -299,6 +299,18 @@
 	                        </div>
 	                       	</div>
                         </div>
+				  </md-card> -->
+				  <md-card class="place-card">
+                    	<div>
+                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+                    		 
+                        	<span class="rating" data-ng-class="getBackgroudClass(city.rating)" data-ng-show="city.rating > 0">{{city.rating}}</span> 
+                        	<span class="center-text">
+                        		<h2>{{city.cityName}}</h2>
+                        	</span>
+				         	<img data-ng-src="{{city.imageMediumPath}}" err-SRC="{{defaultMediumImagePath}}" alt="Platovi - places to visit {{city.cityName}} city" class="place-img img-responsive" >
+				         </a>
+				         </div>				        
 				  </md-card>
                 </div>
                 <div class="text-center" data-ng-show="!(filteredCity  | filter:query  | orderBy:sortType:sortReverse ).length">
