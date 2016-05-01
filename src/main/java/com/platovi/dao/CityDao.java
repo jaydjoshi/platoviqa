@@ -13,7 +13,7 @@ public interface CityDao {
     
     public City getCity(int id);
      
-    public List<City> listAllCity();
+    public List<City> listAllCity(int maxRow);
     
     public City findCityByName(String name);
 

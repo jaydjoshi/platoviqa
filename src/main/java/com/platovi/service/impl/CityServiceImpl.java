@@ -33,8 +33,8 @@ public class CityServiceImpl implements CityService {
 	}
 
 	@Transactional
-	public List<City> listAllCity() {
-		return cityDao.listAllCity();
+	public List<City> listAllCity(int maxRow) {
+		return cityDao.listAllCity(maxRow);
 	}
 	
 	@Transactional

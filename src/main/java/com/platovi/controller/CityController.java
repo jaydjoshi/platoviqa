@@ -103,7 +103,7 @@ public class CityController {
 		List<City> cityList =  new ArrayList<City>();
 		City currentCity = null;
         if(cityName == null)
-        	cityList = cityService.listAllCity();
+        	cityList = cityService.listAllCity(50);
         else
         {
         	//if You is selected then set Lat and Lon in currentCity 
@@ -131,7 +131,7 @@ public class CityController {
 				}
         	}
         	else{
-        		cityList = cityService.listAllCity();
+        		cityList = cityService.listAllCity(50);
         	}
         }
         return new ResponseEntity<List>( cityList, HttpStatus.OK);
@@ -172,7 +172,7 @@ public class CityController {
 		List<City> returnList= new ArrayList<City>();
 		City currentCity = new City();
         if(cityName == null || (latitude==null && longitude==null))
-        	cityList = cityService.listAllCity();
+        	cityList = cityService.listAllCity(50);
         else
         {
         	

@@ -13,7 +13,7 @@ public interface CityService {
     
     public City getCity(int cityId);
      
-    public List<City> listAllCity();
+    public List<City> listAllCity(int maxRow);
     
     public City findCityByName(String name);
 
