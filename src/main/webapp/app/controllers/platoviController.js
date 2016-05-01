@@ -684,11 +684,17 @@ app.controller('resultCategoryController',function($scope,$rootScope,cityCategor
 	$rootScope.pageTitle = $stateParams.categoryType+' places to visit | Platovi - places to visit';
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
+	//show loader
+	$scope.showLoader = true;
+	
 	$scope.category = $stateParams.categoryType;
 	
 	var query=cityCategoryFactory.query({categoryName:$scope.category});
 	query.$promise.then(function(data){
 		$scope.cityData=(data);
+		
+		//do not show loader
+		$scope.showLoader = false;
 		
 	});
 	
@@ -715,6 +721,9 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 	$rootScope.pageTitle = $stateParams.stateName+' places to visit | Platovi - places to visit';
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
+	//show loader
+	$scope.showLoader = true;
+	
 	$scope.stateName = $stateParams.stateName;
 	
 	var query=stateFactory.get({stateName:$scope.stateName});
@@ -726,6 +735,9 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 		var citiesInState=citiesInStateFactory.query({stateId:$scope.stateData.stateId});
 		citiesInState.$promise.then(function(data){
 			$scope.cityData=data;
+			
+			//do not show loader
+			$scope.showLoader = false;
 		});
 		
 	});
@@ -752,6 +764,9 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 	$rootScope.pageTitle = $stateParams.countryName+' places to visit | Platovi - places to visit';
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
+	//show loader
+	$scope.showLoader = true;
+	
 	$scope.countryName = $stateParams.countryName;
 	
 	var query=countryFactory.get({countryName:$scope.countryName});
@@ -768,6 +783,8 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 		var statesInCountry=statesInCountryFactory.query({countryId:$scope.countryData.countryId});
 		statesInCountry.$promise.then(function(data){
 			$scope.stateData=data;
+			//do not show loader
+			$scope.showLoader = false;
 		});
 		
 	});
