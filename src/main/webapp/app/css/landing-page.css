@@ -1059,3 +1059,9 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     height: 240px;
     width: 360px;
 }
+
+.jumbotron-error{
+    
+    color: inherit;
+    background-color: #f5f5f5;
+}
