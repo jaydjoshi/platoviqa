@@ -809,6 +809,7 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = $stateParams.cityName+' places to visit | Platovi - places to visit';
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
 	$scope.showLoader = true;

@@ -426,7 +426,7 @@
         		<h1 class="page-header text-center" data-ng-show="citiesNearCity.length >0">Other places near {{currentCity.cityName}} you may like</h1>
 			        <div class="row">
 		                <div class="col-md-4 col-sm-6 portfolio-item" data-ng-repeat="city in citiesNearCity" >
-		                    <md-card>
+		                    <!-- <md-card>
 		                    <a data-ui-sref="detail({cityName : city.cityName})" class="portfolio-link">
 		                        <span class="portfolio-hover">
 		                            <span class="portfolio-hover-content">
@@ -440,7 +440,22 @@
 		                        <h4 data-ui-sref="detail({cityName : city.cityName})">{{city.cityName}}</h4>
 		                        <p class="text-muted">{{city.distanceFromCurrentCity}} km away from {{currentCity.cityName}}</p>
 		                    </div>
-		                    </md-card>
+		                    </md-card> -->
+		                    
+		                     <md-card class="place-card">
+		                    	<div>
+		                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link">
+		                    		 
+		                        	<span class="rating" data-ng-class="getBackgroudClass(city.rating)" data-ng-show="city.rating > 0">{{city.rating}}</span> 
+		                        	<span class="center-text">
+		                        		<h2>{{city.cityName}}</h2>
+		                        		<p class="center-text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away from {{currentCity.cityName}}</p>
+		                        	</span>
+						         	<img data-ng-src="{{city.imageMediumPath}}" err-SRC="{{defaultMediumImagePath}}" alt="Platovi - places to visit {{city.cityName}} city" class="place-img img-responsive" >
+						         </a>
+						         </div>				        
+						  </md-card>
+		                    
 		                </div>
 		                
 		            </div>
