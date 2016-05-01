@@ -1,8 +1,4 @@
-/*!
- * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+
 
 body,
 html {
@@ -1035,4 +1031,31 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 /* fix for mobile search filter */
 .navbar-collapse.in {
     overflow-y: visible;
+}
+
+.center-text{
+	position: absolute;
+    text-align: center;
+    top: 30%;
+    width: 100%;
+    color: #fff;
+}
+
+.center-text-muted {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 18px;
+}
+
+.place-card:hover{
+	-webkit-animation: pulse .8s;
+    animation: pulse .8s;
+}
+
+.place-img{
+	/* background-color: #A9A9A9; */
+	background-color: #A4A8AD;
+    height: 240px;
+    width: 360px;
 }
