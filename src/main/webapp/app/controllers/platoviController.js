@@ -876,6 +876,17 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 	
 	$scope.countryName = $stateParams.countryName;
 	
+	$scope.descriptionLength=500;
+	
+	// more/less clicked on
+	$scope.showContentMoreOrLess = function(){
+    	if($scope.descriptionLength === 500){
+    		$scope.descriptionLength = $scope.currentCity.description.length;
+      }else{
+    	  $scope.descriptionLength = 500;
+      }    	
+    }  
+	
 	var query=countryFactory.get({countryName:$scope.countryName});
 	query.$promise.then(function(data){
 		$scope.countryData=(data);

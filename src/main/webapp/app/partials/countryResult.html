@@ -33,7 +33,10 @@
 					            <div class="col-lg-12 text-center large-padding article-para">
 					                <h1 class="page-header">{{countryData.countryName}} at a glance</h1> 
 					                
-					               <p class="small-padding">{{countryData.description }}</p>
+					               <p class="small-padding">{{countryData.description | limitTo:descriptionLength}}
+					               <span data-ng-show='countryData.description.length>500'>
+										<a class="md-raised" data-ng-click="showContentMoreOrLess()">read {{descriptionLength === 500 ? 'more' : 'less'}}</a>
+									</span>
 					               
 					             </div>
 					        </div>
