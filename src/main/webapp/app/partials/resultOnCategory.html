@@ -7,6 +7,7 @@
 	<header class="sb-page-header" style="background-image: url(img/category/{{category | replaceIsFilter}}.jpg);">
 		<div class="container">
 			<h1>{{category | removeIsFilter}} <small>places to visit</small></h1>
+			<p class="city-detail-subtext animated bounceInRight" data-ng-show="filteredCity.length">{{filteredCity.length}} places found</p>
 		</div>
 	</header>
    
