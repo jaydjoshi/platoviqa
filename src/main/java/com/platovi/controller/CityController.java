@@ -284,6 +284,18 @@ public class CityController {
     
     }
 	
+	@RequestMapping(value="/top", method = RequestMethod.GET)
+    public ResponseEntity<List> getAllTopCity(@RequestParam(value="row", required = false) int row) {
+		
+		LOGGER.info("CityController : getAllTopCity method starts");
+		List<City> cityList =  new ArrayList<City>();
+			
+		cityList = cityService.listAllCity(row);
+		
+	    return new ResponseEntity<List>( cityList, HttpStatus.OK);
+    
+    }
+	
 
 	private City setCategoryInCity(String categoryName) {
 		return null;/*

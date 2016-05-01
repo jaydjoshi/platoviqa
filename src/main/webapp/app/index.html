@@ -129,11 +129,10 @@
 		    
 		
 		    
-	</div> 
-		
-	<div class="jumbotron-error text-center" data-ng-show="error.length>0">
+	</div>
+	<div class="jumbotron text-center" data-ng-show="error.length>0">
 	  <h1>
-	  	<span class="fa-broken-heart fa-stack animated bounce" >
+	  	<span class="fa-broken-heart fa-stack">
 			<i class="fa fa-heart fa-stack-2x"></i>
 			<i class="fa fa-flash fa-stack-1x"></i>
 		</span>																					
@@ -145,16 +144,84 @@
 	
 	
 		
-    	<!--  ui view section -->
-    	<section data-ng-class="{'content-section-background': isHomeController}" data-ui-view="">
+    <!--  ui view section -->
+    <section data-ng-class="{'content-section-background': isHomeController}" data-ui-view="">
+    		
+    </section>
     	
-    	</section>
+
+    <section data-ng-show="isHomeController" class="bg-light-gray" data-ng-controller="homePage2Controller">
     	
+    	<!-- Explore top states -->
+    	<section class="large-padding">
+    		<h1 class="page-header text-center">Explore top places by State</h1>
+	    	<div class="container medium-padding">
+	    		<div class="row">	
+		    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="state in topStateData">
+						<md-card class="place-card">
+	                    	<div>
+	                    	  <a data-ui-sref="state({stateName : state.stateName})" data-ng-click='showdetailCity(state)' class="portfolio-link">
+	                        	<span class="center-text">
+	                        		<h2>{{state.stateName}}</h2>
+	                        	</span>
+	                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{state.stateName}}" alt="Platovi - places to visit {{state.stateName}} state" class="img-responsive" >
+					         </a>
+					         </div>				        
+					  </md-card>
+					</div>
+				</div>
+			</div>
+		</section>
+    	
+    	
+    	<!-- Explore places by category -->
+    	<section class="no-padding large-padding">
+    		<h1 class="page-header text-center ">Explore places by Category</h1>
+	        <div class="container-fluid medium-padding">
+	            <div class="row no-gutter">
+	                <div class="col-lg-4 col-sm-6" data-ng-repeat="category in categories">
+	                    <a data-ui-sref="resultOnCategory({categoryType : 'is'+category})" class="portfolio-box ">
+	                    	<span class="center-text"><h2>{{category}}</h2></span>
+	                        <img data-ng-src="img/category/medium/{{category | replaceIsFilter}}.jpg" class="img-responsive" alt="">
+	                    </a>
+	                </div>
+	                
+	            </div>
+	        </div>
+	    </section>
+	    
+	    <!-- Explore top cities -->
+    	<section class="large-padding">
+    		<h1 class="page-header text-center">Explore top places to visit</h1>
+	    	<div class="container medium-padding">
+	    		<div class="row">	
+		    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in topCitydata">
+						<md-card class="place-card">
+						<div>
+							<a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link"> 
+								
+								<span class="center-text">
+									<h2>{{city.cityName}}</h2>
+								</span> 
+								<img data-ng-src="{{city.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="Platovi - places to visit {{city.cityName}} city" class="place-img img-responsive">
+							</a>
+						</div>
+						</md-card>
+					</div>
+				</div>
+			</div>
+		</section>
+    	
+    	<!-- Blogger -->
+    	<div class="large-padding">
+    		<feed summary="true" url="http://blog.platovi.com/feeds/posts/default/-/Business?alt=rss" count="5"/>
+    	</div>
+    </section>
     
     
     
     <!-- Footer -->
-    <footer data-ng-hide="isHomeController">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

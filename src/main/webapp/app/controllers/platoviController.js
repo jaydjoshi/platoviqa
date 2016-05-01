@@ -71,6 +71,22 @@ app.factory('citiesInStateFactory', function($resource){
 
 /**
  * @author jdhirendrajoshi
+ * topCitiesFactory factory method to return city detail URL resource
+ */
+app.factory('topCitiesFactory', function($resource){
+	return $resource('/rest/city/top');
+});
+
+/**
+ * @author jdhirendrajoshi
+ * topStateFactory factory method to return city detail URL resource
+ */
+app.factory('topStateFactory', function($resource){
+	return $resource('/rest/state/all');
+});
+
+/**
+ * @author jdhirendrajoshi
  * stateFactory factory method to return state detail URL resource
  */
 app.factory('stateFactory', function($resource){
@@ -224,6 +240,97 @@ app.controller('headerController', function($scope,$rootScope,cityNameFactory,$s
     
 });
 
+/**
+ * @author jdhirendrajoshi
+ * homePage2Controller controller  
+ */
+app.controller('homePage2Controller', function($scope,$rootScope,topCitiesFactory,topStateFactory,$state) {
+	
+	$rootScope.isHomeController=true;
+	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
+	$scope.categories = [
+	                            "Adventure",
+	                            "BeachCity",
+	                            "GreenCity",
+	                            "Heritage",
+	                            "HillorMountain",
+	                            "Metropolitan",
+	                            "NightLife",
+	                            "Religious",
+	                            "Trending"
+	                        ];
+	
+	/* city data */
+	var query=topCitiesFactory.query({row:12});
+	query.$promise.then(onSuccess);
+	
+	function onSuccess(data){
+		$scope.topCitydata=data;
+	};
+	
+	
+	/* state data */
+	var query=topStateFactory.query({row:9});
+	
+	query.$promise.then(function onSuccess(data){
+		$scope.topStateData=data;
+	});
+	
+	
+	
+	
+	
+	/*
+	
+	$rootScope.error = '';
+    var query=cityNameFactory.query();
+	query.$promise.then(onSuccess);
+	var cityNameList=[];
+	
+	function onSuccess(data){
+		console.log("header: "+data.placeName);
+		
+		$scope.headerList=data;
+		
+		for( var i in data ) {
+			cityNameList.push(data[i].placeName+' ('+data[i].placeType+')');
+		}
+		
+		$scope.cityNameList=cityNameList;
+		
+	};
+	
+	$scope.detailCity = function(isValid){
+		if(isValid){
+			var subStringCommaPos=$scope.selectedCity.indexOf(",");
+			var subStringOpenBracketPos=$scope.selectedCity.lastIndexOf("(");
+			var subStringCloseBracketPos=$scope.selectedCity.lastIndexOf(")");
+			
+			//city , state or country
+			var subStr = $scope.selectedCity.substring(subStringOpenBracketPos+1,subStringCloseBracketPos);
+			
+			if(subStr=='City'){
+				console.log("header found city");
+				// Mumbai, India (City)
+				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
+			else if(subStr=='State'){
+				console.log("header found state");
+				// Maharashtra, India (State) 
+				$state.go("state", { 'stateName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
+			else if(subStr=='Country'){
+				console.log("header found Country");
+				//Bracket position cause there is no comma in country like India (Country)
+				$state.go("country", { 'countryName' :  $scope.selectedCity.substring(0,subStringOpenBracketPos-1) });
+			}
+			else{
+				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
+			}
+		}
+	}
+    
+*/});
 
 /**
  * @author jdhirendrajoshi
