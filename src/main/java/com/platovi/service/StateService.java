@@ -13,7 +13,7 @@ public interface StateService {
     
     public State getState(int id);
      
-    public List<State> listAllStates();
+    public List<State> listAllStates(int row);
     
     public State findStateByName(String name);
 

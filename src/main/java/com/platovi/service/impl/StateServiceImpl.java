@@ -41,9 +41,9 @@ public class StateServiceImpl implements StateService {
 	}
 
 	@Transactional
-	public List<State> listAllStates() {
+	public List<State> listAllStates(int row) {
 		// TODO Auto-generated method stub
-		return StateDao.listAllStates();
+		return StateDao.listAllStates(row);
 	}
 
 	@Transactional

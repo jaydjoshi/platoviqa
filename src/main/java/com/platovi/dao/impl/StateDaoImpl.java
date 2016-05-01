@@ -31,8 +31,8 @@ public class StateDaoImpl implements StateDao {
 	}
 	
 
-	public List<State> listAllStates() {
-		List<State> placeList =  em.createQuery("SELECT a from State a").getResultList();
+	public List<State> listAllStates(int row) {
+		List<State> placeList =  em.createQuery("SELECT a from State a ORDER BY a.rating DESC").setMaxResults(row).getResultList();
         return placeList;
 	}
 	

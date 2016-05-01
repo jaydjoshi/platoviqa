@@ -52,10 +52,10 @@ public class StateController {
 	 * method to get all the states
 	 */
 	@RequestMapping(value="/all", method = RequestMethod.GET)
-    public ResponseEntity<List> getAllStates() {
+    public ResponseEntity<List> getAllStates(@RequestParam(value="row", required = false) int row) {
 		
 		LOGGER.info("stateController : getAllStates method starts");
-        List<State> states = stateService.listAllStates();
+        List<State> states = stateService.listAllStates(row);
         
         return new ResponseEntity<List>( states, HttpStatus.OK);
     
@@ -80,7 +80,7 @@ public class StateController {
 	 * method to get the detail of the city
 	 */
 	@RequestMapping(value="/country", method = RequestMethod.GET)
-    public ResponseEntity<List> getAllCityNamesByCountry(@RequestParam(value="countryId", required = false) int countryId) {
+    public ResponseEntity<List> getAllStateNamesByCountry(@RequestParam(value="countryId", required = false) int countryId) {
 		
 		LOGGER.info("CityController : getAllCityNamesByCountry method starts");
 		List<City> cityList =  new ArrayList<City>();
