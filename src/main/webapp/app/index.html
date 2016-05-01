@@ -71,8 +71,8 @@
 	<script src="js/dirDisqus.js"></script>
 	
 	<!-- Angular feeds -->
-	<script type="text/javascript" src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%2C%22nocss%22%3Atrue%7D%5D%7D"></script>
-	<script src="http://siddii.github.io/angular-feeds/app/angular-feeds/angular-feeds.js"></script>
+	<script src="js/jsapi.js"></script>
+	<script src="js/angular-feeds.js"></script>
 	
 	<!-- google analytics -->
 	<script src="js/angulartics.min.js"></script>
@@ -164,7 +164,7 @@
 	                        	<span class="center-text">
 	                        		<h2>{{state.stateName}}</h2>
 	                        	</span>
-	                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{state.stateName}}" alt="Platovi - places to visit {{state.stateName}} state" class="img-responsive" >
+	                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="Platovi - places to visit {{state.stateName}} state" class="img-responsive" >
 					         </a>
 					         </div>				        
 					  </md-card>
@@ -211,6 +211,18 @@
 				</div>
 			</div>
 		</section>
+		
+		<!-- Blogs -->
+		<section class="bg-dark large-padding blog-section">
+			<div class="container text-center">
+	            <div class="call-to-action">
+	                <h2>Click below to view our blog posts!</h2>
+	                <md-button class="md-raised md-primary btn-large"><a href="http://blog.platovi.com" class="md-raised md-primary btn-large white-color"><i class="fa fa-search"></i> Blog</a></md-button>
+	               
+	            </div>
+       		</div>
+		</section>
+
     	
     	<!-- Blogger -->
     	<div class="large-padding">

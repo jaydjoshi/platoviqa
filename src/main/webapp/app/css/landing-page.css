@@ -1128,3 +1128,21 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     font-size: 22px;
   }
 } 
+
+.bg-dark {
+  background-color: #222222;
+  color: #fff;
+}
+
+.blog-section{
+	padding: 50px 0;
+	background-image: url(../img/banner-bg.jpg);
+}
+
+.white-color{
+	color: #fff;
+}
+
+.white-color:hover{
+	color: #fff;
+}
