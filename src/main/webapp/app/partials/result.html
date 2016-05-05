@@ -295,41 +295,8 @@
                 
                 
                 <div class="col-md-4 col-sm-6 portfolio-item animate-repeat" data-ng-repeat="city in filteredCity  | filter:query  |
-                																 orderBy:sortType:sortReverse "
-                																  >
+                																 orderBy:sortType:sortReverse ">
                    
-                    <!-- <md-card>
-                    	 <a data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' class="portfolio-link" analytics-on="click" analytics-event="clickOnResultPage">
-                    	 <span class="portfolio-hover">
-                            <span class="portfolio-hover-content">
-                                <i class="fa fa-share fa-3x"></i>
-                            </span>
-                        </span>
-                        <span class="rating" data-ng-class="getBackgroudClass(city.rating)" data-ng-show="city.rating > 0">{{city.rating}}</span> 
-				         <img data-ng-src="{{city.imageMediumPath}}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit {{city.cityName}} city" class="img-responsive" >
-				         </a>
-				         <div class="portfolio-caption">
-                    	<div class="row">
-	                    	<div class="col-lg-12">
-	                        	<p data-ui-sref="detail({cityName : city.cityName})" data-ng-click='showdetailCity(city)' analytics-on="click" analytics-event="clickOnResultPage"><b>{{city.cityName}}</b></p>
-	                        </div>
-                        
-                         </div>
-                        <div class="row">
-                        	 <div class="col-lg-8 ">
-	                        	<div class="">
-	                       			<p class="text-muted" data-ng-show="city.distanceFromCurrentCity > 0">{{city.distanceFromCurrentCity}} km away</p>
-	                       		 </div>
-	                       	</div>
-	                       	<div class="col-lg-4 ">
-	                        	<div class="">
-	                       			<p class="text-muted" data-ng-show="city.rating > 0">{{city.rating}}</p>
-	                       		 </div>
-	                       	</div>
-                        </div>
-                   </div>
-				       
-				  </md-card> -->
 				  
 				  <md-card class="place-card">
                     	<div>
