@@ -12,7 +12,10 @@
     <md-dialog-content>
       <div class="md-dialog-content article-para">
         
-        <img style="margin: auto; max-width: 100%;" alt="{{placeInfo.placeName}} image" src="">
+        <div class="row" data-ng-show="place.imageLargePath">
+        	<img ng-src="{{place.imageLargePath}}" style="margin: auto; max-width: 100%;" alt="{{placeInfo.placeName}} image">
+        </div>
+        
         <p>
          {{placeInfo.placeOverview}} 
         </p>
