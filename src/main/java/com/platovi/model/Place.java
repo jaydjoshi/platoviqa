@@ -31,6 +31,10 @@ public class Place {
 	private double lonInRadians;
 	private double latInRadians;
 	
+	//image file location
+	private String imageMediumPath;
+	private String imageLargePath;
+	
 	@OneToOne
 	private City city;
 	
@@ -131,6 +135,18 @@ public class Place {
 	}
 	public void setRating(float rating) {
 		this.rating = rating;
+	}
+	public String getImageMediumPath() {
+		return imageMediumPath;
+	}
+	public void setImageMediumPath(String imageMediumPath) {
+		this.imageMediumPath = imageMediumPath;
+	}
+	public String getImageLargePath() {
+		return imageLargePath;
+	}
+	public void setImageLargePath(String imageLargePath) {
+		this.imageLargePath = imageLargePath;
 	}
 	
 	
