@@ -276,61 +276,7 @@ app.controller('homePage2Controller', function($scope,$rootScope,topCitiesFactor
 		$scope.topStateData=data;
 	});
 	
-	
-	
-	
-	
-	/*
-	
-	$rootScope.error = '';
-    var query=cityNameFactory.query();
-	query.$promise.then(onSuccess);
-	var cityNameList=[];
-	
-	function onSuccess(data){
-		console.log("header: "+data.placeName);
-		
-		$scope.headerList=data;
-		
-		for( var i in data ) {
-			cityNameList.push(data[i].placeName+' ('+data[i].placeType+')');
-		}
-		
-		$scope.cityNameList=cityNameList;
-		
-	};
-	
-	$scope.detailCity = function(isValid){
-		if(isValid){
-			var subStringCommaPos=$scope.selectedCity.indexOf(",");
-			var subStringOpenBracketPos=$scope.selectedCity.lastIndexOf("(");
-			var subStringCloseBracketPos=$scope.selectedCity.lastIndexOf(")");
-			
-			//city , state or country
-			var subStr = $scope.selectedCity.substring(subStringOpenBracketPos+1,subStringCloseBracketPos);
-			
-			if(subStr=='City'){
-				console.log("header found city");
-				// Mumbai, India (City)
-				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
-			}
-			else if(subStr=='State'){
-				console.log("header found state");
-				// Maharashtra, India (State) 
-				$state.go("state", { 'stateName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
-			}
-			else if(subStr=='Country'){
-				console.log("header found Country");
-				//Bracket position cause there is no comma in country like India (Country)
-				$state.go("country", { 'countryName' :  $scope.selectedCity.substring(0,subStringOpenBracketPos-1) });
-			}
-			else{
-				$state.go("detail", { 'cityName' :  $scope.selectedCity.substring(0,subStringCommaPos) });
-			}
-		}
-	}
-    
-*/});
+});
 
 /**
  * @author jdhirendrajoshi
