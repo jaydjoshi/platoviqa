@@ -1,7 +1,5 @@
 package com.platovi.controller;
 
-import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,9 @@ public class RobotsController {
 
     @RequestMapping(value = "/robots.txt", method = RequestMethod.GET)
     public String getRobots(HttpServletRequest request) {
+		return "robotsAllowed";
+		/*
         return (Arrays.asList("platovi.com", "www.platovi.com").contains(request.getServerName())) ?
                 "robotsAllowed" : "robotsDisallowed";
-    }
+    */}
 }
