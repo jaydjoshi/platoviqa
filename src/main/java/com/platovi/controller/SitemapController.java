@@ -1,5 +1,6 @@
 package com.platovi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.platovi.model.Country;
+import com.platovi.model.State;
 import com.platovi.model.XmlUrl;
 import com.platovi.model.XmlUrlSet;
 import com.platovi.service.CityService;
@@ -43,6 +46,23 @@ public class SitemapController {
         
         List<String> cities = cityService.getAllCityNames();
         
+        List<String> categories = new ArrayList<String>();
+        
+        //hard coded :/
+        categories.add("isAdventure");        
+        categories.add("isBeachCity");        
+        categories.add("isDesert");        
+        categories.add("isGreenCity");        
+        categories.add("isHeritage");        
+        categories.add("isHillorMountain");        
+        categories.add("isMetropolitan");        
+        categories.add("isNightLife");        
+        categories.add("isReligious");        
+        categories.add("isTrending"); 
+        
+        
+        
+        
         for (String string : countrys) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
         	create(xmlUrlSet, "/#!/country/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
@@ -51,6 +71,10 @@ public class SitemapController {
         for (String string : states) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
         	create(xmlUrlSet, "/#!/state/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
+		}
+        
+        for (String string : categories) {
+        	create(xmlUrlSet, "/#!/category/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
 		}
         
         for (String string : cities) {
