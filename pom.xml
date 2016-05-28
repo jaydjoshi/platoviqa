@@ -134,6 +134,13 @@
 	  <artifactId>prerender-java</artifactId>
 	  <version>1.6.4</version>
 	</dependency>
+	
+	<!-- http://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+	<dependency>
+	    <groupId>javax.xml.bind</groupId>
+	    <artifactId>jaxb-api</artifactId>
+	    <version>2.2.12</version>
+	</dependency>
     
  </dependencies>
 
