@@ -128,7 +128,12 @@
       <scope>test</scope>
     </dependency>
 	    
-	
+	<!-- Prerender.io -->
+	<dependency>
+	  <groupId>com.github.greengerong</groupId>
+	  <artifactId>prerender-java</artifactId>
+	  <version>1.6.4</version>
+	</dependency>
     
  </dependencies>
 
