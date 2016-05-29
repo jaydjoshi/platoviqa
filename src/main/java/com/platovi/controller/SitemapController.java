@@ -88,6 +88,7 @@ public class SitemapController {
 
     private void create(XmlUrlSet xmlUrlSet, String link, XmlUrl.Priority priority) {
         xmlUrlSet.addUrl(new XmlUrl("http://www.platovi.com" + link, priority));
+        xmlUrlSet.addUrl(new XmlUrl("http://platovi.com" + link, priority));
     }
 	
 }
