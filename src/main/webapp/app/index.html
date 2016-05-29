@@ -11,6 +11,7 @@
     <!-- <meta name="fragment" content="!"> -->
 
     <title data-ng-bind="pageTitle"></title>
+    <meta name="description" content="Platovi - places to visit">
 	<meta name="keywords" content="{{keywords}}">
 	<meta name="msvalidate.01" content="BEA9ADA5C54A79F9CF8A3785A37F7BDB" />
      
@@ -166,7 +167,7 @@
 	                        	<span class="center-text">
 	                        		<h2>{{state.stateName}}</h2>
 	                        	</span>
-	                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="Platovi - places to visit {{state.stateName}} state" class="img-responsive" >
+	                        	<img data-ng-src="{{state.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="places to visit in {{state.stateName}}" class="img-responsive" >
 					         </a>
 					         </div>				        
 					  </md-card>
@@ -184,7 +185,7 @@
 	                <div class="col-lg-4 col-sm-6" data-ng-repeat="category in categories">
 	                    <a data-ui-sref="resultOnCategory({categoryType : 'is'+category})" class="portfolio-box ">
 	                    	<span class="center-text"><h2>{{category}}</h2></span>
-	                        <img data-ng-src="img/category/medium/{{category | replaceIsFilter}}.jpg" class="img-responsive" alt="">
+	                        <img data-ng-src="img/category/medium/{{category | replaceIsFilter}}.jpg" class="img-responsive" alt="places to visit in {{category | replaceIsFilter}}">
 	                    </a>
 	                </div>
 	                
@@ -205,7 +206,7 @@
 								<span class="center-text">
 									<h2>{{city.cityName}}</h2>
 								</span> 
-								<img data-ng-src="{{city.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="Platovi - places to visit {{city.cityName}} city" class="place-img img-responsive">
+								<img data-ng-src="{{city.imageMediumPath}}" err-SRC="img/city/default.jpg" alt="places to visit in {{city.cityName}}" class="place-img img-responsive">
 							</a>
 						</div>
 						</md-card>
