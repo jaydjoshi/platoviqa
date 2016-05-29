@@ -286,6 +286,7 @@ app.controller('homeController', function($scope,$rootScope,cityFactory,cityName
 
 	$rootScope.error = '';
 	$rootScope.pageTitle = 'Home | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit','travel','tourism','weekend getaways','trip', 'travel tips'];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//set the object to the scope
@@ -352,6 +353,7 @@ app.controller('resultController',function($scope,$rootScope,cityFactory,$state,
 	//to display the footer
 	$rootScope.isHomeController=false;
 	$rootScope.pageTitle = 'Places to visit near '+$stateParams.cityName+' | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit near '+$stateParams.cityName,'travelnear '+$stateParams.cityName,$stateParams.cityName+' tourism','weekend getaways near '+$stateParams.cityName,'trip near '+$stateParams.cityName, 'travel tips near '+$stateParams.cityName];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
@@ -734,7 +736,8 @@ app.controller('resultCategoryController',function($scope,$rootScope,cityCategor
 	$rootScope.error = '';
 	//to display the footer
 	$rootScope.isHomeController=false;
-	$rootScope.pageTitle = $stateParams.categoryType+' places to visit | Platovi - places to visit';
+	$rootScope.pageTitle = $stateParams.categoryType+' tourism | places to visit in '+$stateParams.categoryType+' | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit in '+$stateParams.categoryType,'travel '+$stateParams.categoryType,$stateParams.categoryType+' tourism','weekend getaways for '+$stateParams.categoryType,'trips in category '+$stateParams.categoryType, 'travel tips for '+$stateParams.categoryType];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
@@ -771,7 +774,8 @@ app.controller('stateResultController',function($scope,$rootScope,stateFactory,c
 	$rootScope.error = '';
 	//to display the footer
 	$rootScope.isHomeController=false;
-	$rootScope.pageTitle = $stateParams.stateName+' places to visit | Platovi - places to visit';
+	$rootScope.pageTitle = $stateParams.stateName+' tourism | places to visit in '+$stateParams.stateName+' | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit in '+$stateParams.stateName,'travel in '+$stateParams.stateName,$stateParams.stateName+' tourism','weekend getaways in '+$stateParams.stateName,'trips in '+$stateParams.stateName, 'travel tips in '+$stateParams.stateName];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
@@ -814,7 +818,8 @@ app.controller('countryResultController',function($scope,$rootScope,countryFacto
 	$rootScope.error = '';
 	//to display the footer
 	$rootScope.isHomeController=false;
-	$rootScope.pageTitle = $stateParams.countryName+' places to visit | Platovi - places to visit';
+	$rootScope.pageTitle = $stateParams.countryName+' tourism | places to visit in '+$stateParams.countryNam+' | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit in '+$stateParams.countryName,'travel in '+$stateParams.countryName,$stateParams.countryName+' tourism','weekend getaways in '+$stateParams.countryName,'trips in '+$stateParams.countryName, 'travel tips for '+$stateParams.countryName];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
@@ -874,7 +879,8 @@ app.controller('resultDetailController',function($scope,$rootScope,$timeout,city
 	$rootScope.error = '';	
 	//to display the footer
 	$rootScope.isHomeController=false;
-	$rootScope.pageTitle = $stateParams.cityName+' places to visit | Platovi - places to visit';
+	$rootScope.pageTitle = $stateParams.cityName+' tourism | places to visit in '+$stateParams.cityName+' | Platovi - places to visit';
+	$rootScope.keywords = ['places to visit in '+$stateParams.cityName,'travel in '+$stateParams.cityName,$stateParams.cityName+' tourism','weekend getaways in '+$stateParams.cityName,'trips in '+$stateParams.cityName, 'travel tips for '+$stateParams.cityName];
 	$rootScope.defaultMediumImagePath = 'img/city/default.jpg';
 	
 	//show loader
