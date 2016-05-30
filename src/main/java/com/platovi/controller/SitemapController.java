@@ -79,7 +79,7 @@ public class SitemapController {
         
         for (String string : cities) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/#!/detail/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
+        	create(xmlUrlSet, "/#!/detail/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.MEDIUM);
 		}
         
 
