@@ -13,7 +13,9 @@
         
     <context:component-scan base-package="com.platovi.controller"></context:component-scan>
 	
-	<mvc:resources mapping="/app/**" location="/app/" ></mvc:resources>
+	<!-- app routes to the ReST web services for the mobile app -->
+	<!-- <mvc:resources mapping="/app/**" location="/app/" ></mvc:resources> -->
+	<mvc:resources mapping="/**" location="/app/" ></mvc:resources>
 	
 	
     <mvc:annotation-driven/>
