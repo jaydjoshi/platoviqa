@@ -25,7 +25,7 @@ public class HomeWebController {
 	
 	private static final Logger LOGGER = Logger.getLogger(HomeWebController.class);
 	
-	@RequestMapping("/index.html")
+	@RequestMapping("/*")
 	public ModelAndView homePage() {
 		LOGGER.info("In HomeWebController -> homePage method");
 		
