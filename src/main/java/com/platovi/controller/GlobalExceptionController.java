@@ -34,7 +34,7 @@ public class GlobalExceptionController {
 
 	}
 	
-	@ExceptionHandler(NoHandlerFoundException.class)
+	/*@ExceptionHandler(NoHandlerFoundException.class)
     public ModelAndView handleError404(Exception e)   {
 		LOGGER.error("GlobalExceptionController --> handleError404 method starts");
 	     ModelAndView modelAndView = new ModelAndView(DEFAULT_ERROR_VIEW);
@@ -42,7 +42,7 @@ public class GlobalExceptionController {
 	     modelAndView.addObject("cities", cityService.listAllCityNames(PlatoviConstants.CITY_DISPLAYED_IN_HOME));
 	         
 	     return modelAndView;
-	}
+	}*/
 
 	@ExceptionHandler(value = {Exception.class, RuntimeException.class})
 	public ModelAndView handleAllException(Exception ex) {
