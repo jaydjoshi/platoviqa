@@ -34,6 +34,7 @@ public class GlobalExceptionController {
 
 	}
 	
+	/*commented due to error */
 	/*@ExceptionHandler(NoHandlerFoundException.class)
     public ModelAndView handleError404(Exception e)   {
 		LOGGER.error("GlobalExceptionController --> handleError404 method starts");
