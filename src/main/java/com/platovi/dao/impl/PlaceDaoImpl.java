@@ -51,5 +51,26 @@ public class PlaceDaoImpl implements PlaceDao {
 		query.setParameter(1, cityId);
         return query.getResultList();
 	}
+	
+	public List<Place> findAllPlacesByCityIdAndPlaceType(int cityId,String placeType, int maxrow,boolean fetchAllRecords) {
+		Query query =   em.createQuery("SELECT a from Place a WHERE a.city.cityId=?1 AND a.placeType=?2 ORDER BY a.rating DESC");
+		query.setParameter(1, cityId);
+		query.setParameter(2, placeType);
+		
+		if(fetchAllRecords){
+			return query.getResultList();			
+		}
+		else{
+			return query.setMaxResults(maxrow).getResultList();	
+		}
+			
+	}
+
+	@Override
+	public List<Object[]> findDistinctPlaceTypebyCityId(int cityId) {
+		Query query =   em.createQuery("SELECT DISTINCT a.placeType, COUNT(a.placeName) from Place a WHERE a.city.cityId=?1 GROUP BY a.placeType");
+		query.setParameter(1, cityId);
+        return query.getResultList();
+	}
 
 }

@@ -40,9 +40,9 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	@Transactional
-	public List<Country> listAllCountrys() {
+	public List<Country> listAllCountrys(int maxrow) {
 		// TODO Auto-generated method stub
-		return CountryDao.listAllCountrys();
+		return CountryDao.listAllCountrys(maxrow);
 	}
 
 	@Transactional

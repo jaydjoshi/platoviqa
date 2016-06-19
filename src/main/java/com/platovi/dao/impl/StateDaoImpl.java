@@ -1,5 +1,6 @@
 package com.platovi.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -62,6 +63,23 @@ public class StateDaoImpl implements StateDao {
 		Query query =   em.createQuery("SELECT a from State a WHERE a.country.countryId=?1 ORDER BY a.rating DESC");
 		query.setParameter(1, countryId);
         return query.getResultList();
+	}
+
+	@Override
+	public List<State> listAllStatesNames(int maxrow) {
+		// TODO Auto-generated method stub
+		List<Object[]> placeList =  em.createQuery("SELECT a.stateName,a.imageMediumPath from State a ORDER BY a.rating DESC").setMaxResults(maxrow).getResultList();
+		List<State> states = new ArrayList<State>();
+		for (Object[] object : placeList) {
+			State state = new State();
+			state.setStateName((String)object[0]);
+			state.setImageMediumPath((String)object[1]);
+			states.add(state);
+		}
+		
+		return states;
+        
+		
 	}
 
 }

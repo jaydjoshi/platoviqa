@@ -20,6 +20,8 @@ public interface StateService {
 	public List<String> getAllStateNames();
 
 	public List<City> getAllStateNamesByCountry(int countryId);
+
+	public List<State> listAllStatesNames(int maxrow);
     
     
 }

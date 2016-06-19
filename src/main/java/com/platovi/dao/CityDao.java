@@ -17,7 +17,7 @@ public interface CityDao {
     
     public City findCityByName(String name);
 
-	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance);
+	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance,int rownum);
 
 	public List<String> getAllCityNames();
 
@@ -26,6 +26,10 @@ public interface CityDao {
 	public List<City> getAllCityNamesByState(int stateId);
 
 	public List<City> getAllCityNamesByCountry(int countryId);
+
+	public List<String> listAllMetropolitanCities();
+
+	public List<City> listAllCityNames(int maxRow);
 
 
 }

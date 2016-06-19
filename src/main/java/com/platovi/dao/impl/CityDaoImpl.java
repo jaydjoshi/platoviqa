@@ -1,5 +1,6 @@
 package com.platovi.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,8 +25,8 @@ public class CityDaoImpl implements CityDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<City> listAllCity(int maxRow) {
-        List<City> cityList =  em.createQuery("SELECT a from City a ORDER BY a.rating DESC").setMaxResults(maxRow).getResultList();
+	public List<City> listAllCity(int maxrow) {
+		List<City> cityList =  em.createQuery("SELECT a from City a ORDER BY a.rating DESC").setMaxResults(maxrow).getResultList();
         return cityList;
 	}
 
@@ -50,7 +51,7 @@ public class CityDaoImpl implements CityDao {
 	}
 	
 
-	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance) {
+	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance,int rownum) {
 		// TODO Auto-generated method stub
 		GeoLocation[] boundingCoordinates = cityGeoLocation.boundingCoordinates(distance, earthradius);
 			boolean meridian180WithinDistance =
@@ -68,7 +69,8 @@ public class CityDaoImpl implements CityDao {
 		query.setParameter(6, cityGeoLocation.getLatitudeInRadians());
 		query.setParameter(7, cityGeoLocation.getLongitudeInRadians());
 		query.setParameter(8, distance / earthradius);
-		List<City> cities = query.getResultList();
+		
+		List<City> cities = query.setMaxResults(rownum).getResultList();
 		return cities;
 	}
 
@@ -182,6 +184,31 @@ public class CityDaoImpl implements CityDao {
 		query.setParameter(1, countryId);
         return query.getResultList();
 	
+	}
+
+	@Override
+	public List<String> listAllMetropolitanCities() {
+		// TODO Auto-generated method stub
+		Query query = em.createQuery("SELECT concat(a.cityName) FROM City a WHERE a.isMetropolitan = 'Yes'");
+        
+        List<String> cities = query.getResultList();
+        return cities;
+	}
+
+
+	@Override
+	public List<City> listAllCityNames(int maxrow) {
+		// TODO Auto-generated method stub
+		List<Object[]> citiesObject = em.createQuery("SELECT a.cityName,a.imageMediumPath FROM City a ORDER BY a.rating DESC").setMaxResults(maxrow).getResultList();
+		List<City> cities = new ArrayList<City>();
+		for (Object[] object : citiesObject) {
+			City city = new City();
+			city.setCityName((String)object[0]);
+			city.setImageMediumPath((String)object[1]);
+			cities.add(city);
+		}
+
+        return cities;
 	}
 	
 }

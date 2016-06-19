@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.platovi.dao.CountryDao;
+import com.platovi.model.City;
 import com.platovi.model.Country;
 
 @Repository
@@ -30,8 +31,8 @@ public class CountryDaoImpl implements CountryDao {
 	}
 	
 
-	public List<Country> listAllCountrys() {
-		List<Country> placeList =  em.createQuery("SELECT a from Country a").getResultList();
+	public List<Country> listAllCountrys(int maxrow) {
+		List<Country> placeList =  em.createQuery("SELECT a from Country a").setMaxResults(maxrow).getResultList();
         return placeList;
 	}
 	

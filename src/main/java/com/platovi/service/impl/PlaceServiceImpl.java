@@ -43,9 +43,23 @@ public class PlaceServiceImpl implements PlaceService {
 		return placeDao.findPlaceByName(name);
 	}
 
+	@Transactional
 	public List<Place> findAllPlacesByCityId(int cityId) {
 		// TODO Auto-generated method stub
 		return placeDao.findAllPlacesByCityId(cityId);
+	}
+
+	@Transactional
+	public List<Place> findAllPlacesByCityIdAndPlaceType(int cityId, String placeType, int maxrow,
+			boolean fetchAllRecords) {
+		// TODO Auto-generated method stub
+		return placeDao.findAllPlacesByCityIdAndPlaceType(cityId, placeType,maxrow,fetchAllRecords);
+	}
+
+	@Transactional
+	public List<Object[]> findDistinctPlaceTypebyCityId(int cityId) {
+		// TODO Auto-generated method stub
+		return placeDao.findDistinctPlaceTypebyCityId(cityId);
 	}
 
 }

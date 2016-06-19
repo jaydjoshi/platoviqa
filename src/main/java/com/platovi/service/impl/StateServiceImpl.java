@@ -64,6 +64,12 @@ public class StateServiceImpl implements StateService {
 		return StateDao.getAllStateNamesByCountry(countryId);
 	}
 
+	@Override
+	public List<State> listAllStatesNames(int maxrow) {
+		// TODO Auto-generated method stub
+		return StateDao.listAllStatesNames(maxrow);
+	}
+
 	
 
 }

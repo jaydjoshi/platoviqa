@@ -87,11 +87,18 @@ public class City {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public String getBestSeasonToVist() {
 		return bestSeasonToVist;
 	}
 	public void setBestSeasonToVist(String bestSeasonToVist) {
 		this.bestSeasonToVist = bestSeasonToVist;
+	}
+	public static Comparator<City> getCityDistanceComparator() {
+		return CityDistanceComparator;
+	}
+	public static void setCityDistanceComparator(Comparator<City> cityDistanceComparator) {
+		CityDistanceComparator = cityDistanceComparator;
 	}
 	public Place[] getPlacesToVisit() {
 		return placesToVisit;

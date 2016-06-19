@@ -17,15 +17,19 @@ public interface CityService {
     
     public City findCityByName(String name);
 
-	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance);
+	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance,int rownum);
 
 	public List<String> getAllCityNames();
+	
+	public List<City> listAllCityNames(int maxRow);
 
 	public List<City> getAllCityNamesByCategory(String categoryName);
 
 	public List<City> getAllCityNamesByState(int stateId);
 
 	public List<City> getAllCityNamesByCountry(int countryId);
+
+	public List<String> listAllMetropolitanCities();
 
 	/*public List<City> listCitiesNearBy(City currentCity, double earthRadiusInKm, GeoLocation currentCityGeoLocation,
 			double nearbyDistanceInKm);*/

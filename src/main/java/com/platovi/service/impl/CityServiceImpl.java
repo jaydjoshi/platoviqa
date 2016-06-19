@@ -45,9 +45,9 @@ public class CityServiceImpl implements CityService {
 	
 
 	@Transactional
-	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance) {
+	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance,int rownum) {
 		// TODO Auto-generated method stub
-		return cityDao.listAllCitiesByDistance(city,earthradius, cityGeoLocation, distance);
+		return cityDao.listAllCitiesByDistance(city,earthradius, cityGeoLocation, distance,rownum);
 	}
 
 	@Transactional
@@ -75,6 +75,18 @@ public class CityServiceImpl implements CityService {
 	public List<City> getAllCityNamesByCountry(int countryId) {
 		// TODO Auto-generated method stub
 		return cityDao.getAllCityNamesByCountry(countryId);
+	}
+
+	@Transactional
+	public List<String> listAllMetropolitanCities() {
+		// TODO Auto-generated method stub
+		return cityDao.listAllMetropolitanCities();
+	}
+
+	@Transactional
+	public List<City> listAllCityNames(int maxRow) {
+		// TODO Auto-generated method stub
+		return cityDao.listAllCityNames(maxRow);
 	}
 
 }

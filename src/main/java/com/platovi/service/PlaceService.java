@@ -18,4 +18,8 @@ public interface PlaceService {
     public Place findPlaceByName(String name);
     
     public List<Place> findAllPlacesByCityId(int cityId);
+    
+    public List<Place> findAllPlacesByCityIdAndPlaceType(int cityId,String placeType, int maxrow,boolean fetchAllRecords);
+
+	public List<Object[]> findDistinctPlaceTypebyCityId(int cityId);
 }

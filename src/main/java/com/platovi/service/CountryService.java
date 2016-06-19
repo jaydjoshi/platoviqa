@@ -12,7 +12,7 @@ public interface CountryService {
     
     public Country getCountry(int id);
      
-    public List<Country> listAllCountrys();
+    public List<Country> listAllCountrys(int maxrow);
     
     public Country findCountryByName(String name);
 
