@@ -122,7 +122,7 @@ public class CityController {
         		
         		GeoLocation currentCityGeoLocation = GeoLocation.fromDegrees(currentCity.getLatitude(), currentCity.getLongitude());
         		
-        		cityList = cityService.listAllCitiesByDistance(currentCity ,PlatoviConstants.EARTH_RADIUS_IN_KM, currentCityGeoLocation, PlatoviConstants.DEFAUL_DISTANCE_IN_KM);
+        		cityList = cityService.listAllCitiesByDistance(currentCity ,PlatoviConstants.EARTH_RADIUS_IN_KM, currentCityGeoLocation, PlatoviConstants.DEFAUL_DISTANCE_IN_KM, PlatoviConstants.CITY_RESULT);
         		
         		for (City city : cityList) {
         			GeoLocation cityGeoLocation = GeoLocation.fromDegrees(city.getLatitude(), city.getLongitude());
@@ -182,7 +182,7 @@ public class CityController {
         	currentCity.setLongitude(Double.valueOf(longitude));
         	GeoLocation currentCityGeoLocation = GeoLocation.fromDegrees(currentCity.getLatitude(), currentCity.getLongitude());
 			
-			cityList = cityService.listAllCitiesByDistance(currentCity ,PlatoviConstants.EARTH_RADIUS_IN_KM, currentCityGeoLocation, PlatoviConstants.NEARBY_DISTANCE_IN_KM);
+			cityList = cityService.listAllCitiesByDistance(currentCity ,PlatoviConstants.EARTH_RADIUS_IN_KM, currentCityGeoLocation, PlatoviConstants.NEARBY_DISTANCE_IN_KM,PlatoviConstants.CITY_NEARBY);
 			
 			for (City city : cityList) {
 				GeoLocation cityGeoLocation = GeoLocation.fromDegrees(city.getLatitude(), city.getLongitude());
@@ -196,7 +196,7 @@ public class CityController {
         	int size = cityList.size();
         	//starting from 1 because 1st city will be same city
     		if(cityList!=null && size>0){
-    			if(size >=8)
+    			if(size >=7)
     			{
     				returnList=cityList.subList(1, 7);
     			}
