@@ -17,6 +17,7 @@ import com.platovi.model.XmlUrlSet;
 import com.platovi.service.CityService;
 import com.platovi.service.CountryService;
 import com.platovi.service.StateService;
+import com.platovi.util.PlatoviConstants;
 
 @Controller 
 public class SitemapController {
@@ -36,8 +37,8 @@ public class SitemapController {
 		LOGGER.info("SitemapController - > mian()");
 		
         XmlUrlSet xmlUrlSet = new XmlUrlSet();
-        create(xmlUrlSet, "", XmlUrl.Priority.HIGH);
-        create(xmlUrlSet, "/#!/home", XmlUrl.Priority.HIGH);
+        create(xmlUrlSet, "", XmlUrl.Priority.HIGH, PlatoviConstants.DAILY);
+       // create(xmlUrlSet, "/#!/home", XmlUrl.Priority.HIGH);
         
         
         List<String> countrys = countryService.getAllCountryNames();
@@ -65,30 +66,30 @@ public class SitemapController {
         
         for (String string : countrys) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/#!/country/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
+        	create(xmlUrlSet, "/country/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH, PlatoviConstants.DAILY);
 		}
         
         for (String string : states) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/#!/state/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
+        	create(xmlUrlSet, "/state/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
 		}
         
         for (String string : categories) {
-        	create(xmlUrlSet, "/#!/category/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.HIGH);
+        	create(xmlUrlSet, "/category/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
 		}
         
         for (String string : cities) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/#!/detail/"+string.replaceAll(" ", "%20"), XmlUrl.Priority.MEDIUM);
+        	create(xmlUrlSet, "/detail/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
 		}
         
 
         return xmlUrlSet;
     }
 
-    private void create(XmlUrlSet xmlUrlSet, String link, XmlUrl.Priority priority) {
-        xmlUrlSet.addUrl(new XmlUrl("http://www.platovi.com" + link, priority));
-        xmlUrlSet.addUrl(new XmlUrl("http://platovi.com" + link, priority));
+    private void create(XmlUrlSet xmlUrlSet, String link, XmlUrl.Priority priority , String changeFreq) {
+        xmlUrlSet.addUrl(new XmlUrl("http://www.platovi.com" + link, priority, changeFreq));
+        xmlUrlSet.addUrl(new XmlUrl("http://platovi.com" + link, priority, changeFreq));
     }
 	
 }

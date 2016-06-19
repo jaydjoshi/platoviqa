@@ -46,5 +46,10 @@ public class PlatoviConstants {
 	public static final int NINE = 9;
 	
 	
+	public static final String DAILY = "daily";
+	public static final String WEEKLY = "weekly";
+	public static final String MONTHLY = "monthly";
+	
+	
 	
 }

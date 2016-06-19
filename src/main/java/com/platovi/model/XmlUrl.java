@@ -37,7 +37,7 @@ public class XmlUrl {
     private String lastmod = formatter.format(new Date());
 
     @XmlElement
-    private String changefreq = "daily";
+    private String changefreq;
 
     @XmlElement
     private String priority;
@@ -45,9 +45,10 @@ public class XmlUrl {
     public XmlUrl() {
     }
 
-    public XmlUrl(String loc, Priority priority) {
+    public XmlUrl(String loc, Priority priority, String changefreq) {
         this.loc = loc;
         this.priority = priority.getValue();
+        this.changefreq = changefreq;
     }
 
     public String getLoc() {
