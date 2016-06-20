@@ -152,6 +152,19 @@
 			</section>
 		</c:if>
 		
+		<aside class="large-padding">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- PlatoviAds -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-7127616125972801"
+				     data-ad-slot="2281909774"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</aside>
+		
 		<!-- Blogs -->
 		<section class="bg-dark large-padding blog-section">
 			<div class="container text-center">
