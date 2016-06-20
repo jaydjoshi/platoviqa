@@ -13,15 +13,7 @@
     <meta content='Platovi - places to visit' name='title'>
     
     <%@ include file="include.jsp" %>
-   	<script type="text/javascript">
-   		function search(){
-   			console.log("aaja");
-   			var e= document.getElementsByName('homeDropdown');
-   			var cityName = e.options[e.selectedIndex].value;
-   			
-   			console.log(cityName);
-   		}
-   	</script>
+   	
 </head>
 <body data-ng-app="platoviWebApp">
 

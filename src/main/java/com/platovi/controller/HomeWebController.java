@@ -19,13 +19,12 @@ public class HomeWebController {
 	CityService cityService;
 	@Autowired
 	StateService stateService;
-	@Autowired
-	CountryService countryService;
+	
 	
 	
 	private static final Logger LOGGER = Logger.getLogger(HomeWebController.class);
 	
-	@RequestMapping("/index.html")
+	@RequestMapping(value={ "/", "/index.html"})
 	public ModelAndView homePage() {
 		LOGGER.info("In HomeWebController -> homePage method");
 		

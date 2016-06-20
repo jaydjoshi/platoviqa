@@ -69,6 +69,7 @@ public class StateDaoImpl implements StateDao {
 	public List<State> listAllStatesNames(int maxrow) {
 		// TODO Auto-generated method stub
 		List<Object[]> placeList =  em.createQuery("SELECT a.stateName,a.imageMediumPath from State a ORDER BY a.rating DESC").setMaxResults(maxrow).getResultList();
+		
 		List<State> states = new ArrayList<State>();
 		for (Object[] object : placeList) {
 			State state = new State();

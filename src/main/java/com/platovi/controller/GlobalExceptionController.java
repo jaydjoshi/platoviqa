@@ -25,7 +25,7 @@ public class GlobalExceptionController {
 
 	@ExceptionHandler(PlatoviException.class)
 	public ModelAndView handleCustomException(PlatoviException ex) {
-		LOGGER.error("GlobalExceptionController --> handleCustomException method starts");
+		LOGGER.error("GlobalExceptionController --> handleCustomException method starts"+ex.getMessage());
 		ModelAndView modelAndView = new ModelAndView(DEFAULT_ERROR_VIEW);
 		modelAndView.addObject("errMsg", ex.getErrMsg());
 		modelAndView.addObject("cities", cityService.listAllCityNames(PlatoviConstants.CITY_DISPLAYED_IN_HOME));
@@ -47,7 +47,7 @@ public class GlobalExceptionController {
 
 	@ExceptionHandler(value = {Exception.class, RuntimeException.class})
 	public ModelAndView handleAllException(Exception ex) {
-		LOGGER.error("GlobalExceptionController --> handleAllException method starts");
+		LOGGER.error("GlobalExceptionController --> handleAllException method starts"+ex.getMessage());
 		ModelAndView modelAndView = new ModelAndView(DEFAULT_ERROR_VIEW);
 		modelAndView.addObject("cities", cityService.listAllCityNames(PlatoviConstants.CITY_DISPLAYED_IN_HOME));
 		modelAndView.addObject("errMsg", PlatoviConstants.SOMETHING_WENT_WRONG);
