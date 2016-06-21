@@ -16,6 +16,7 @@ import com.platovi.model.XmlUrl;
 import com.platovi.model.XmlUrlSet;
 import com.platovi.service.CityService;
 import com.platovi.service.CountryService;
+import com.platovi.service.PlaceService;
 import com.platovi.service.StateService;
 import com.platovi.util.PlatoviConstants;
 
@@ -28,6 +29,8 @@ public class SitemapController {
 	StateService stateService;
 	@Autowired
 	CityService cityService;
+	@Autowired
+	PlaceService placeService;
 	
 	private static final Logger LOGGER = Logger.getLogger(SitemapController.class);
 	
@@ -37,9 +40,7 @@ public class SitemapController {
 		LOGGER.info("SitemapController - > mian()");
 		
         XmlUrlSet xmlUrlSet = new XmlUrlSet();
-        create(xmlUrlSet, "", XmlUrl.Priority.HIGH, PlatoviConstants.DAILY);
-       // create(xmlUrlSet, "/#!/home", XmlUrl.Priority.HIGH);
-        
+        create(xmlUrlSet, "", XmlUrl.Priority.HIGH, PlatoviConstants.DAILY);        
         
         List<String> countrys = countryService.getAllCountryNames();
         
@@ -50,16 +51,16 @@ public class SitemapController {
         List<String> categories = new ArrayList<String>();
         
         //hard coded :/
-        categories.add("isAdventure");        
-        categories.add("isBeachCity");        
-        categories.add("isDesert");        
-        categories.add("isGreenCity");        
-        categories.add("isHeritage");        
-        categories.add("isHillorMountain");        
-        categories.add("isMetropolitan");        
-        categories.add("isNightLife");        
-        categories.add("isReligious");        
-        categories.add("isTrending"); 
+        categories.add("Adventure");        
+        categories.add("BeachCity");        
+        categories.add("Desert");        
+        categories.add("GreenCity");        
+        categories.add("Heritage");        
+        categories.add("HillorMountain");        
+        categories.add("Metropolitan");        
+        categories.add("NightLife");        
+        categories.add("Religious");        
+        categories.add("Trending"); 
         
         
         
@@ -80,7 +81,8 @@ public class SitemapController {
         
         for (String string : cities) {
         	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/detail/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        	create(xmlUrlSet, "/city/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        
 		}
         
 
