@@ -84,6 +84,7 @@ public class SitemapController {
         	create(xmlUrlSet, "/category/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
 		}
         
+        //city and sub urls
         for (Object[] object : cities) {
         	//string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
         	String city= (String) object[0];
