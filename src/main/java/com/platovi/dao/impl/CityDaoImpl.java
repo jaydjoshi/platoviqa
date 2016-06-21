@@ -210,5 +210,12 @@ public class CityDaoImpl implements CityDao {
 
         return cities;
 	}
+
+	@Override
+	public List<Object[]> getAllCityIdName() {
+		// TODO Auto-generated method stub
+		List<Object[]> citiesObject = em.createQuery("SELECT a.cityName,a.cityId FROM City a ORDER BY a.rating DESC").getResultList();
+		return citiesObject;
+	}
 	
 }

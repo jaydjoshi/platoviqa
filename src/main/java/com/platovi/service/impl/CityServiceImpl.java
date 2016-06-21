@@ -89,4 +89,10 @@ public class CityServiceImpl implements CityService {
 		return cityDao.listAllCityNames(maxRow);
 	}
 
+	@Transactional
+	public List<Object[]> getAllCityIdName() {
+		// TODO Auto-generated method stub
+		return cityDao.getAllCityIdName();
+	}
+
 }

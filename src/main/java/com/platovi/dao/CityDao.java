@@ -31,5 +31,7 @@ public interface CityDao {
 
 	public List<City> listAllCityNames(int maxRow);
 
+	public List<Object[]> getAllCityIdName();
+
 
 }

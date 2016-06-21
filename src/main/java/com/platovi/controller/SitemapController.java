@@ -1,7 +1,11 @@
 package com.platovi.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.platovi.model.Country;
+import com.platovi.model.Place;
 import com.platovi.model.State;
 import com.platovi.model.XmlUrl;
 import com.platovi.model.XmlUrlSet;
@@ -46,7 +51,7 @@ public class SitemapController {
         
         List<String> states = stateService.getAllStateNames();
         
-        List<String> cities = cityService.getAllCityNames();
+        List<Object[]> cities = cityService.getAllCityIdName();
         
         List<String> categories = new ArrayList<String>();
         
@@ -79,9 +84,42 @@ public class SitemapController {
         	create(xmlUrlSet, "/category/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
 		}
         
-        for (String string : cities) {
-        	string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
-        	create(xmlUrlSet, "/city/"+string.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        for (Object[] object : cities) {
+        	//string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
+        	String city= (String) object[0];
+        	int id = (int) object[1];
+        	create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        	
+        	List<Place> placeList = placeService.findAllPlacesByCityId(id);
+        	Map<String,List<String>> placeMap = null;
+        	
+        	for (Place place : placeList) {
+				placeMap =  new HashMap<String,List<String>>();
+				
+				String placeType = place.getPlaceType();
+				
+				if(placeMap.containsKey(placeType)){
+					List<String> list = placeMap.get(placeType);
+					list.add(place.getPlaceName());
+					placeMap.put(placeType, list);
+				}
+				else{
+					List<String> list = new ArrayList<String>();
+					list.add(place.getPlaceName());
+					placeMap.put(placeType, list);
+				}
+			}
+        	
+        	for (Entry<String, List<String>> entry : placeMap.entrySet()){
+        		String placeType = entry.getKey();
+        		create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType, XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        		List<String> placeNameList = entry.getValue();
+        		
+        		for (String placeName : placeNameList) {
+        			create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType+"/"+placeName, XmlUrl.Priority.MEDIUM , PlatoviConstants.WEEKLY);
+				}
+			}
+        
         
 		}
         

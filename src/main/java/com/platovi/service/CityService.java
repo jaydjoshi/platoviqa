@@ -31,6 +31,8 @@ public interface CityService {
 
 	public List<String> listAllMetropolitanCities();
 
+	public List<Object[]> getAllCityIdName();
+
 	/*public List<City> listCitiesNearBy(City currentCity, double earthRadiusInKm, GeoLocation currentCityGeoLocation,
 			double nearbyDistanceInKm);*/
 }
