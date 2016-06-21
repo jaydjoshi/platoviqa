@@ -6,7 +6,7 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Platovi - places to visit helps you discover places near you and gives you all the information neeeded for your trip and plan your travel.">
+    <meta name="description" content="Platovi - places to visit helps you discover places near you and gives you all the information needed for your trip and plan your travel.">
     <meta name="keywords" content="platovi, places to visit, tourism, travel, weekend getaways">
     <meta name="author" content="platovi">
     <title>Platovi - places to visit</title>
