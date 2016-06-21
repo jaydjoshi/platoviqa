@@ -159,8 +159,9 @@
 				     style="display:block"
 				     data-ad-client="ca-pub-7127616125972801"
 				     data-ad-slot="2281909774"
-				     data-ad-format="auto"></ins>
-				<script>
+				     data-ad-format="auto">
+				</ins>
+			<script>
 				(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 		</aside>
