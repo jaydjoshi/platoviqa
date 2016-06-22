@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.platovi.model.Country;
 import com.platovi.model.Place;
-import com.platovi.model.State;
 import com.platovi.model.XmlUrl;
 import com.platovi.model.XmlUrlSet;
 import com.platovi.service.CityService;
@@ -92,6 +89,7 @@ public class SitemapController {
         	create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
         	
         	List<Place> placeList = placeService.findAllPlacesByCityId(id);
+        	
         	Map<String,List<String>> placeMap = null;
         	
         	for (Place place : placeList) {
