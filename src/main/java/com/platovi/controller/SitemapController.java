@@ -85,7 +85,7 @@ public class SitemapController {
         for (Object[] object : cities) {
         	//string= string.substring(0, string.indexOf(',')==-1?string.length():string.indexOf(','));
         	String city= (String) object[0];
-        	int id = (int) object[1];
+        	Integer id = (Integer) object[1];
         	create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
         	
         	List<Place> placeList = placeService.findAllPlacesByCityId(id);
