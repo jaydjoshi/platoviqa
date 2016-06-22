@@ -90,10 +90,10 @@ public class SitemapController {
         	
         	List<Place> placeList = placeService.findAllPlacesByCityId(id);
         	
-        	Map<String,List<String>> placeMap = null;
+        	Map<String,List<String>> placeMap =  new HashMap<String,List<String>>();
         	
         	for (Place place : placeList) {
-				placeMap =  new HashMap<String,List<String>>();
+				
 				
 				String placeType = place.getPlaceType();
 				
@@ -111,11 +111,11 @@ public class SitemapController {
         	
         	for (Entry<String, List<String>> entry : placeMap.entrySet()){
         		String placeType = entry.getKey();
-        		create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType, XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
+        		create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType.replaceAll(" ", "-"), XmlUrl.Priority.HIGH , PlatoviConstants.DAILY);
         		List<String> placeNameList = entry.getValue();
         		
         		for (String placeName : placeNameList) {
-        			create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType+"/"+placeName, XmlUrl.Priority.MEDIUM , PlatoviConstants.WEEKLY);
+        			create(xmlUrlSet, "/city/"+city.replaceAll(" ", "-")+"/"+placeType+"/"+placeName.replaceAll(" ", "-"), XmlUrl.Priority.MEDIUM , PlatoviConstants.WEEKLY);
 				}
 			}
         
