@@ -70,6 +70,20 @@
 					    </c:if>
 					    </div>
 				    </div>
+				    <!-- google ads code -->
+					<div class="large-padding text-center">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- PlatoviAds -->
+							<ins class="adsbygoogle"
+							     style="display:block"
+							     data-ad-client="ca-pub-7127616125972801"
+							     data-ad-slot="2281909774"
+							     data-ad-format="auto">
+							</ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
 				</div>
 		        <div class="col-lg-9 col-md-9 city-content">
 		        	<div class="row large-padding" >

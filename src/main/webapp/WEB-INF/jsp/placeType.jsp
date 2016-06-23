@@ -32,13 +32,28 @@
 		</header>
 	
 	<div class="row text-center">
-	<h1 class="large-padding text-center">${placeType} in <a class="link-black" href="/city/${city.cityName}">${city.cityName} </a></h1>
-	<c:forEach var="placeT" items="${placeTypes}">
-		<span class="link-type-list medium-padding" data-ng-class="getActivePlaceType('${placeT[0]}')" >
-			<a data-ng-click='formatAndGotoUrl("/city/${city.cityName}/${placeT[0]}")' >${placeT[0]} (${placeT[1]})</a>
-    	</span> 
-	</c:forEach>
+		<h1 class="large-padding text-center">${placeType} in <a class="link-black" href="/city/${city.cityName}">${city.cityName} </a></h1>
+		<c:forEach var="placeT" items="${placeTypes}">
+			<span class="link-type-list medium-padding" data-ng-class="getActivePlaceType('${placeT[0]}')" >
+				<a data-ng-click='formatAndGotoUrl("/city/${city.cityName}/${placeT[0]}")' >${placeT[0]} (${placeT[1]})</a>
+	    	</span> 
+		</c:forEach>
 	</div>
+	
+	<!-- google ads code -->
+		<div class="large-padding text-center">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- PlatoviAds -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-7127616125972801"
+				     data-ad-slot="2281909774"
+				     data-ad-format="auto">
+				</ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
 	
 	 
 	<div class="container" id="detailTabId">

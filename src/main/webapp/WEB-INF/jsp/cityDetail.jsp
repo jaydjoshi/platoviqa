@@ -444,6 +444,22 @@
         </div>
         
         
+        <!-- google ads code -->
+		<div class="large-padding text-center">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- PlatoviAds -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-7127616125972801"
+				     data-ad-slot="2281909774"
+				     data-ad-format="auto">
+				</ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+        
+        
     	<div class="row large-padding">
     		<div class="row">
 		        <div id="disqus_thread"></div>

@@ -152,7 +152,8 @@
 			</section>
 		</c:if>
 		
-		<aside class="large-padding">
+		<!-- google ads code -->
+		<div class="large-padding text-center">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 				<!-- PlatoviAds -->
 				<ins class="adsbygoogle"
@@ -164,7 +165,7 @@
 			<script>
 				(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
-		</aside>
+		</div>
 		
 		<!-- Blogs -->
 		<section class="bg-dark large-padding blog-section">
