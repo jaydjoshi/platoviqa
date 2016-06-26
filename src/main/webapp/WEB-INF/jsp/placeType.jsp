@@ -40,7 +40,7 @@
 		</c:forEach>
 	</div>
 	
-	<!-- google ads code -->
+	<!-- google ads code block -->
 		<div class="large-padding text-center">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 				<!-- PlatoviAds -->
