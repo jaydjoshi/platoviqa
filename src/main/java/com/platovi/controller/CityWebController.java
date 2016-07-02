@@ -201,7 +201,7 @@ public class CityWebController {
         			city.setDistanceFromCurrentCity(Math.round(distance));
 				}
         		
-        		//sort based on distance in ascending order
+        		//sort based on distance in ascending order 
         		cities.sort(City.CityDistanceComparator);
         	}
         	else{
