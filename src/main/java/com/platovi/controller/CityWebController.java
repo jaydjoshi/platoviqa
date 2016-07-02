@@ -202,7 +202,8 @@ public class CityWebController {
 				}
         		
         		//sort based on distance in ascending order 
-        		cities.sort(City.CityDistanceComparator);
+        		//cities.sort(City.CityDistanceComparator);
+        		Collections.sort(cities,City.CityDistanceComparator);
         	}
         	else{
         		cities = cityService.listAllCity(50);
