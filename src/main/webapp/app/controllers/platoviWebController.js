@@ -304,9 +304,9 @@ app.controller('cityDetailController',function($scope,$rootScope,$location,$wind
 	$scope.search = function(){
 		console.log('search()');
 		if($scope.homeDropdown == 'You' && !($scope.latitude === undefined) && !($scope.longitude === undefined))
-			var url = "http://" + $window.location.host + '/PlaToVi/near/'+$scope.homeDropdown+'?latitude='+$scope.latitude+'&longitude='+$scope.longitude;
+			var url = "http://" + $window.location.host + '/near/'+$scope.homeDropdown+'?latitude='+$scope.latitude+'&longitude='+$scope.longitude;
 		else
-			var url = "http://" + $window.location.host + '/PlaToVi/near/'+$scope.homeDropdown;
+			var url = "http://" + $window.location.host + '/near/'+$scope.homeDropdown;
         $window.location.href = url;
 		
 	}
