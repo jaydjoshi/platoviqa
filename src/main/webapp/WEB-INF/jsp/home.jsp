@@ -24,7 +24,7 @@
     <div class="" data-ng-controller="cityDetailController">
         <div class="container">
             <div class="row">
-                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
                     <div class="intro-message centered">
                         <img class="img-responsive" alt="Platovi- places to visit logo" src="../app/img/PlatoviLogoWhiteTagNew.png">
                  </div>
@@ -36,7 +36,7 @@
                         	<form class="search-form" role="form" >
                         		<div class="row control-group">
   									<div class="form-group col-lg-12">
-                        				<br>
+                        				<!-- <br> -->
                         			</div>
                         		</div>
   								<div class="row control-group">
@@ -53,7 +53,7 @@
   									</div>
   									
   									<div class="form-group">
-	  									<div class="input-group col-lg-offset-1 col-lg-10 text-center">
+	  									<div class="col-lg-offset-1 col-lg-10 text-center animated tada">
 	  										<md-button type="submit" data-ng-click="search()" class="md-raised md-primary btn-large"><i class="fa fa-search fa-fw"></i> Search</md-button>
 	  									</div>
   									</div>
