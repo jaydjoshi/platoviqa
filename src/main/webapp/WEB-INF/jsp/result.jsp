@@ -45,6 +45,7 @@
 			                        	<span class="rating" data-ng-class="getBackgroudClass(${city.rating})" data-ng-show="${city.rating} > 0">${city.rating}</span> 
 			                        	<span class="center-text">
 			                        		<h2>${city.cityName}</h2>
+			                        		<p class="center-text-muted" data-ng-show="${city.distanceFromCurrentCity} > 0">${city.distanceFromCurrentCity} km away</p>
 			                        	</span>
 							         	<img src="../app/${city.imageMediumPath}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit near ${city.cityName} city" class="place-img img-responsive" >
 							         </a>
