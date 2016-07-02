@@ -200,6 +200,9 @@ public class CityWebController {
         			double distance = cityGeoLocation.distanceTo(currentCityGeoLocation, PlatoviConstants.EARTH_RADIUS_IN_KM);
         			city.setDistanceFromCurrentCity(Math.round(distance));
 				}
+        		
+        		//sort based on distance in ascending order
+        		cities.sort(City.CityDistanceComparator);
         	}
         	else{
         		cities = cityService.listAllCity(50);
