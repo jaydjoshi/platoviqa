@@ -44,7 +44,7 @@
 	  									<div class="input-group col-lg-offset-1 col-lg-10">
 	  										<span class="input-group-addon" id="basic-addon1"><i class="fa fa-globe fa-fw"></i> <b>Near</b> </span>
 	  										<select data-ng-model="homeDropdown" style="font-family: 'FontAwesome';" class="form-control input-lg">
-								              <option value="You">You</option>
+								              <option data-ng-show="displayYou" value="You">You</option>
 								              <c:forEach items="${metropolitanCities}" var="metCity">
 											            <option value="${metCity}">${metCity}</option>
 											  </c:forEach>

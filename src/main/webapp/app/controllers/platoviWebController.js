@@ -244,47 +244,69 @@ app.controller('cityDetailController',function($scope,$rootScope,$location,$wind
 	};
 	
 	
-	$scope.homeDropdown = "You";
+	$scope.homeDropdown = "Mumbai";
 	
-	if($scope.homeDropdown == "You"){    	
-    	if($rootScope.latitude==='' || $rootScope.latitude==null || $rootScope.longitude==='' || $rootScope.longitude==null ){
+	//set timeout and max age for cached geolocation
+	var geoOptions = {
+		     timeout: 10 * 1000,
+		     maximumAge: 5*60*1000
+		  }
+	
+	//if($scope.homeDropdown == "You"){    	
+    	//if($scope.latitude==='' || $scope.latitude==null || $scope.longitude==='' || $scope.longitude==null ){
+	//if($scope.latitude!=0 )
 	    	if (navigator.geolocation) {
 			    navigator.geolocation.getCurrentPosition(function(position){
-			    	$rootScope.$apply(function(){
-			    		$rootScope.latitude = position.coords.latitude;
-			    		$rootScope.longitude = position.coords.longitude;
+			    	$scope.$apply(function(){
+			    		$scope.homeDropdown = "You";
+			    		$scope.displayYou=true;
+			    		$scope.latitude = position.coords.latitude;
+			    		$scope.longitude = position.coords.longitude;
+			    		console.log("blcok 1: "+$scope.latitude +" "+ $scope.longitude);
 			      });
-			    });
+			    },function(err){
+			    	//user said no
+			    	if (err.code == 1) {
+			    	    // user said no!
+			    	  }
+			    }, geoOptions);
 			}
-    	}
-	}
+	    	else{
+	    		$scope.latitude='';
+	    		$scope.longitude='';
+	    		console.log("blcok 3: "+$scope.latitude +" "+ $scope.longitude);
+	    	}
+    	//}
+	//}
     
     //set the geolocation details if You is selected from the dropdown
-    $scope.getLocation = function(){
+   /* $scope.getLocation = function(){
     	if($scope.homeDropdown == "You"){    	
-    		if($rootScope.latitude==='' || $rootScope.latitude==null || $rootScope.longitude==='' || $rootScope.longitude==null ){
+    		if($scope.latitude==='' || $scope.latitude==null || $scope.longitude==='' || $scope.longitude==null ){
 	    		if (navigator.geolocation) {
 				    navigator.geolocation.getCurrentPosition(function(position){
-				    	$rootScope.$apply(function(){
-				    		$rootScope.latitude = position.coords.latitude;
-				    		$rootScope.longitude = position.coords.longitude;
+				    	$scope.$apply(function(){
+				    		$scope.latitude = position.coords.latitude;
+				    		$scope.longitude = position.coords.longitude;
+				    		console.log("blcok 2: "+$scope.latitude +" "+ $scope.longitude);
 				      });
 				    });
 				}
     		}
 		}
     	else{
-    		$rootScope.latitude='';
-    		$rootScope.longitude='';
+    		$scope.latitude='';
+    		$scope.longitude='';
+    		console.log("blcok 3: "+$scope.latitude +" "+ $scope.longitude);
     	}
-	};
+	};*/
 	
 	$scope.search = function(){
 		console.log('search()');
-		if($scope.homeDropdown == 'You' && !$rootScope.latitude === undefined && !$rootScope.longitude === undefined)
-			var url = "http://" + $window.location.host + '/near/'+$scope.homeDropdown+'?latitude='+$rootScope.latitude+'&longitude='+$rootScope.longitude;
+		if($scope.homeDropdown == 'You' && !($scope.latitude === undefined) && !($scope.longitude === undefined))
+			var url = "http://" + $window.location.host + '/PlaToVi/near/'+$scope.homeDropdown+'?latitude='+$scope.latitude+'&longitude='+$scope.longitude;
 		else
-			var url = "http://" + $window.location.host + '/near/'+$scope.homeDropdown;
+			var url = "http://" + $window.location.host + '/PlaToVi/near/'+$scope.homeDropdown;
         $window.location.href = url;
 		
 	}
