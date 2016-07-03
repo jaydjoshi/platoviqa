@@ -42,7 +42,8 @@
 	
 	<!-- Page Content -->
 	<div class="bg-light-gray" data-ng-controller="cityDetailController">
-		<header class="sb-page-header-detail" style="{'background-image': 'url('../../app/'+${city.imageLargePath})'}">
+		
+		<header class="sb-page-header-detail" style="background-image: url(../app/${city.imageLargePath})">
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
