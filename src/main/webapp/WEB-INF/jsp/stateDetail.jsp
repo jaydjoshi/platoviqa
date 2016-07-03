@@ -28,11 +28,12 @@
 		</header>
 	</div>
 	
-	<c:if test="${not empty cities}">
+	
 	<!-- Portfolio Grid Section -->
     <section id="portfolio" >
         <div class="container">
 	        <div class="row">	
+	        <c:if test="${not empty cities}">
 	        		<c:forEach var="city" items="${cities}">
 	        		
 	                		<div class="col-md-4 col-sm-6 portfolio-item" >
@@ -52,23 +53,25 @@
 			                </div>
 	                
 	        		</c:forEach>
-	        		
+	        		</c:if>
 	                
-	                <!-- <div class="text-center" data-ng-show="!(filteredCity  | filter:query  | orderBy:sortType:sortReverse ).length">
+	                <c:if test="${empty cities}">
+	                 <div class="text-center">
 	                	<h3>
 						  	<span class="fa-broken-heart fa-stack">
 								<i class="fa fa-heart fa-stack-2x"></i>
 								<i class="fa fa-flash fa-stack-1x"></i>
 							</span>																					
 						  	<br/>
-						  	<span> No places found </span>
+						  	<span> No places found :( </span>
 						  </h3>
-	                	<p>Would you like to go back to <a data-ui-sref="home">home</a> page</p>
-	                </div> -->
+	                	<p>Would you like to go back to <a href="http://www.platovi.com">home</a> page</p>
+	                </div> 
+	             </c:if>
 	            </div>
         </div>
     </section>
-    </c:if>
+    
 		
 	<%@ include file="footer.jsp" %>
 </body>
