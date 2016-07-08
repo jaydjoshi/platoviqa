@@ -1324,3 +1324,16 @@ IMG[src=''], IMG:not([src])
 .btn-header{
 	height: 34px;
 }
+
+.text-header{
+	 width: 260px;  
+    -webkit-transition: width 1s ease;  
+    -moz-transition: width 1s ease;  
+    -o-transition: width 1s ease;  
+    -ms-transition: width 1s ease;  
+    transition: width 1s ease;  
+}  
+
+.text-header:focus {  
+    width: 340px;
+}
