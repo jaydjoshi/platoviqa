@@ -462,7 +462,7 @@
         
         
     	<div class="row large-padding">
-    		<div class="row">
+    		<div class="col-lg-12">
 		        <div id="disqus_thread"></div>
 				<script>
 				    /**
