@@ -70,7 +70,7 @@ public class CityDaoImpl implements CityDao {
 		query.setParameter(7, cityGeoLocation.getLongitudeInRadians());
 		query.setParameter(8, distance / earthradius);
 		
-		List<City> cities = query.setMaxResults(rownum).getResultList();
+		List<City> cities = query.getResultList();
 		return cities;
 	}
 
