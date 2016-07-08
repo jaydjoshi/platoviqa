@@ -44,6 +44,7 @@ public class PlatoviConstants {
 	public static final int SEVEN = 7;
 	public static final int EIGHT = 8;
 	public static final int NINE = 9;
+	public static final int FIFTY = 50;
 	
 	
 	public static final String DAILY = "daily";

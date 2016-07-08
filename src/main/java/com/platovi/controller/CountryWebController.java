@@ -48,7 +48,7 @@ public class CountryWebController {
 		modelAndView.addObject("country", country);
 		modelAndView.addObject("states", stateService.getAllStateNamesByCountry(country.getCountryId()));
 		
-		modelAndView.addObject("cities",cityService.getAllCityNamesByCountry(country.getCountryId(),50) );		
+		modelAndView.addObject("cities",cityService.getAllCityNamesByCountry(country.getCountryId(),PlatoviConstants.FIFTY) );		
 	    
 	    modelAndView.setViewName("countryDetail");
 	    return modelAndView;

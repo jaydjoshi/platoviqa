@@ -265,7 +265,7 @@ public class CityController {
 		List<City> cityList =  new ArrayList<City>();
 		List<City> returnList =  new ArrayList<City>();
 		
-			cityList = cityService.getAllCityNamesByCountry(countryId);
+			cityList = cityService.getAllCityNamesByCountry(countryId,PlatoviConstants.FIFTY);
 			
 			int size = cityList.size();
         	
