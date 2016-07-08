@@ -1320,3 +1320,7 @@ IMG[src=''], IMG:not([src])
     cursor: default;
     background-color: #f5f5f5 !important;
 }
+
+.btn-header{
+	height: 34px;
+}

@@ -17,7 +17,7 @@
 				          <div class="input-group autocomplete">
 				            <input type="text" name="selectedCity" class="form-control" placeholder="Search" data-ng-model="selectedCity" data-uib-typeahead="city for city in cityNameList | filter:$viewValue | limitTo:5" class="form-control" required>
 				          	<div class="input-group-btn">
-				                <button class="btn btn-default" type="submit" data-ng-disabled="searchForm.$invalid"><i class="glyphicon glyphicon-search"></i></button>
+				                <button class="btn btn-default btn-header" type="submit" data-ng-disabled="searchForm.$invalid"><i class="glyphicon glyphicon-search"></i></button>
 				            </div>
 				          </div>
 				        </form>
