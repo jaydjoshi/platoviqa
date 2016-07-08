@@ -41,7 +41,7 @@
 	
 	<!-- Page Content -->
 	<div class="bg-light-gray">
-		<header class="sb-page-header-detail" style="{'background-image': 'url('../app/'+${country.imageLargePath})'}">
+		<header class="sb-page-header-detail" style="background-image: url(../app/${country.imageLargePath})">
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">

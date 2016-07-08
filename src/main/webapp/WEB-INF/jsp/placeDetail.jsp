@@ -41,7 +41,7 @@
 	<%@ include file="header.jsp" %>	
 	
 	<div class="bg-light-gray" data-ng-controller="cityDetailController">
-		<header class="sb-page-header-detail-small" style="{'background-image': 'url('../app/'+${city.imageLargePath})'}">
+		<header class="sb-page-header-detail-small" style="background-image: url(../app/${city.imageLargePath})">
 			<div class="container city-detail-head">
 				<div class="city-detail_text-small">
 					<div class="row">

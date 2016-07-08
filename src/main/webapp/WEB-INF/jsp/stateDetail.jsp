@@ -18,12 +18,18 @@
 <body data-ng-app="platoviWebApp">
 
 	<%@ include file="header.jsp" %>
-
+	
 	<!-- Page Content -->
-	<div  class="bg-light-gray">
-		<header class="sb-page-header">
-			<div class="container">
-				<h1>${state.stateName}, <a data-ng-click="formatAndGotoUrl('/country/${state.country.countryName}')">${state.country.countryName}</a><small>${state.title}</small></h1>
+	<div class="bg-light-gray">
+		<header class="sb-page-header-detail" style="background-image: url(../app/${state.imageLargePath})">
+			<div class="container city-detail-head">
+				<div class="city-detail_text">
+					<div class="row">
+						<h1>${country.countryName}</a> </h1>
+						<h1>${state.stateName}, <a data-ng-click="formatAndGotoUrl('/country/${state.country.countryName}')">${state.country.countryName}</a></h1>
+						<small class="city-detail-subtext">${state.title}</small>
+					</div>
+				</div>
 			</div>
 		</header>
 	</div>
