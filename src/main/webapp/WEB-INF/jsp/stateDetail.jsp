@@ -38,7 +38,7 @@
 	<!-- Portfolio Grid Section -->
     <section id="portfolio" >
         <div class="container">
-	        <div class="row">	
+	        <div class="row large-padding">	
 	        <c:if test="${not empty cities}">
 	        		<c:forEach var="city" items="${cities}">
 	        		
