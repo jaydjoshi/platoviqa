@@ -178,11 +178,11 @@ public class CityDaoImpl implements CityDao {
 	}
 
 	@Override
-	public List<City> getAllCityNamesByCountry(int countryId) {
+	public List<City> getAllCityNamesByCountry(int countryId,int maxrow) {
       
 		Query query =   em.createQuery("SELECT a from City a WHERE a.country.countryId=?1 ORDER BY a.rating DESC");
 		query.setParameter(1, countryId);
-        return query.getResultList();
+        return query.setMaxResults(maxrow).getResultList();
 	
 	}
 

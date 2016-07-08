@@ -1,5 +1,7 @@
 package com.platovi.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +47,8 @@ public class CountryWebController {
 
 		modelAndView.addObject("country", country);
 		modelAndView.addObject("states", stateService.getAllStateNamesByCountry(country.getCountryId()));
-		modelAndView.addObject("cities", cityService.getAllCityNamesByCountry(country.getCountryId()));		
+		
+		modelAndView.addObject("cities",cityService.getAllCityNamesByCountry(country.getCountryId(),50) );		
 	    
 	    modelAndView.setViewName("countryDetail");
 	    return modelAndView;

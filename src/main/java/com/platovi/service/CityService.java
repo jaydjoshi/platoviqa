@@ -27,7 +27,7 @@ public interface CityService {
 
 	public List<City> getAllCityNamesByState(int stateId);
 
-	public List<City> getAllCityNamesByCountry(int countryId);
+	public List<City> getAllCityNamesByCountry(int countryId,int maxrow);
 
 	public List<String> listAllMetropolitanCities();
 
