@@ -18,13 +18,13 @@
 	<%@ include file="header.jsp" %>
 
 
-	<!-- Page Content -->
+	<!-- Page Content  -->
 	<div class="bg-light-gray">
 		<header class="sb-page-header-detail" style="background-image: url(../app/${categoryImgPath})">
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
-						<h1>${categoryName}</h1>
+						<h1>${categoryName} travel</h1>
 					</div>
 				</div>
 			</div>
