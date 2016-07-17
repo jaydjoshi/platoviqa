@@ -34,6 +34,9 @@
 	<!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray large-padding" >
         <div class="container">
+        	<div class="col-lg-12 text-center large-padding article-para">
+				<h1 class="page-header">Places to visit in ${categoryName} category</h1> 
+			</div>
 	        <div class="row">	
 	        	<c:if test="${not empty cities}">
 	        		<c:forEach var="city" items="${cities}">

@@ -25,7 +25,6 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
-						<h1>${country.countryName}</a> </h1>
 						<h1>${state.stateName}, <a data-ng-click="formatAndGotoUrl('/country/${state.country.countryName}')">${state.country.countryName}</a></h1>
 						<small class="city-detail-subtext">${state.title}</small>
 					</div>
@@ -38,7 +37,11 @@
 	<!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
+        	<div class="col-lg-12 text-center large-padding article-para">
+				<h1 class="page-header">Places to visit in ${state.stateName}</h1> 
+			</div>
 	        <div class="row large-padding">	
+	        
 	        <c:if test="${not empty cities}">
 	        		<c:forEach var="city" items="${cities}">
 	        		

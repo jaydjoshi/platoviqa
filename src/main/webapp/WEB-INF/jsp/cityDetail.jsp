@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -71,11 +72,16 @@
 					            <div class="col-lg-12 text-center large-padding article-para">
 					                <h1 class="page-header">${city.cityName} at a glance</h1> 
 					                
-					               <p class="small-padding">${city.description}
+					               <%-- <p class="small-padding">${city.description}
 					              <!--  <span data-ng-show='currentCity.description.length>500'>
 										<a class="md-raised" data-ng-click="showContentMoreOrLess()">read {{descriptionLength === 500 ? 'more' : 'less'}}</a>
 									</span> -->
+					               </p> --%>
+					               <p class="small-padding" data-ng-init="isShowMore=true" data-ng-class="{'limited-text':isShowMore}">${city.description}
+					              
 					               </p>
+					               <c:if test="${fn:length(city.description) gt 750}"><md-button data-ng-click="isShowMore = !isShowMore" class="md-raised">Read <span data-ng-show="isShowMore">more</span><span data-ng-hide="isShowMore">less</span></md-button></c:if>
+					               
 					               
 					             </div>
 					        </div>
