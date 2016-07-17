@@ -62,7 +62,7 @@
 	</div>
 	
 	
-	<div class="container" id="detailTabId">
+	<div class="container bg-light-gray" id="detailTabId">
 		
 			<div class="row">
 	        	<div class="col-lg-12 city-content">
