@@ -24,7 +24,7 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
-						<h1>${categoryName} travel</h1>
+						<h1>${categoryName}</h1>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 	</div>
 	
 	<!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray" >
+    <section id="portfolio" class="bg-light-gray large-padding" >
         <div class="container">
 	        <div class="row">	
 	        	<c:if test="${not empty cities}">
