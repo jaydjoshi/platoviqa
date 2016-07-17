@@ -19,14 +19,6 @@
 
 
 	<!-- Page Content -->
-	<div  class="bg-light-gray">
-		<header class="sb-page-header">
-			<div class="container">
-				<h1>${categoryName}</h1>
-			</div>
-		</header>
-	</div>
-	<!-- Page Content -->
 	<div class="bg-light-gray">
 		<header class="sb-page-header-detail" style="background-image: url(../app/${categoryImgPath})">
 			<div class="container city-detail-head">
