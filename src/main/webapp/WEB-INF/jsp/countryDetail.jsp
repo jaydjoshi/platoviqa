@@ -61,8 +61,8 @@
 		</header>
 	</div>
 	
-	
-	<div class="container bg-light-gray" id="detailTabId">
+	<div class="bg-light-gray">
+	<div class="container" id="detailTabId">
 		
 			<div class="row">
 	        	<div class="col-lg-12 city-content">
@@ -145,7 +145,7 @@
 				
 			</div>
 		</div>
-	
+	</div>
 	
 <%@ include file="footer.jsp" %>
 	
