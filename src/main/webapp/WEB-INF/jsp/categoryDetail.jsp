@@ -31,7 +31,6 @@
 		</header>
 	</div>
 	
-	
 	<!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray" >
         <div class="container">
