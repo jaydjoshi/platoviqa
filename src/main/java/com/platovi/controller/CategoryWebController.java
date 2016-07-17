@@ -40,7 +40,6 @@ public class CategoryWebController {
 		List<City> cities =  new ArrayList<City>();
 		//City city = setCategoryInCity(categoryName);
 		modelAndView.addObject("categoryName", categoryName);
-		
 		modelAndView.addObject("categoryImgPath", ("img/category/"+categoryName).toUpperCase());
 		
 		if(categoryName != null)
