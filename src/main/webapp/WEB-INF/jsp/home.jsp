@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Platovi - places to visit, is the best travel platform, it helps you discover places to visit and gives you all the information needed to plan your trip.">
-    <meta name="keywords" content="platovi, places to visit, tourism, travel, weekend getaways, ">
+    <meta name="keywords" content="platovi, places to visit, tourism, travel, weekend getaways, trip planner in India, travel agent, best travel deals, places to visit in India, tourism website, tourism website in India, tourist attractions website, tourism website blog,best travel website india, travel website blog, tours and travel website in India ">
     <meta name="author" content="platovi">
     <title>Platovi - places to visit</title>
     <meta content='Platovi - places to visit' name='title'>

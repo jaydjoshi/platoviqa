@@ -1269,7 +1269,7 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 .limited-text
 {
 	overflow: hidden;
-    max-height: 9rem;
+    max-height: 9.5rem;
     margin: 1rem;
     margin-bottom: 0px;
 }
