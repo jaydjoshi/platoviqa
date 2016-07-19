@@ -1269,9 +1269,19 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
 .limited-text
 {
 	overflow: hidden;
-    max-height: 19rem;
+    max-height: 9rem;
     margin: 1rem;
     margin-bottom: 0px;
+}
+
+@media(max-width:767px) {
+	.limited-text
+	{
+		overflow: hidden;
+	    max-height: 19rem;
+	    margin: 1rem;
+	    margin-bottom: 0px;
+	}
 }
 
 .card-image-small

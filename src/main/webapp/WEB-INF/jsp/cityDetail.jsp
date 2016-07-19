@@ -80,7 +80,7 @@
 					               <p class="small-padding" data-ng-init="isShowMore=true" data-ng-class="{'limited-text':isShowMore}">${city.description}
 					              
 					               </p>
-					               <c:if test="${fn:length(city.description) gt 750}"><md-button data-ng-click="isShowMore = !isShowMore" class="md-raised">Read <span data-ng-show="isShowMore">more</span><span data-ng-hide="isShowMore">less</span></md-button></c:if>
+					               <c:if test="${fn:length(city.description) gt 350}"><md-button data-ng-click="isShowMore = !isShowMore" class="md-raised">Read <span data-ng-show="isShowMore">more</span><span data-ng-hide="isShowMore">less</span></md-button></c:if>
 					               
 					               
 					             </div>
