@@ -55,7 +55,6 @@
 			                </div>
 	        		</c:forEach>
 	        	</c:if>
-	        	
 	        		
 	             <c:if test="${empty cities}">
 	                 <div class="text-center">
