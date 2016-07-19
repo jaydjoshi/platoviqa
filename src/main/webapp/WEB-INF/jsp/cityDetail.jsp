@@ -82,7 +82,6 @@
 					               </p>
 					               <c:if test="${fn:length(city.description) gt 350}"><md-button data-ng-click="isShowMore = !isShowMore" class="md-raised">Read <span data-ng-show="isShowMore">more</span><span data-ng-hide="isShowMore">less</span></md-button></c:if>
 					               
-					               
 					             </div>
 					        </div>
 					          <div class="col-lg-12 medium-padding text-center article-para">
