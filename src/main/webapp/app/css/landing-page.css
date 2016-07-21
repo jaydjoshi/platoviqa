@@ -1149,6 +1149,10 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     font-size: 18px;
 }
 
+.place-card{
+	margin:0px;
+}
+
 .place-card:hover{
 	-webkit-animation: pulse .8s;
     animation: pulse .8s;
