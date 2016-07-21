@@ -82,7 +82,7 @@
 		    		<div class="row">	
 		    			<c:forEach var="state" items="${states}">
 				    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat">
-								<md-card class="place-card">
+								<md-card class="place-card" md-ink-ripple>
 			                    	<div>
 			                    		
 			                    		<a data-ng-click="formatAndGotoUrl('/state/${state.stateName}')"></a>
@@ -130,7 +130,7 @@
 		    		<div class="row">	
 		    			<c:forEach var="city" items="${cities}">
 				    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat">
-								<md-card class="place-card">
+								<md-card class="place-card" md-ink-ripple>
 								<div>
 					
 									<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')"></a>

@@ -39,7 +39,7 @@
 	        		
 	                		<div class="col-md-4 col-sm-6 portfolio-item" >
 			                   
-			                    <md-card class="place-card">
+			                    <md-card class="place-card" md-ink-ripple>
 			                    	<div>
 			                    	 <a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" class="portfolio-link">
 			                    		 
