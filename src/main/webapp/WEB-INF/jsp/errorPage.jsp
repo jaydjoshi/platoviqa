@@ -47,13 +47,13 @@
 	    		<div class="row">	
 	    			<c:forEach var="city" items="${cities}">
 			    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat">
-							<md-card class="place-card" md-ink-ripple>
+							<md-card class="place-card" >
 							<div>
 				
 								<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')"></a>
 				
 								
-								<a class="portfolio-link" data-ng-click="formatAndGotoUrl('/city/${city.cityName}')">
+								<a class="portfolio-link" data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" md-ink-ripple>
 									<span class="center-text">
 										<h2>${city.cityName}</h2>
 									</span> 

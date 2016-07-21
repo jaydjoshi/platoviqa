@@ -503,9 +503,9 @@
 					        <c:forEach var="nearbyCity" items="${citiesNearby}">
 					        	<div class="col-md-4 col-sm-6 portfolio-item" >
 				                   
-				                    <md-card class="place-card" md-ink-ripple>
+				                    <md-card class="place-card">
 				                    	<div>
-				                    	 <a data-ng-click="formatAndGotoUrl('/city/${nearbyCity.cityName}')" class="portfolio-link">
+				                    	 <a data-ng-click="formatAndGotoUrl('/city/${nearbyCity.cityName}')" class="portfolio-link" md-ink-ripple>
 				                    		 
 				                        	<span class="rating" data-ng-class="getBackgroudClass(${nearbyCity.rating})" data-ng-show="${nearbyCity.rating} > 0">${nearbyCity.rating}</span> 
 				                        	<span class="center-text">

@@ -97,9 +97,9 @@
 					        	<div class="row">
 					        	<c:forEach var="state" items="${states}">
 					        		<div class="col-md-4 col-sm-6 portfolio-item" >
-					                    <md-card class="place-card" md-ink-ripple>
+					                    <md-card class="place-card" >
 					                    	<div>
-					                    	 <a data-ng-click="formatAndGotoUrl('/state/${state.stateName}')" class="portfolio-link">
+					                    	 <a data-ng-click="formatAndGotoUrl('/state/${state.stateName}')" class="portfolio-link" md-ink-ripple>
 					                    		 
 					                        	<span class="rating" data-ng-class="getBackgroudClass(${state.rating})" data-ng-show="${state.rating} > 0">${state.rating}</span> 
 					                        	<span class="center-text">
@@ -123,9 +123,9 @@
 					        	<div class="row">
 					        	<c:forEach var="city" items="${cities}">
 					        		<div class="col-md-4 col-sm-6 portfolio-item" >
-					                    <md-card class="place-card" md-ink-ripple>
+					                    <md-card class="place-card" >
 					                    	<div>
-					                    	 <a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" class="portfolio-link">
+					                    	 <a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" class="portfolio-link" md-ink-ripple>
 					                    		 
 					                        	<span class="rating" data-ng-class="getBackgroudClass(${city.rating})" data-ng-show="${city.rating} > 0">${city.rating}</span> 
 					                        	<span class="center-text">
