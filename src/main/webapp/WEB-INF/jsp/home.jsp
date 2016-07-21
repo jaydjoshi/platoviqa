@@ -111,7 +111,7 @@
 		            <div class="row no-gutter">
 		            	<c:forEach var="category" items="${categories}">
 			                <div class="col-lg-4 col-sm-6" >
-			                    <a data-ng-click="formatAndGotoUrl('/category/${category.categoryName}')" class="portfolio-box ">
+			                    <a data-ng-click="formatAndGotoUrl('/category/${category.categoryName}')" class="portfolio-box " md-ink-ripple>
 			                    	<span class="center-text"><h2>${category.categoryName}</h2></span>
 			                        <img src="../app/${category.imgMediumPath}" class="img-responsive" alt="Platovi - places to visit in ${category.categoryName} ">
 			                    </a>
