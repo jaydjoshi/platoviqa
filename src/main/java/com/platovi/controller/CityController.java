@@ -53,6 +53,8 @@ public class CityController {
 		LOGGER.info("CityController : getAllCityNames method starts");
 		List<Header> resultHeader=new ArrayList<Header>();
 		Header header =null;
+		
+		//store in session scope
 		if(session.getAttribute("resultHeaderList") != null){
 			resultHeader= (List<Header>) session.getAttribute("resultHeaderList");
 		}
