@@ -41,8 +41,6 @@ public class CityController {
 	private static final Logger LOGGER = Logger.getLogger(CityController.class);
 	
 	
-	
-	
 	/**
 	 * @author jdhirendrajoshi
 	 * @param cityName
