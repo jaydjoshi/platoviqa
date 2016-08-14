@@ -21,7 +21,7 @@
 	  var mapOptions = {
 	    zoom: 8,
 	    center: new google.maps.LatLng(  <c:out value="${city.latitude}" /> ,<c:out value="${city.longitude}" />   ),
-	    
+	    scrollwheel: false
 	  };
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
 	      mapOptions);
@@ -48,7 +48,7 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
-						<h1>${city.cityName}, <a data-ng-click="formatAndGotoUrl('/state/${city.state.stateName}')">${city.state.stateName}</a> </h1>
+						<h1>${city.cityName}, <a href="/state/${fn:replace(city.state.stateName, ' ', '-')}" >${city.state.stateName}</a> </h1>
 						<small class="city-detail-subtext">${city.title}</small>
 					</div>
 					
@@ -120,7 +120,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}/see/${placeToSee.placeName}')"><span class="md-headline">${placeToSee.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/see/${fn:replace(placeToSee.placeName, ' ', '-')}" ><span class="md-headline">${placeToSee.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -129,7 +129,7 @@
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToSee.placeOverview}
 														</p>
-														<c:if test="${not empty placeToSee.placeOverview}"><md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/see/${placeToSee.placeName}')" class="md-raised">Read more</md-button></c:if>
+														<c:if test="${not empty placeToSee.placeOverview}"><md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/see/${fn:replace(placeToSee.placeName, ' ', '-')}" class="md-raised">Read more</md-button></c:if>
 														</md-card-content> 
 													</div>
 												</md-card>
@@ -140,7 +140,7 @@
 										</div>
 									</div>
 									<div class="row small-padding">
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/see')" class="md-raised md-primary"><i class="fa fa-globe"></i> view all places</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/see" class="md-raised md-primary"><i class="fa fa-globe"></i> view all places</md-button>
 									</div>
 								</div>
 							</div>
@@ -169,7 +169,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}/do/${placeToDo.placeName}')"><span class="md-headline">${placeToDo.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/do/${fn:replace(placeToDo.placeName, ' ', '-')}" ><span class="md-headline">${placeToDo.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -178,7 +178,7 @@
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToDo.placeOverview}
 														</p>
-														<c:if test="${not empty placeToDo.placeOverview}"><md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/do/${placeToDo.placeName}')" class="md-raised">Read more</md-button></c:if>
+														<c:if test="${not empty placeToDo.placeOverview}"><md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/do/${fn:replace(placeToDo.placeName, ' ', '-')}"  class="md-raised">Read more</md-button></c:if>
 														</md-card-content> 
 													</div>
 												</md-card>
@@ -189,7 +189,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" >
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/do')" class="md-raised md-primary"><i class="fa fa-cogs"></i> view all things</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/do" class="md-raised md-primary"><i class="fa fa-cogs"></i> view all things</md-button>
 									</div>
 								</div>
 							</div>
@@ -218,7 +218,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}/eat/${placeToEat.placeName}')"><span class="md-headline">${placeToEat.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/eat/${fn:replace(placeToEat.placeName, ' ', '-')}" ><span class="md-headline">${placeToEat.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -231,7 +231,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" >
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/eat')" class="md-raised md-primary"><i class="fa fa-cutlery"></i> view all restaurants</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/eat"  class="md-raised md-primary"><i class="fa fa-cutlery"></i> view all restaurants</md-button>
 									</div>
 								</div>
 							</div>
@@ -258,7 +258,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}/drink/${placeToDrink.placeName}')"><span class="md-headline">${placeToDrink.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/drink/${fn:replace(placeToDrink.placeName, ' ', '-')}" ><span class="md-headline">${placeToDrink.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -271,7 +271,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" >
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/drink')" class="md-raised md-primary"><i class="fa fa-beer"></i> view all places</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/drink" class="md-raised md-primary"><i class="fa fa-beer"></i> view all places</md-button>
 									</div>
 								</div>
 							</div>
@@ -300,7 +300,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}/buy/${placeToBuy.placeName}')"><span class="md-headline">${placeToBuy.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/buy/${fn:replace(placeToBuy.placeName, ' ', '-')}" ><span class="md-headline">${placeToBuy.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -309,7 +309,7 @@
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToBuy.placeOverview}
 														</p>
-														<c:if test="${not empty placeToBuy.placeOverview}"><md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/buy/${placeToBuy.placeName}')" class="md-raised">Read more</md-button></c:if>
+														<c:if test="${not empty placeToBuy.placeOverview}"><md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/buy/${fn:replace(placeToBuy.placeName, ' ', '-')}"  class="md-raised">Read more</md-button></c:if>
 														</md-card-content> 
 													</div>
 												</md-card>
@@ -320,7 +320,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" >
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/buy')" class="md-raised md-primary"><i class="fa fa-suitcase"></i> view all things</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/buy" class="md-raised md-primary"><i class="fa fa-suitcase"></i> view all things</md-button>
 									</div>
 								</div>
 							</div>
@@ -360,7 +360,7 @@
 										</div>
 									</div>
 									<div class="row small-padding" >
-										<md-button data-ng-click="formatAndGotoUrl('/city/${city.cityName}/sleep')" class="md-raised md-primary"><i class="fa fa-bed"></i> view all hotels</md-button>
+										<md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/sleep" class="md-raised md-primary"><i class="fa fa-bed"></i> view all hotels</md-button>
 									</div>
 								</div>
 							</div>
@@ -505,7 +505,7 @@
 				                   
 				                    <md-card class="place-card">
 				                    	<div>
-				                    	 <a data-ng-click="formatAndGotoUrl('/city/${nearbyCity.cityName}')" class="portfolio-link" md-ink-ripple>
+				                    	 <a href="/city/${fn:replace(nearbyCity.cityName, ' ', '-')}" class="portfolio-link">
 				                    		 
 				                        	<span class="rating" data-ng-class="getBackgroudClass(${nearbyCity.rating})" data-ng-show="${nearbyCity.rating} > 0">${nearbyCity.rating}</span> 
 				                        	<span class="center-text">

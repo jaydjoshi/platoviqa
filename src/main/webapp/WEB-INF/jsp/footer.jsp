@@ -5,7 +5,7 @@
                 <div class="col-lg-12 text-center">
                      <ul class="list-inline">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="http://www.platovi.com">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>

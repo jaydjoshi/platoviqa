@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -21,7 +22,7 @@
 	  var mapOptions = {
 	    zoom: 12,
 	    center: new google.maps.LatLng(  <c:out value="${place.latitude}" /> ,<c:out value="${place.longitude}" />   ),
-	    
+	    scrollwheel: false
 	  };
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
 	      mapOptions);
@@ -45,7 +46,7 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text-small">
 					<div class="row">
-						<h1>${place.placeName }, <a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" >${city.cityName}</a>, <a data-ng-click="formatAndGotoUrl('/state/${city.state.stateName}')" >${city.state.stateName}</a> </h1>
+						<h1>${place.placeName }, <a href="/city/${fn:replace(city.cityName, ' ', '-')}" >${city.cityName}</a>, <a data-ng-click="formatAndGotoUrl('/state/${city.state.stateName}')" >${city.state.stateName}</a> </h1>
 						
 					</div>
 					
@@ -63,7 +64,7 @@
 						    <ul class="nav nav-tabs tabs-left sideways" role="tablist">
 						    	<c:forEach items="${placeTypes}" var="placeT">
 							        <li ng-class="{'active': getActiveTab('${placeT[0]}')}">
-							            <a class="md-button" data-ng-click="formatAndGotoUrl('/city/${city.cityName}/${placeT[0]}')" >${placeT[0]} (${placeT[1]})</a>
+							            <a class="md-button" href="/city/${fn:replace(city.cityName, ' ', '-')}/${fn:replace(placeT[0], ' ', '-')}" >${placeT[0]} (${placeT[1]})</a>
 							        </li>
 						        </c:forEach>
 						    </ul>

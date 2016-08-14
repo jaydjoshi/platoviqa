@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -23,7 +24,7 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text-small">
 					<div class="row">
-						<h1>${city.cityName}, <a data-ng-click="formatAndGotoUrl('/state/${city.state.stateName}')" >${city.state.stateName}</a> </h1>
+						<h1><a href="/city/${fn:replace(city.cityName, ' ', '-')}" >${city.cityName}</a>, <a href="/state/${fn:replace(city.state.stateName, ' ', '-')}" >${city.state.stateName}</a> </h1>
 						<small class="city-detail-subtext">${city.title}</small>
 					</div>
 					
@@ -32,10 +33,10 @@
 		</header>
 	
 	<div class="row text-center">
-		<h1 class="large-padding text-center">${placeType} in <a class="link-black" href="/city/${city.cityName}">${city.cityName} </a></h1>
+		<h1 class="large-padding text-center">${placeType} in <a class="link-black" href="/city/${fn:replace(city.cityName, ' ', '-')}">${city.cityName} </a></h1>
 		<c:forEach var="placeT" items="${placeTypes}">
 			<span class="link-type-list medium-padding" data-ng-class="getActivePlaceType('${placeT[0]}')" >
-				<a data-ng-click='formatAndGotoUrl("/city/${city.cityName}/${placeT[0]}")' >${placeT[0]} (${placeT[1]})</a>
+				<a href="/city/${fn:replace(city.cityName, ' ', '-')}/${fn:replace(placeT[0], ' ', '-')}" >${placeT[0]} (${placeT[1]})</a>
 	    	</span> 
 		</c:forEach>
 	</div>
@@ -79,7 +80,7 @@
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
-																<a data-ng-click='formatAndGotoUrl("/city/${city.cityName}/${placeType}/${place.placeName}")' ><span class="md-headline">${place.placeName}</span> </a>
+																<a href="/city/${fn:replace(city.cityName, ' ', '-')}/${fn:replace(placeType, ' ', '-')}/${fn:replace(place.placeName, ' ', '-')}" ><span class="md-headline">${place.placeName}</span> </a>
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
@@ -88,7 +89,7 @@
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${place.placeOverview}
 														</p>
-														<c:if test="${not empty place.placeOverview}"><md-button data-ng-click='formatAndGotoUrl("/city/${city.cityName}/${placeType}/${place.placeName}")' class="md-raised">Read more</md-button></c:if>
+														<c:if test="${not empty place.placeOverview}"><md-button href="/city/${fn:replace(city.cityName, ' ', '-')}/${fn:replace(placeType, ' ', '-')}/${fn:replace(place.placeName, ' ', '-')}"  class="md-raised">Read more</md-button></c:if>
 														</md-card-content> 
 													</div>
 												</md-card>

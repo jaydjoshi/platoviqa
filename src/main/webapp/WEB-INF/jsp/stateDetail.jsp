@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -25,7 +26,7 @@
 			<div class="container city-detail-head">
 				<div class="city-detail_text">
 					<div class="row">
-						<h1>${state.stateName}, <a data-ng-click="formatAndGotoUrl('/country/${state.country.countryName}')">${state.country.countryName}</a></h1>
+						<h1>${state.stateName}, <a href="/country/${fn:replace(state.country.countryName, ' ', '-')}">${state.country.countryName}</a></h1>
 						<small class="city-detail-subtext">${state.title}</small>
 					</div>
 				</div>
@@ -49,7 +50,7 @@
 			                   
 			                    <md-card class="place-card" >
 			                    	<div>
-			                    	 <a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" class="portfolio-link" md-ink-ripple>
+			                    	 <a href="/city/${fn:replace(city.cityName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
 			                    		 
 			                        	<span class="rating" data-ng-class="getBackgroudClass(${city.rating})" data-ng-show="${city.rating} > 0">${city.rating}</span> 
 			                        	<span class="center-text">

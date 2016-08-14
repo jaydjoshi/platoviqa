@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -50,10 +51,10 @@
 							<md-card class="place-card" >
 							<div>
 				
-								<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')"></a>
+								<a href="/city/${fn:replace(city.cityName, ' ', '-')}" ></a>
 				
 								
-								<a class="portfolio-link" data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" md-ink-ripple>
+								<a class="portfolio-link" href="/city/${fn:replace(city.cityName, ' ', '-')}" md-ink-ripple>
 									<span class="center-text">
 										<h2>${city.cityName}</h2>
 									</span> 

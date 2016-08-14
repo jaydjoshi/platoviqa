@@ -1,6 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
  	<meta charset="utf-8">
@@ -85,9 +85,8 @@
 								<md-card class="place-card" >
 			                    	<div>
 			                    		
-			                    		<a data-ng-click="formatAndGotoUrl('/state/${state.stateName}')"></a>
 			                    		
-			                    	  <a data-ng-click="formatAndGotoUrl('/state/${state.stateName}')" class="portfolio-link" md-ink-ripple>
+			                    	  <a href="/state/${fn:replace(state.stateName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
 			                        	<span class="center-text">
 			                        		<h2>${state.stateName}</h2>
 			                        	</span>
@@ -111,7 +110,7 @@
 		            <div class="row no-gutter">
 		            	<c:forEach var="category" items="${categories}">
 			                <div class="col-lg-4 col-sm-6" >
-			                    <a data-ng-click="formatAndGotoUrl('/category/${category.categoryName}')" class="portfolio-box " md-ink-ripple>
+			                    <a href="/category/${fn:replace(category.categoryName, ' ', '-')}" class="portfolio-box " md-ink-ripple>
 			                    	<span class="center-text"><h2>${category.categoryName}</h2></span>
 			                        <img src="../app/${category.imgMediumPath}" class="img-responsive" alt="Platovi - places to visit in ${category.categoryName} ">
 			                    </a>
@@ -133,10 +132,9 @@
 								<md-card class="place-card" >
 								<div>
 					
-									<a data-ng-click="formatAndGotoUrl('/city/${city.cityName}')"></a>
 					
 									
-									<a class="portfolio-link" data-ng-click="formatAndGotoUrl('/city/${city.cityName}')" md-ink-ripple>
+									<a class="portfolio-link" href="/city/${fn:replace(city.cityName, ' ', '-')}" md-ink-ripple>
 										<span class="center-text">
 											<h2>${city.cityName}</h2>
 										</span> 
