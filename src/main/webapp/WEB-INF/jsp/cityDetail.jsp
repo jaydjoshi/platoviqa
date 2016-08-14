@@ -521,7 +521,7 @@
 				                
 				            </div>
 				            <div class="text-center">
-					        	<md-button href="/PlaToVi/near/${city.cityName}" class="md-raised md-primary"><i class="fa fa-globe"></i> view all places near ${city.cityName}</md-button>
+					        	<md-button href="/near/${city.cityName}" class="md-raised md-primary"><i class="fa fa-globe"></i> view all places near ${city.cityName}</md-button>
 				            </div>
 				     </div>
 				</div>
