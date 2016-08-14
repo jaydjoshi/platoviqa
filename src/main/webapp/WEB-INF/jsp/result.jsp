@@ -7,11 +7,11 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="places to visit near ${cityName}, explore places to visit near ${cityName}">
-    <meta name="keywords" content="platovi, places to visit near ${cityName} ,travel near ${cityName},  trip near ${cityName}, weekend getaways near ${cityName}">
+    <meta name="description" content="${fn:length(cities)} amazing places to visit near ${cityName}, explore ${fn:length(cities)} places near ${cityName} and plan your travel ">
+    <meta name="keywords" content="platovi, ${fn:length(cities)} places to visit near ${cityName} ,travel near ${cityName},  trip near ${cityName}, weekend getaways near ${cityName}">
     <meta name="author" content="platovi">
-    <title>${cityName} Tourism| places to visit near ${cityName} | Platovi - places to visit</title>
-    <meta content='${cityName} Tourism| places to visit near ${cityName} | Platovi - places to visit' name='title'>
+    <title>${cityName} Tourism | ${fn:length(cities)} places to visit near ${cityName} | Platovi - places to visit</title>
+    <meta content='${cityName} Tourism | ${fn:length(cities)} places to visit near ${cityName} | Platovi - places to visit' name='title'>
     
     <%@ include file="include.jsp" %>
 </head>
@@ -22,10 +22,10 @@
 	<!-- Page Content -->
 	<div  class="bg-light-gray">
 		<header class="sb-page-header">
-			<div class="container">
-				<h1></h1>
-				<h1>Places to visit <small>near ${cityName}</small></h1>
+			<div class="container text-center">
 			
+				<h1>Places to visit near ${cityName}</h1>
+				<c:if test="${not empty cities}"><h2>${fn:length(cities)} places found</h2></c:if>
 			</div>
 		</header>
 	</div>

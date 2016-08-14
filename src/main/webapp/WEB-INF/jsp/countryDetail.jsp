@@ -7,11 +7,11 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="${country.countryName}, explore places to visit, places to eat and sleep and things to buy in ${country.countryName} and how to reach ${country.countryName} ">
-    <meta name="keywords" content="platovi, places to visit in ${country.countryName},${country.countryName} tourism,${country.countryName} travel">
+    <meta name="description" content="Explore ${fn:length(cities)} places to visit, explore ${fn:length(cities)} cities in ${country.countryName} and plan your travel to ${country.countryName} - ${country.title} ">
+    <meta name="keywords" content="platovi, ${fn:length(cities)} places to visit in ${country.countryName},${country.countryName} tourism,${country.countryName} travel,${country.countryName} travel destinations">
     <meta name="author" content="platovi">
-    <title>${country.countryName} tourism | Places to visit in ${country.countryName} | Platovi - places to visit</title>
-    <meta content='${country.countryName} tourism | Places to visit in ${country.countryName} | Platovi - places to visit' name='title'>
+    <title>${country.countryName} tourism | ${fn:length(cities)} places to visit in ${country.countryName} | Platovi - places to visit</title>
+    <meta content='${country.countryName} tourism | ${fn:length(cities)} places to visit in ${country.countryName} | Platovi - places to visit' name='title'>
     
     <%@ include file="include.jsp" %>
     

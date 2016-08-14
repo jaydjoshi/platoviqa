@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Platovi - places to visit, is the best travel platform, it helps you discover places to visit and gives you all the information needed to plan your trip.">
-    <meta name="keywords" content="platovi, places to visit, tourism, travel, weekend getaways, trip planner in India, travel agent, best travel deals, places to visit in India, tourism website, tourism website in India, tourist attractions website, tourism website blog,best travel website india, travel website blog, tours and travel website in India ">
+    <meta name="keywords" content="platovi,explore places to visit, tourism website in India, travel website, weekend getaways, trip planner in India, travel agent, best travel deals, places to visit in India, tourism website, tourism website in India, tourist attractions website, tourism website blog,best travel website india, travel website blog, tours and travel website in India ">
     <meta name="author" content="platovi">
     <title>Platovi - places to visit</title>
     <meta content='Platovi - places to visit' name='title'>
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
                     <div class="intro-message centered">
-                        <img class="img-responsive" alt="Platovi- places to visit logo" src="../app/img/PlatoviLogoWhiteTagNew.png">
+                        <img class="img-responsive" alt="Platovi- places to visit logo" src="../app/img/PlatoviLogo_white.png">
                  </div>
                  </div>
              </div>
@@ -37,6 +37,7 @@
                         		<div class="row control-group">
   									<div class="form-group col-lg-12">
                         				<!-- <br> -->
+                        				<h1 class="home-header">Explore places to visit</h1>
                         			</div>
                         		</div>
   								<div class="row control-group">
@@ -90,7 +91,7 @@
 			                        	<span class="center-text">
 			                        		<h2>${state.stateName}</h2>
 			                        	</span>
-			                        	<img src="../app/${state.imageMediumPath}" alt="Platovi - places to visit in ${state.stateName} state" class="place-img img-responsive" >
+			                        	<img src="../app/${state.imageMediumPath}" alt="Places to visit in ${state.stateName} state | ${state.stateName} tourism" class="place-img img-responsive" >
 							         </a>
 							         
 							         </div>				        
@@ -112,7 +113,7 @@
 			                <div class="col-lg-4 col-sm-6" >
 			                    <a href="/category/${fn:replace(category.categoryName, ' ', '-')}" class="portfolio-box " md-ink-ripple>
 			                    	<span class="center-text"><h2>${category.categoryName}</h2></span>
-			                        <img src="../app/${category.imgMediumPath}" class="img-responsive" alt="Platovi - places to visit in ${category.categoryName} ">
+			                        <img src="../app/${category.imgMediumPath}" class="img-responsive" alt="Places to visit in ${category.categoryName}">
 			                    </a>
 			                </div>
 		                </c:forEach>
@@ -138,7 +139,7 @@
 										<span class="center-text">
 											<h2>${city.cityName}</h2>
 										</span> 
-										<img src="../app/${city.imageMediumPath}" alt="Platovi - places to visit in ${city.cityName} city" class="place-img img-responsive">
+										<img src="../app/${city.imageMediumPath}" alt="Places to visit in ${city.cityName} city | ${city.cityName} tourism" class="place-img img-responsive">
 									</a>
 								
 								</div>

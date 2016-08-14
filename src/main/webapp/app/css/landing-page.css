@@ -292,7 +292,7 @@ p.copyright {
     border-radius: 5px;
     border-top-left-radius: 0;
     margin-bottom: 20%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* do not include background color in small devices */
@@ -460,12 +460,6 @@ p.copyright {
     }
 }
 
-@media (min-width:992px) {
-    .sb-page-header h1,
-    .sb-page-header p {
-        margin-right: 380px
-    }
-}
 
 
 /* sub header */
@@ -1358,4 +1352,10 @@ IMG[src=''], IMG:not([src])
 
 .text-header:focus {  
     width: 340px;
+}
+
+.home-header{
+	font-size: 5rem;
+    font-weight: 600;
+    color: #fff;
 }

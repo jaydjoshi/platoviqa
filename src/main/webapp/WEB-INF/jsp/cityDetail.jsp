@@ -7,7 +7,7 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="${city.cityName}, explore places to visit, places to eat and sleep and things to buy in ${city.cityName} and how to reach ${city.cityName} ">
+    <meta name="description" content=" ${city.cityName}, explore places to visit in ${city.cityName}, places to eat and sleep and things to buy in ${city.cityName} and how to reach ${city.cityName} ">
     <meta name="keywords" content="platovi, places to visit in ${city.cityName},${city.cityName} tourism,${city.cityName} travel, weekend getaways near ${city.cityName}">
     <meta name="author" content="platovi">
     <title>${city.cityName} tourism | Places to visit in ${city.cityName} | Platovi - places to visit</title>
@@ -519,6 +519,9 @@
 				                </div>
 					        </c:forEach>
 				                
+				            </div>
+				            <div class="text-center">
+					        	<md-button href="/PlaToVi/near/${city.cityName}" class="md-raised md-primary"><i class="fa fa-globe"></i> view all places near ${city.cityName}</md-button>
 				            </div>
 				     </div>
 				</div>

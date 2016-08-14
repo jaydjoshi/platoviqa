@@ -7,11 +7,11 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="places to ${placeType} in ${city.cityName}, explore places to ${placeType} in city ${city.cityName }">
-    <meta name="keywords" content="platovi, places to ${placeType} in ${city.cityName}, ${placeType} in ${city.cityName}, ${city.cityName} ${placeType} travel">
+    <meta name="description" content="${fn:length(places)} places to ${placeType} in ${city.cityName}, explore places to ${placeType} in city ${city.cityName }">
+    <meta name="keywords" content="platovi, ${fn:length(places)} places to ${placeType} in ${city.cityName}, ${placeType} in ${city.cityName}, ${city.cityName} ${placeType} travel">
     <meta name="author" content="platovi">
-    <title>${placeType} in ${city.cityName} | Platovi - places to visit</title>
-    <meta content='${placeType} in ${city.cityName} | Platovi - places to visit' name='title'>
+    <title>${fn:length(places)} places to ${placeType} in ${city.cityName} | Platovi - places to visit</title>
+    <meta content='${fn:length(places)} places to ${placeType} in ${city.cityName} | Platovi - places to visit' name='title'>
     
     <%@ include file="include.jsp" %>
 </head>
@@ -33,7 +33,7 @@
 		</header>
 	
 	<div class="row text-center">
-		<h1 class="large-padding text-center">${placeType} in <a class="link-black" href="/city/${fn:replace(city.cityName, ' ', '-')}">${city.cityName} </a></h1>
+	<h1 class="large-padding text-center">${fn:length(places)} places to ${placeType} in <a class="link-black" href="/city/${fn:replace(city.cityName, ' ', '-')}"  >${city.cityName} </a></h1>
 		<c:forEach var="placeT" items="${placeTypes}">
 			<span class="link-type-list medium-padding" data-ng-class="getActivePlaceType('${placeT[0]}')" >
 				<a href="/city/${fn:replace(city.cityName, ' ', '-')}/${fn:replace(placeT[0], ' ', '-')}" >${placeT[0]} (${placeT[1]})</a>

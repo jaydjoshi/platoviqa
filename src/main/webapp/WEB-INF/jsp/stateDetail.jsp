@@ -7,11 +7,11 @@
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="${state.stateName}, explore places to visit, places to eat and sleep and things to buy in ${state.stateName} and how to reach ${state.stateName} ">
-    <meta name="keywords" content="platovi, places to visit in ${state.stateName},${state.stateName} tourism,${state.stateName} travel, weekend getaways near ${state.stateName}">
+    <meta name="description" content="${state.stateName}, ${fn:length(cities)} places to visit in ${state.stateName}, explore ${fn:length(cities)} cities in ${state.stateName} and plan your travel to ${state.stateName} - ${state.title} ">
+    <meta name="keywords" content="platovi, places to visit in ${state.stateName},${state.stateName} tourism,${state.stateName} travel desitantions, weekend getaways near ${state.stateName}">
     <meta name="author" content="platovi">
-    <title>${state.stateName} tourism | Places to visit in ${state.stateName} | Platovi - places to visit</title>
-    <meta content='${state.stateName} tourism | Places to visit in ${state.stateName} | Platovi - places to visit' name='title'>
+    <title>${state.stateName} tourism | ${fn:length(cities)} places to visit in ${state.stateName} | Platovi - places to visit</title>
+    <meta content='${state.stateName} tourism | ${fn:length(cities)} Places to visit in ${state.stateName} | Platovi - places to visit' name='title'>
     
     <%@ include file="include.jsp" %>
     
