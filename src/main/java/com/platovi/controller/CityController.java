@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,21 +50,27 @@ public class CityController {
 	 * method to get names of all the country,state,city
 	 */
 	@RequestMapping(value="/name", method = RequestMethod.GET)
-    public ResponseEntity<List> getAllCityNames() {
+    public ResponseEntity<List> getAllCityNames(HttpSession session) {
 		
 		LOGGER.info("CityController : getAllCityNames method starts");
 		List<Header> resultHeader=new ArrayList<Header>();
 		Header header =null;
+		if(session.getAttribute("resultHeaderList") != null){
+			resultHeader= (List<Header>) session.getAttribute("resultHeaderList");
+		}
+		else{
 		
         List<String> cityNames = cityService.getAllCityNames();
         List<String> stateNames = stateService.getAllStateNames();
         List<String> countryNames = countryService.getAllCountryNames();
+	        List<String> placeNames = placeService.getAllPlaceNames(1);
         
         List<String> result= new ArrayList<String>();
         
         result.addAll(countryNames);
         result.addAll(stateNames);
         result.addAll(cityNames);
+	        result.addAll(placeNames);
         
         for (String countryStr : countryNames) {
         	header= new Header();
@@ -84,6 +91,40 @@ public class CityController {
         	header.setPlaceName(cityStr);
         	header.setPlaceType(PlatoviConstants.CITY);
         	resultHeader.add(header);
+			}
+	        for (String placeStr : placeNames) {
+	        	if(placeStr != null && PlatoviConstants.SEE.equalsIgnoreCase(placeStr.substring(placeStr.lastIndexOf(',')+1))){
+	        		header= new Header();
+	            	header.setPlaceName(placeStr.substring(0,placeStr.lastIndexOf(',')));
+	            	header.setPlaceType(PlatoviConstants.SEE);
+	            	resultHeader.add(header);
+	        	}
+	        	else if(placeStr != null && PlatoviConstants.EAT.equalsIgnoreCase(placeStr.substring(placeStr.lastIndexOf(',')+1))){
+	        		header= new Header();
+	            	header.setPlaceName(placeStr.substring(0,placeStr.lastIndexOf(',')));
+	            	header.setPlaceType(PlatoviConstants.EAT);
+	            	resultHeader.add(header);
+	        	}
+	        	else if(placeStr != null && PlatoviConstants.DRINK.equalsIgnoreCase(placeStr.substring(placeStr.lastIndexOf(',')+1))){
+	        		header= new Header();
+	            	header.setPlaceName(placeStr.substring(0,placeStr.lastIndexOf(',')));
+	            	header.setPlaceType(PlatoviConstants.DRINK);
+	            	resultHeader.add(header);
+	        	}
+	        	else if(placeStr != null && PlatoviConstants.SLEEP.equalsIgnoreCase(placeStr.substring(placeStr.lastIndexOf(',')+1))){
+	        		header= new Header();
+	            	header.setPlaceName(placeStr.substring(0,placeStr.lastIndexOf(',')));
+	            	header.setPlaceType(PlatoviConstants.SLEEP);
+	            	resultHeader.add(header);
+	        	}
+	        	else if(placeStr != null && PlatoviConstants.DO.equalsIgnoreCase(placeStr.substring(placeStr.lastIndexOf(',')+1))){
+	        		header= new Header();
+	            	header.setPlaceName(placeStr.substring(0,placeStr.lastIndexOf(',')));
+	            	header.setPlaceType(PlatoviConstants.DO);
+	            	resultHeader.add(header);
+	        	}
+			}
+	        session.setAttribute("resultHeaderList", resultHeader);
 		}
         
         return new ResponseEntity<List>( resultHeader, HttpStatus.OK);

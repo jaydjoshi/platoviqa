@@ -22,4 +22,5 @@ public interface PlaceService {
     public List<Place> findAllPlacesByCityIdAndPlaceType(int cityId,String placeType, int maxrow,boolean fetchAllRecords);
 
 	public List<Object[]> findDistinctPlaceTypebyCityId(int cityId);
+	public List<String> getAllPlaceNames(float i);
 }

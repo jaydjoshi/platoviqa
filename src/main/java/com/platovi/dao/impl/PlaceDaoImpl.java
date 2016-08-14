@@ -73,4 +73,11 @@ public class PlaceDaoImpl implements PlaceDao {
         return query.getResultList();
 	}
 
+	@Override
+	public List<String> getAllPlaceNames(float i) {
+		Query query = em.createQuery("SELECT CONCAT(a.placeName,',',a.city.cityName,',',a.placeType) FROM Place a WHERE a.rating>=?1 ORDER BY a.rating DESC");
+		query.setParameter(1, i);
+        List<String> places = query.getResultList();
+		return places; 	
+	}
 }

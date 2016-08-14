@@ -93,8 +93,39 @@ app.controller('headerController', function($scope,$rootScope,cityNameFactory,$w
 				var url = "http://" + $window.location.host + '/country/'+$scope.selectedCity.substring(0,subStringOpenBracketPos-1).replace(/ /g,"-");
 		        $window.location.href = url;
 			}
+			else if(subStr=='see'){
+				console.log("header found see");
+				//
+				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(subStringCommaPos+1,subStringOpenBracketPos-1).replace(/ /g,"-")+'/see/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
+		        $window.location.href = url;
+			}
+			else if(subStr=='eat'){
+				console.log("header found eat");
+				//
+				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(subStringCommaPos+1,subStringOpenBracketPos-1).replace(/ /g,"-")+'/eat/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
+		        $window.location.href = url;
+			}
+			else if(subStr=='drink'){
+				console.log("header found drink");
+				//
+				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(subStringCommaPos+1,subStringOpenBracketPos-1).replace(/ /g,"-")+'/drink/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
+		        $window.location.href = url;
+			}
+			else if(subStr=='sleep'){
+				console.log("header found sleep");
+				//
+				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(subStringCommaPos+1,subStringOpenBracketPos-1).replace(/ /g,"-")+'/sleep/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
+		        $window.location.href = url;
+			}
+			else if(subStr=='do'){
+				console.log("header found do");
+				//
+				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(subStringCommaPos+1,subStringOpenBracketPos-1).replace(/ /g,"-")+'/do/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
+		        $window.location.href = url;
+			}
 			else{
 				//default route to city
+				console.log("default route to city");
 				var url = "http://" + $window.location.host + '/city/'+$scope.selectedCity.substring(0,subStringCommaPos).replace(/ /g,"-");
 		        $window.location.href = url;
 			}

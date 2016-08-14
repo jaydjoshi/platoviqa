@@ -23,4 +23,5 @@ public interface PlaceDao {
 
 	public List<Object[]> findDistinctPlaceTypebyCityId(int cityId);
 
+	public List<String> getAllPlaceNames(float i);
 }

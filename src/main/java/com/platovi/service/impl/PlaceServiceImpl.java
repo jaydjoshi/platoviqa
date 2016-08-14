@@ -62,4 +62,8 @@ public class PlaceServiceImpl implements PlaceService {
 		return placeDao.findDistinctPlaceTypebyCityId(cityId);
 	}
 
+	@Override
+	public List<String> getAllPlaceNames(float i) {
+		return placeDao.getAllPlaceNames(i);
+	}
 }
