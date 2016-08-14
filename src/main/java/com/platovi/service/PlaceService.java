@@ -15,7 +15,7 @@ public interface PlaceService {
      
     public List<Place> listAllPlaces();
     
-    public Place findPlaceByName(String name);
+    public Place findPlaceByName(String name,int cityId);
     
     public List<Place> findAllPlacesByCityId(int cityId);
     

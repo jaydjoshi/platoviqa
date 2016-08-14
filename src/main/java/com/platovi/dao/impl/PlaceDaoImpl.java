@@ -35,9 +35,10 @@ public class PlaceDaoImpl implements PlaceDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Place findPlaceByName(String name) {
-		Query query = em.createQuery("SELECT a FROM Place a WHERE a.placeName=?1");
+	public Place findPlaceByName(String name,int cityId) {
+		Query query = em.createQuery("SELECT a FROM Place a WHERE a.placeName=?1 AND a.city.cityId=?2");
         query.setParameter(1, name);
+        query.setParameter(2, cityId);
         List<Place> places = query.getResultList();
         if(places.size() == 0) {
             return null;

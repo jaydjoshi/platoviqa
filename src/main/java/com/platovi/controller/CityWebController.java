@@ -156,7 +156,7 @@ public class CityWebController {
 	    
         if(placeDetail!=null){
         	placeDetail= PlatoviUtility.replaceHyphenWithSpace(placeDetail);
-        	place= placeService.findPlaceByName(placeDetail);
+        	place= placeService.findPlaceByName(placeDetail,city.getCityId());
         }
         modelAndView.addObject("placeTypes",placeService.findDistinctPlaceTypebyCityId(city.getCityId()));
         modelAndView.addObject("place",place);

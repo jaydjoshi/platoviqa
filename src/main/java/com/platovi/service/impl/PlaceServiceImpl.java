@@ -38,9 +38,9 @@ public class PlaceServiceImpl implements PlaceService {
 		return placeDao.listAllPlaces();
 	}
 
-	public Place findPlaceByName(String name) {
+	public Place findPlaceByName(String name,int cityId) {
 		
-		return placeDao.findPlaceByName(name);
+		return placeDao.findPlaceByName(name,cityId);
 	}
 
 	@Transactional
