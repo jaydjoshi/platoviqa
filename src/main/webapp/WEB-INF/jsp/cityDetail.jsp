@@ -43,7 +43,7 @@
 	
 	<!-- Page Content -->
 	<div class="bg-light-gray" data-ng-controller="cityDetailController">
-		<c:if test="${empty city.imageInternetLargePath}"><header class="sb-page-header-detail" style="background-image: url(../../PlaToVi/app/${city.imageLargePath})"></c:if>
+		<c:if test="${empty city.imageInternetLargePath}"><header class="sb-page-header-detail" style="background-image: url(../app/${city.imageLargePath})"></c:if>
 		<c:if test="${not empty city.imageInternetLargePath}"><header class="sb-page-header-detail" style="background-image: url(${city.imageInternetLargePath})"></c:if>
 			<div class="container city-detail-head" >
 				<div class="city-detail_text">
