@@ -45,6 +45,8 @@ public class City {
 	private String imageMediumPath;
 	private String imageLargePath;
 	
+	private String imageInternetLargePath;
+	private String imageInternetLargeSource;
 	private float rating;
 	
 	@OneToOne
@@ -272,6 +274,18 @@ public class City {
 	   //rollno2-rollno1;
    }};
 
+	public String getImageInternetLargePath() {
+		return imageInternetLargePath;
+	}
+	public void setImageInternetLargePath(String imageInternetLargePath) {
+		this.imageInternetLargePath = imageInternetLargePath;
+	}
+	public String getImageInternetLargeSource() {
+		return imageInternetLargeSource;
+	}
+	public void setImageInternetLargeSource(String imageInternetLargeSource) {
+		this.imageInternetLargeSource = imageInternetLargeSource;
+	}
 	
 
 }

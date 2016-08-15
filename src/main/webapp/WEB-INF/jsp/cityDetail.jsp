@@ -43,9 +43,9 @@
 	
 	<!-- Page Content -->
 	<div class="bg-light-gray" data-ng-controller="cityDetailController">
-		
-		<header class="sb-page-header-detail" style="background-image: url(../app/${city.imageLargePath})">
-			<div class="container city-detail-head">
+		<c:if test="${empty city.imageInternetLargePath}"><header class="sb-page-header-detail" style="background-image: url(../../PlaToVi/app/${city.imageLargePath})"></c:if>
+		<c:if test="${not empty city.imageInternetLargePath}"><header class="sb-page-header-detail" style="background-image: url(${city.imageInternetLargePath})"></c:if>
+			<div class="container city-detail-head" >
 				<div class="city-detail_text">
 					<div class="row">
 						<h1>${city.cityName}, <a href="/state/${fn:replace(city.state.stateName, ' ', '-')}" >${city.state.stateName}</a> </h1>
@@ -60,6 +60,9 @@
 				    
 					</div>
 				</div>
+			</div>
+			<div class="row">
+				<c:if test="${not empty city.imageInternetLargePath}"><p class="bottom-right"><a class="link-gray" href="${city.imageInternetLargeSource}">Image source</a></p></c:if>
 			</div>
 		</header>
 		

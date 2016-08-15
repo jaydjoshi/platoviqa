@@ -1302,6 +1302,9 @@ IMG[src=''], IMG:not([src])
 	color: #000;
 }
 
+.link-gray{
+	color: #777 !important;
+}
 .tabs-left {
   border-bottom: none;
   padding-top: 2px;
@@ -1358,4 +1361,9 @@ IMG[src=''], IMG:not([src])
 	font-size: 5rem;
     font-weight: 600;
     color: #fff;
+}
+.bottom-right{
+	position: absolute;
+    bottom: 0px;
+    right: 10px;
 }
