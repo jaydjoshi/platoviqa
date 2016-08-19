@@ -99,6 +99,8 @@
 				</div>
 			</section>
 		</c:if>
+		
+		
     	
     	<!-- Explore places by category -->
     	<c:if test="${not empty categories}">
