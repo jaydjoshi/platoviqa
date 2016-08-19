@@ -504,7 +504,7 @@
 		        		<h1 class="page-header text-center" >Other places near ${city.cityName} you may like</h1>
 					        <div class="row">
 					        <c:forEach var="nearbyCity" items="${citiesNearby}">
-					        	<div class="col-md-4 col-sm-6 portfolio-item" >
+					        	<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item" >
 				                   
 				                    <md-card class="place-card">
 				                    	<div>

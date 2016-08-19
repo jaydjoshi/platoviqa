@@ -96,7 +96,7 @@
 		        			<h1 class="page-header text-center" >Explore top states in ${country.countryName}</h1>
 					        	<div class="row">
 					        	<c:forEach var="state" items="${states}">
-					        		<div class="col-md-4 col-sm-6 portfolio-item" >
+					        		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item" >
 					                    <md-card class="place-card" >
 					                    	<div>
 					                    	 <a href="/state/${fn:replace(state.stateName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
@@ -122,7 +122,7 @@
 		        			<h1 class="page-header text-center" >Explore top cities in ${country.countryName}</h1>
 					        	<div class="row">
 					        	<c:forEach var="city" items="${cities}">
-					        		<div class="col-md-4 col-sm-6 portfolio-item" >
+					        		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item" >
 					                    <md-card class="place-card" >
 					                    	<div>
 					                    	 <a href="/city/${fn:replace(city.cityName, ' ', '-')}" class="portfolio-link" md-ink-ripple>

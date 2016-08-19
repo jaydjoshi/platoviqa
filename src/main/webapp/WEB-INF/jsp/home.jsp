@@ -82,7 +82,7 @@
 		    	<div class="container medium-padding">
 		    		<div class="row">	
 		    			<c:forEach var="state" items="${states}">
-				    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat">
+				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat">
 								<md-card class="place-card" >
 			                    	<div>
 			                    		
@@ -129,7 +129,7 @@
 		    	<div class="container medium-padding">
 		    		<div class="row">	
 		    			<c:forEach var="city" items="${cities}">
-				    		<div class="col-md-4 col-sm-6 portfolio-item animate-repeat">
+				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat">
 								<md-card class="place-card" >
 								<div>
 					
