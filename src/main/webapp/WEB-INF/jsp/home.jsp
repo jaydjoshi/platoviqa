@@ -85,7 +85,6 @@
 				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat">
 								<md-card class="place-card" >
 			                    	<div>
-			                    		
 			                    	  <a href="/state/${fn:replace(state.stateName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
 			                        	<span class="center-text">
 			                        		<h2>${state.stateName}</h2>
