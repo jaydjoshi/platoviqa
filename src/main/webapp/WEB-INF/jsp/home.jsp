@@ -86,14 +86,12 @@
 								<md-card class="place-card" >
 			                    	<div>
 			                    		
-			                    		
 			                    	  <a href="/state/${fn:replace(state.stateName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
 			                        	<span class="center-text">
 			                        		<h2>${state.stateName}</h2>
 			                        	</span>
 			                        	<img src="../app/${state.imageMediumPath}" alt="Places to visit in ${state.stateName} state | ${state.stateName} tourism" class="place-img img-responsive" >
 							         </a>
-							         
 							         </div>				        
 							  </md-card>
 							</div>
