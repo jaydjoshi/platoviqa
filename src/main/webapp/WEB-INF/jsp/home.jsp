@@ -24,7 +24,7 @@
     <div class="" data-ng-controller="cityDetailController">
         <div class="container">
             <div class="row">
-                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8 hidden-xs">
                     <div class="intro-message centered">
                         <img class="img-responsive" alt="Platovi- places to visit logo" src="../app/img/PlatoviLogo_white.png">
                  </div>
@@ -82,12 +82,12 @@
 		    	<div class="container medium-padding">
 		    		<div class="row">	
 		    			<c:forEach var="state" items="${states}">
-				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat">
+				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat low-vertical-padding">
 								<md-card class="place-card" >
 			                    	<div>
 			                    	  <a href="/state/${fn:replace(state.stateName, ' ', '-')}" class="portfolio-link" md-ink-ripple>
 			                        	<span class="center-text">
-			                        		<h2>${state.stateName}</h2>
+			                        		<h2 class="header-on-image">${state.stateName}</h2>
 			                        	</span>
 			                        	<img src="../app/${state.imageMediumPath}" alt="Places to visit in ${state.stateName} state | ${state.stateName} tourism" class="place-img img-responsive" >
 							         </a>
@@ -128,7 +128,7 @@
 		    	<div class="container medium-padding">
 		    		<div class="row">	
 		    			<c:forEach var="city" items="${cities}">
-				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat">
+				    		<div class="col-md-4 col-sm-4 col-xs-6 portfolio-item animate-repeat low-vertical-padding">
 								<md-card class="place-card" >
 								<div>
 					
@@ -136,7 +136,7 @@
 									
 									<a class="portfolio-link" href="/city/${fn:replace(city.cityName, ' ', '-')}" md-ink-ripple>
 										<span class="center-text">
-											<h2>${city.cityName}</h2>
+											<h2 class="header-on-image">${city.cityName}</h2>
 										</span> 
 										<img src="../app/${city.imageMediumPath}" alt="Places to visit in ${city.cityName} city | ${city.cityName} tourism" class="place-img img-responsive">
 									</a>

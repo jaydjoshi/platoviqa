@@ -512,7 +512,7 @@
 				                    		 
 				                        	<span class="rating" data-ng-class="getBackgroudClass(${nearbyCity.rating})" data-ng-show="${nearbyCity.rating} > 0">${nearbyCity.rating}</span> 
 				                        	<span class="center-text">
-				                        		<h2>${nearbyCity.cityName}</h2>
+				                        		<h2 class="header-on-image">${nearbyCity.cityName}</h2>
 				                        		<p class="center-text-muted" data-ng-show="${nearbyCity.distanceFromCurrentCity} > 0">${nearbyCity.distanceFromCurrentCity} km away from ${city.cityName}</p>
 				                        	</span>
 								         	<img src="../app/${nearbyCity.imageMediumPath}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit near ${nearbyCity.cityName} city" class="place-img img-responsive" >

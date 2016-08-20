@@ -1162,20 +1162,49 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     height: 240px;
 }
 
+@media (min-width: 320px) and (max-width: 479px) {
+	.place-img{
+		background-color: #A4A8AD;
+	    height: 130px;
+	}
+}
 
-@media (max-width: 480px) {
+@media (min-width: 480px) and (max-width: 767px) {
 	.place-img{
 		background-color: #A4A8AD;
 	    height: 180px;
 	}
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px ) and (max-width: 1024px) {
 	.place-img{
 		background-color: #A4A8AD;
 	    height: 180px;
 	}
 }
+
+
+@media (min-width: 320px) and (max-width: 479px) {
+	.low-vertical-padding{
+		padding-left: 7px;
+   		padding-right: 7px;
+	}
+}
+
+
+
+@media (min-width: 320px) and (max-width: 479px) {
+	.header-on-image{
+		font-size: 20px;
+	}
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+	.header-on-image{
+		font-size: 25px;
+	}
+}
+
 
 .jumbotron-error{
     

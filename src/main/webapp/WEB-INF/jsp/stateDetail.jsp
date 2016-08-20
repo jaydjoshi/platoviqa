@@ -54,7 +54,7 @@
 			                    		 
 			                        	<span class="rating" data-ng-class="getBackgroudClass(${city.rating})" data-ng-show="${city.rating} > 0">${city.rating}</span> 
 			                        	<span class="center-text">
-			                        		<h2>${city.cityName}</h2>
+			                        		<h2 class="header-on-image">${city.cityName}</h2>
 			                        	</span>
 							         	<img src="../app/${city.imageMediumPath}" err-SRC="http://placehold.it/360x240?text={{city.cityName}}" alt="Platovi - places to visit near ${city.cityName} city" class="place-img img-responsive" >
 							         </a>
