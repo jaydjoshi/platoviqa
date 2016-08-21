@@ -35,6 +35,11 @@ public class Place {
 	private String imageMediumPath;
 	private String imageLargePath;
 	
+	private String placeSmallImage;
+	private String placeLargeImage;
+	private String placeImageSource;
+	private String activeFlag;
+	
 	@OneToOne
 	private City city;
 	
@@ -148,6 +153,29 @@ public class Place {
 	public void setImageLargePath(String imageLargePath) {
 		this.imageLargePath = imageLargePath;
 	}
-	
+	public String getPlaceSmallImage() {
+		return placeSmallImage;
+	}
+	public void setPlaceSmallImage(String placeSmallImage) {
+		this.placeSmallImage = placeSmallImage;
+	}
+	public String getPlaceLargeImage() {
+		return placeLargeImage;
+	}
+	public void setPlaceLargeImage(String placeLargeImage) {
+		this.placeLargeImage = placeLargeImage;
+	}
+	public String getPlaceImageSource() {
+		return placeImageSource;
+	}
+	public void setPlaceImageSource(String placeImageSource) {
+		this.placeImageSource = placeImageSource;
+	}
+	public String getActiveFlag() {
+		return activeFlag;
+	}
+	public void setActiveFlag(String activeFlag) {
+		this.activeFlag = activeFlag;
+	}
 	
 }

@@ -89,7 +89,7 @@
 					        </div>
 					          <div class="col-lg-12 medium-padding text-center article-para">
 					          	<div class="col-lg-12 col-md-12">
-					          		<p><i class="fa fa-clock-o"></i> Best time to visit: ${city.bestSeasonToVist} </p>
+					          		<p><i class="fa fa-clock-o"></i> Best time to visit ${city.cityName}: ${city.bestSeasonToVist} </p>
 						          	<p><i class="fa fa-calendar"></i> Ideal duration: ${city.idealDuration} </p>
 					          		
 						         	<!-- <p><i class="fa fa-sun-o"></i> Current temperature: {{weather.main.temp}} &#8451;</p> -->
@@ -117,9 +117,11 @@
 											
 												<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 												<md-card class="detail-card-large"> 
-													<div class="row">
-														<img src="" class="md-card-image card-image-small" alt="${placeToSee.placeName}" >
-													</div>
+													<c:if test="${not empty placeToSee.placeSmallImage }">
+														<div class="row">
+															<img src="${placeToSee.placeSmallImage }" class="md-card-image card-image-small" alt="${placeToSee.placeName}" >
+														</div>
+													</c:if>
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
@@ -127,7 +129,7 @@
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
-													<div class="row">
+													<div class="row hidden-xs">
 														<md-card-content>
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToSee.placeOverview}
@@ -166,9 +168,11 @@
 											
 												<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 												<md-card class="detail-card-large"> 
+													<c:if test="${not empty placeToDo.placeSmallImage }">
 													<div class="row">
-														<img src="" class="md-card-image card-image-small" alt="${placeToDo.placeName}" >
+														<img src="${placeToDo.placeSmallImage }" class="md-card-image card-image-small" alt="${placeToDo.placeName}" >
 													</div>
+													</c:if>
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
@@ -176,7 +180,7 @@
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
-													<div class="row">
+													<div class="row hidden-xs">
 														<md-card-content>
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToDo.placeOverview}
@@ -297,9 +301,11 @@
 											
 												<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 												<md-card class="detail-card-large"> 
+													<c:if test="${not empty placeToBuy.placeSmallImage }">
 													<div class="row">
-														<img src="" class="md-card-image card-image-small" alt="${placeToBuy.placeName}" >
+														<img src="${placeToBuy.placeSmallImage }" class="md-card-image card-image-small" alt="${placeToBuy.placeName}" >
 													</div>
+													</c:if>
 													<div class="row">
 														<md-card-title>
 															<md-card-title-text class="card-headline"> 
@@ -307,7 +313,7 @@
 															</md-card-title-text> 
 														</md-card-title> 
 													</div>
-													<div class="row">
+													<div class="row hidden-xs">
 														<md-card-content>
 														<p data-ng-model="placeOverview" class="limited-text-para">
 															${placeToBuy.placeOverview}
