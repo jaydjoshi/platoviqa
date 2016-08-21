@@ -458,7 +458,39 @@
         	</div>
         </div>
         
-        
+        <div class="row large-padding">
+        		<div class="col-lg-12 text-center">
+        		<h1 class="page-header text-center">Share ${city.cityName} page on</h1>
+				<div id="social">
+					
+					
+					
+					 <!-- Email -->
+				    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 ${fn:replace(req.requestURL, fn:substring(uri, 0, fn:length(uri)), req.contextPath)}/city/${fn:replace(city.cityName, ' ', '-')} ">
+				        <i class="fa fa-envelope icon-btn"></i>
+				    </a>
+				 
+				    <!-- Facebook -->
+				    <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}&t=platovi" target="_blank">
+				        <i class="fa fa-facebook icon-btn"></i>
+				    </a>
+				    
+				    <!-- Twitter -->
+				    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}" target="_blank">
+				        <i class="fa fa-twitter icon-btn"></i>
+				    </a>
+				    
+				    <!-- Google+ -->
+				    <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}" target="_blank">
+				        <i class="fa fa-google-plus icon-btn"></i>
+				    </a>
+				   
+				</div>
+				
+        		</div>
+		</div>
+		
+			
         <!-- google ads code -->
 		<div class="large-padding text-center">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

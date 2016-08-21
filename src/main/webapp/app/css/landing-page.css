@@ -1436,3 +1436,95 @@ IMG[src=''], IMG:not([src])
     bottom: 0px;
     right: 10px;
 }
+
+
+#social {
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.smGlobalBtn{ /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+}
+
+/* facebook button class*/
+.facebookBtn{
+    background: #4060A5;
+}
+
+.facebookBtn:hover{
+    color: #fff;
+}
+
+/* twitter button class*/
+.twitterBtn{
+    background: #00ABE3;
+}
+
+.twitterBtn:hover{
+      color: #fff;
+}
+
+/* google plus button class*/
+.googleplusBtn{
+    background: #e64522;
+}
+
+.googleplusBtn:hover{
+      color: #fff;
+}
+
+
+/* google plus button class*/
+.instagramBtn{
+      background:  
+   
+   linear-gradient( #400080, transparent), 
+  	linear-gradient( 
+   200deg, #d047d1, #ff0000,    #ffff00);
+    
+}
+
+.instagramBtn:hover{
+      color: #fff;
+}
+
+.mailBtn{
+	background: rgb(63,81,181);
+}
+.mailBtn:hover{
+      color: #fff;
+}
+
+
+.icon-btn{
+	  margin-top: 12px;
+}
+
+.icon-btn:hover{
+	margin-top: 12px;
+ 	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
