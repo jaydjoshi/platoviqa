@@ -463,10 +463,8 @@
         		<h1 class="page-header text-center">Share ${city.cityName} page on</h1>
 				<div id="social">
 					
-					
-					
 					 <!-- Email -->
-				    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 ${fn:replace(req.requestURL, fn:substring(uri, 0, fn:length(uri)), req.contextPath)}/city/${fn:replace(city.cityName, ' ', '-')} ">
+				    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')} ">
 				        <i class="fa fa-envelope icon-btn"></i>
 				    </a>
 				 

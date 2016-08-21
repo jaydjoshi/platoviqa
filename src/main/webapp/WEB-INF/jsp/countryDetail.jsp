@@ -79,6 +79,35 @@
 					               
 					             </div>
 					        </div>
+					        <div class="row large-padding">
+				        		<div class="col-lg-12 text-center">
+				        		<h1 class="page-header text-center">Share ${country.countryName} page on</h1>
+								<div id="social">
+									
+									 <!-- Email -->
+								    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http%3A%2F%2Fplatovi.com/country/${fn:replace(country.countryName, ' ', '-')} ">
+								        <i class="fa fa-envelope icon-btn"></i>
+								    </a>
+								 
+								    <!-- Facebook -->
+								    <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fplatovi.com/country/${fn:replace(country.countryName, ' ', '-')}&t=platovi" target="_blank">
+								        <i class="fa fa-facebook icon-btn"></i>
+								    </a>
+								    
+								    <!-- Twitter -->
+								    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/country/${fn:replace(country.countryName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/country/${fn:replace(city.cityName, ' ', '-')}" target="_blank">
+								        <i class="fa fa-twitter icon-btn"></i>
+								    </a>
+								    
+								    <!-- Google+ -->
+								    <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http%3A%2F%2Fplatovi.com/country/${fn:replace(country.countryName, ' ', '-')}" target="_blank">
+								        <i class="fa fa-google-plus icon-btn"></i>
+								    </a>
+								   
+								</div>
+								
+				        		</div>
+						</div>
 					          <!-- <div class="col-lg-12 medium-padding text-center article-para">
 					          	
 						         <div class="col-lg-12 col-md-12 medium-padding">
