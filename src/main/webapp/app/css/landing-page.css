@@ -1083,19 +1083,40 @@ md-checkbox.md-checked .md-icon {
 	padding-top:1rem;
 }
 
+
 .detail-card-large{
-	height: 51rem;
-	min-height: 40rem;
+	
+	min-height: 30rem;
 	max-height: 60rem;
 	border-top: 2px solid rgb(63,81,181) !important;
 	
 }
 
+@media (min-width: 320px) and (max-width: 479px){
+.detail-card-large{
+	
+	min-height: 15rem;
+	max-height: 20rem;
+	border-top: 2px solid rgb(63,81,181) !important;
+	
+}
+}
+
 .detail-card-medium{
-	min-height: 25rem;
+	min-height: 20rem;
 	max-height: 30rem;
 	border-left: 2px solid rgb(63,81,181) !important;
 	
+}
+
+@media (min-width: 320px) and (max-width: 479px){
+.detail-card-medium{
+	
+	min-height: 10rem;
+	max-height: 25rem;
+	border-left: 2px solid rgb(63,81,181) !important;
+	
+}
 }
 
 .detail-card-small{
@@ -1104,6 +1125,7 @@ md-checkbox.md-checked .md-icon {
 	border-left: 2px solid rgb(63,81,181) !important;
 	
 }
+
 
 md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
     color: rgb(63,81,181) !important;
