@@ -267,6 +267,7 @@ app.controller('cityDetailController',function($scope,$rootScope,$location,$wind
 	$scope.getActiveTab = function(tab){
 		var url = $location.absUrl();
 		if(url.indexOf(tab)> -1){
+			$scope.placeTypeVar=tab;
 			return true;
 		}
 		else{

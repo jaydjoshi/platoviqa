@@ -103,34 +103,35 @@
 							</div>
 						</div>
 					</c:if>
-					<%-- <div class="row large-padding">
+
+					<div class="row large-padding">
 				        		<div class="col-lg-12 text-center">
 								<div id="social">
 									
 									 <!-- Email -->
-								    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')} ">
+								    <a class="mailBtn smGlobalBtn" href="mailto:?Subject=Platovi&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')} ">
 								        <i class="fa fa-envelope icon-btn"></i>
 								    </a>
 								 
 								    <!-- Facebook -->
-								    <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}&t=platovi" target="_blank">
+								    <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}&t=platovi" target="_blank">
 								        <i class="fa fa-facebook icon-btn"></i>
 								    </a>
 								    
 								    <!-- Twitter -->
-								    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
+								    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
 								        <i class="fa fa-twitter icon-btn"></i>
 								    </a>
 								    
 								    <!-- Google+ -->
-								    <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
+								    <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
 								        <i class="fa fa-google-plus icon-btn"></i>
 								    </a>
 								   
 								</div>
 								
 				        		</div>
-						</div> --%>
+						</div>
 		        </div>
 		    </div>
 	    </div>
