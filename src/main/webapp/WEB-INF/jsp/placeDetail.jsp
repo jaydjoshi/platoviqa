@@ -119,7 +119,7 @@
 								    </a>
 								    
 								    <!-- Twitter -->
-								    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/${placeTy}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
+								    <a class="twitterBtn smGlobalBtn" href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}&text=platovi:%20http%3A%2F%2Fplatovi.com/city/${fn:replace(city.cityName, ' ', '-')}/{{placeTypeVar}}/${fn:replace(place.placeName, ' ', '-')}" target="_blank">
 								        <i class="fa fa-twitter icon-btn"></i>
 								    </a>
 								    
