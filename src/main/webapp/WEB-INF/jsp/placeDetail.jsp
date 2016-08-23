@@ -103,7 +103,6 @@
 							</div>
 						</div>
 					</c:if>
-
 					<div class="row large-padding">
 				        		<div class="col-lg-12 text-center">
 								<div id="social">
