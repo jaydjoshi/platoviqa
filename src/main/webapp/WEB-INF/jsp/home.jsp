@@ -9,6 +9,8 @@
     <meta name="description" content="Platovi - places to visit, is the best travel platform, it helps you discover places to visit and gives you all the information needed to plan your trip.">
     <meta name="keywords" content="platovi,explore places to visit, tourism website in India, travel website, weekend getaways, trip planner in India, travel agent, best travel deals, places to visit in India, tourism website, tourism website in India, tourist attractions website, tourism website blog,best travel website india, travel website blog, tours and travel website in India ">
     <meta name="author" content="platovi">
+    <meta name="google-site-verification" content="7lohucsd7mhYxq9HxUqKQdiQxJjwqkFEvSjap6sU9Gc" />
+    
     <title>Platovi - places to visit</title>
     <meta content='Platovi - places to visit' name='title'>
     
