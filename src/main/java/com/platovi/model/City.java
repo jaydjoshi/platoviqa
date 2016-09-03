@@ -45,6 +45,8 @@ public class City {
 	private String imageMediumPath;
 	private String imageLargePath;
 	
+	//image internet path
+	private String imageInternetSmallPath;
 	private String imageInternetLargePath;
 	private String imageInternetLargeSource;
 	private float rating;
@@ -286,6 +288,14 @@ public class City {
 	public void setImageInternetLargeSource(String imageInternetLargeSource) {
 		this.imageInternetLargeSource = imageInternetLargeSource;
 	}
+	public String getImageInternetSmallPath() {
+		return imageInternetSmallPath;
+	}
+	public void setImageInternetSmallPath(String imageInternetSmallPath) {
+		this.imageInternetSmallPath = imageInternetSmallPath;
+	}
+	
+	
 	
 
 }
