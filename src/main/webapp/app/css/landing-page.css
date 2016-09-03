@@ -474,6 +474,8 @@ p.copyright {
     overflow: hidden;
     position: relative;
     top: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
     
 }
 
@@ -489,6 +491,8 @@ p.copyright {
     overflow: hidden;
     position: relative;
     top: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
     
 }
 
