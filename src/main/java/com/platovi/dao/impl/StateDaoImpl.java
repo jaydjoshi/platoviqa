@@ -37,6 +37,11 @@ public class StateDaoImpl implements StateDao {
         return placeList;
 	}
 	
+	public List<State> listAllStates() {
+		List<State> placeList =  em.createQuery("SELECT a from State a ORDER BY a.rating DESC").getResultList();
+        return placeList;
+	}
+	
 
 	@SuppressWarnings("unchecked")
 	public State findStateByName(String name) {

@@ -15,6 +15,8 @@ public interface StateService {
      
     public List<State> listAllStates(int row);
     
+    public List<State> listAllStates();
+    
     public State findStateByName(String name);
 
 	public List<String> getAllStateNames();

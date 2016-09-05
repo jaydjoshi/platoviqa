@@ -45,6 +45,12 @@ public class StateServiceImpl implements StateService {
 		// TODO Auto-generated method stub
 		return StateDao.listAllStates(row);
 	}
+	
+	@Transactional
+	public List<State> listAllStates() {
+		// TODO Auto-generated method stub
+		return StateDao.listAllStates();
+	}
 
 	@Transactional
 	public State findStateByName(String name) {

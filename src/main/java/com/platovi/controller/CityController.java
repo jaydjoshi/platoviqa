@@ -330,8 +330,20 @@ public class CityController {
 		
 		LOGGER.info("CityController : getAllTopCity method starts");
 		List<City> cityList =  new ArrayList<City>();
-			
+		
 		cityList = cityService.listAllCity(row);
+		
+	    return new ResponseEntity<List>( cityList, HttpStatus.OK);
+    
+    }
+	
+	@RequestMapping(value="/all", method = RequestMethod.GET)
+    public ResponseEntity<List> getAllCities() {
+		
+		LOGGER.info("CityController : getAllCities method starts");
+		List<City> cityList =  new ArrayList<City>();
+			
+		cityList = cityService.listAllCities();
 		
 	    return new ResponseEntity<List>( cityList, HttpStatus.OK);
     

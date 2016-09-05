@@ -33,5 +33,7 @@ public interface CityDao {
 
 	public List<Object[]> getAllCityIdName();
 
+	public List<City> listAllCities();
+
 
 }

@@ -55,7 +55,16 @@ public class StateController {
     public ResponseEntity<List> getAllStates(@RequestParam(value="row", required = false) int row) {
 		
 		LOGGER.info("stateController : getAllStates method starts");
-        List<State> states = stateService.listAllStates(row);
+		List<State> states = null;
+		if(row>0)
+		{
+			states = stateService.listAllStates(row);
+		}
+		else
+		{
+			//list all
+			states = stateService.listAllStates();
+		}
         
         return new ResponseEntity<List>( states, HttpStatus.OK);
     

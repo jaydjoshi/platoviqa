@@ -31,8 +31,8 @@ public class CountryDaoImpl implements CountryDao {
 	}
 	
 
-	public List<Country> listAllCountrys(int maxrow) {
-		List<Country> placeList =  em.createQuery("SELECT a from Country a").setMaxResults(maxrow).getResultList();
+	public List<Country> listAllCountrys() {
+		List<Country> placeList =  em.createQuery("SELECT a from Country a").getResultList();
         return placeList;
 	}
 	

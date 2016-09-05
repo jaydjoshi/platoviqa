@@ -216,5 +216,11 @@ public class CityDaoImpl implements CityDao {
 		List<Object[]> citiesObject = em.createQuery("SELECT a.cityName,a.cityId FROM City a ORDER BY a.rating DESC").getResultList();
 		return citiesObject;
 	}
+
+	@Override
+	public List<City> listAllCities() {
+		List<City> cityList =  em.createQuery("SELECT a from City a ORDER BY a.rating DESC").getResultList();
+        return cityList;
+	}
 	
 }

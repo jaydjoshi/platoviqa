@@ -38,6 +38,12 @@ public class State {
 	//image file location
 	private String imageMediumPath;
 	private String imageLargePath;
+	
+	//image internet path
+	private String imageInternetSmallPath;
+	private String imageInternetLargePath;
+	private String imageInternetLargeSource;
+		
 	public int getStateId() {
 		return stateId;
 	}
@@ -91,6 +97,24 @@ public class State {
 	}
 	public void setRating(float rating) {
 		this.rating = rating;
+	}
+	public String getImageInternetSmallPath() {
+		return imageInternetSmallPath;
+	}
+	public void setImageInternetSmallPath(String imageInternetSmallPath) {
+		this.imageInternetSmallPath = imageInternetSmallPath;
+	}
+	public String getImageInternetLargePath() {
+		return imageInternetLargePath;
+	}
+	public void setImageInternetLargePath(String imageInternetLargePath) {
+		this.imageInternetLargePath = imageInternetLargePath;
+	}
+	public String getImageInternetLargeSource() {
+		return imageInternetLargeSource;
+	}
+	public void setImageInternetLargeSource(String imageInternetLargeSource) {
+		this.imageInternetLargeSource = imageInternetLargeSource;
 	}
 	
 	

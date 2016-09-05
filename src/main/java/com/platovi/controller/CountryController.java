@@ -53,7 +53,7 @@ public class CountryController {
     public ResponseEntity<List> getAllCountrys() {
 		
 		LOGGER.info("countryController : getAllCountrys method starts");
-        List<Country> countrys = countryService.listAllCountrys(5);
+        List<Country> countrys = countryService.listAllCountrys();
         
         return new ResponseEntity<List>( countrys, HttpStatus.OK);
     

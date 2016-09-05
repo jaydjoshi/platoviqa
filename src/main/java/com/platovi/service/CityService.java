@@ -15,6 +15,8 @@ public interface CityService {
      
     public List<City> listAllCity(int maxRow);
     
+    public List<City> listAllCities();
+    
     public City findCityByName(String name);
 
 	public List<City> listAllCitiesByDistance(City city, double earthradius, GeoLocation cityGeoLocation, double distance,int rownum);

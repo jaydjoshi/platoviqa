@@ -22,6 +22,8 @@ public interface StateDao {
 	public List<City> getAllStateNamesByCountry(int countryId);
 
 	public List<State> listAllStatesNames(int maxrow);
+
+	public List<State> listAllStates();
     
     
 

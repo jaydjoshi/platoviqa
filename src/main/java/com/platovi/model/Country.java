@@ -18,6 +18,11 @@ public class Country {
 	private String imageMediumPath;
 	private String imageLargePath;
 	
+	//image internet path
+	private String imageInternetSmallPath;
+	private String imageInternetLargePath;
+	private String imageInternetLargeSource;
+	
 	public int getCountryId() {
 		return countryId;
 	}
@@ -53,6 +58,24 @@ public class Country {
 	}
 	public void setImageLargePath(String imageLargePath) {
 		this.imageLargePath = imageLargePath;
+	}
+	public String getImageInternetSmallPath() {
+		return imageInternetSmallPath;
+	}
+	public void setImageInternetSmallPath(String imageInternetSmallPath) {
+		this.imageInternetSmallPath = imageInternetSmallPath;
+	}
+	public String getImageInternetLargePath() {
+		return imageInternetLargePath;
+	}
+	public void setImageInternetLargePath(String imageInternetLargePath) {
+		this.imageInternetLargePath = imageInternetLargePath;
+	}
+	public String getImageInternetLargeSource() {
+		return imageInternetLargeSource;
+	}
+	public void setImageInternetLargeSource(String imageInternetLargeSource) {
+		this.imageInternetLargeSource = imageInternetLargeSource;
 	}
 	
 	
