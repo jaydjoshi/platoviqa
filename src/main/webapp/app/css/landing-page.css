@@ -1162,7 +1162,7 @@ md-checkbox.md-checked .md-icon {
 .detail-card-large{
 	
 	min-height: 15rem;
-	max-height: 20rem;
+	max-height: 30rem;
 	border-top: 2px solid rgb(63,81,181) !important;	
 }
 }
