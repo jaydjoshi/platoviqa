@@ -74,7 +74,8 @@
 											
 												<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 												<md-card class="detail-card-large"> 
-													<div class="row">
+													<!--  display:none added temporarryly till we dont have images -->
+													<div class="row" style="display:none">
 														<img src="" class="md-card-image card-image-small" alt="${place.placeName}" >
 													</div>
 													<div class="row">
